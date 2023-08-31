@@ -1,16 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import { Global } from '@emotion/react';
 import globalStyles from './libs/design/GlobalStyles';
-import { AppRouter } from './router/AppRouter';
-import { BrowserRouter } from 'react-router-dom';
+
+import MainPage from './pages/main/MainPage';
 
 function App() {
   return (
     <div>
       <Global styles={globalStyles} />
-      <BrowserRouter>
-        <AppRouter />
-      </BrowserRouter>
+      <MainPage />
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { Nav } from '../libs/common/Nav';
 export function Layout() {
   return (
     <div>
-      <Nav />
+      {/* <Nav /> */}
       <Outlet />
     </div>
   );

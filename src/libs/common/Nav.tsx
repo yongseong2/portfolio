@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import { Link } from 'react-router-dom';
 import colors from '../design/colors';
 import { Spacing } from './Spacing';
+import { Link } from 'react-scroll';
 
 export function Nav() {
   return (
@@ -27,7 +27,13 @@ export function Nav() {
             alignItems: 'center',
           }}
         >
-          <Link to={'/'}>
+          <Link
+            to='home'
+            spy={true}
+            smooth={true}
+            offset={-46.05}
+            duration={500}
+          >
             <h3
               css={{
                 fontSize: '1rem',
@@ -46,7 +52,13 @@ export function Nav() {
           }}
         >
           <li>
-            <Link to={'/about-me'}>
+            <Link
+              to='about-me'
+              spy={true}
+              smooth={true}
+              offset={-46.05}
+              duration={500}
+            >
               <h3
                 css={{
                   fontSize: '1rem',
@@ -58,7 +70,13 @@ export function Nav() {
           </li>
           <Spacing rem='3' dir='h' />
           <li>
-            <Link to={'/portfolio'}>
+            <Link
+              to='portfolio'
+              spy={true}
+              smooth={true}
+              offset={-46.05}
+              duration={500}
+            >
               <h3
                 css={{
                   fontSize: '1rem',
