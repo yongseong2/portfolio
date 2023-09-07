@@ -2,12 +2,23 @@
 import mainData from '../../../data/mainData';
 import { Element } from 'react-scroll';
 import { MainNav } from './MainNav';
+import { Spacing } from '../../../libs/common/Spacing';
+import { keyframes } from '@emotion/react';
+
+const slideIn = keyframes`
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`;
 
 function Main() {
   return (
     <div
       css={{
-        position: 'relative', // 이 부분을 추가합니다.
+        position: 'relative',
       }}
     >
       <Element name='home'>
@@ -18,11 +29,9 @@ function Main() {
             display: 'flex',
             justifyContent: 'space-between',
             height: '100vh',
-            backgroundImage: 'url(/Image/mainBackground.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            padding: '4rem',
+            paddingLeft: '3.5rem',
           }}
         >
           <div
@@ -30,15 +39,27 @@ function Main() {
               display: 'flex',
               justifyContent: 'start',
               alignItems: 'center',
-              width: '50%',
-              height: '100%',
+              fontSize: '0.9vw',
             }}
           >
             <div>
-              <div className='title1'>
+              <div
+                className='title1'
+                css={{
+                  transform: 'translateX(-100%)',
+                  animation: `${slideIn} 1s forwards`,
+                }}
+              >
                 <h1>{mainData.title1}</h1>
               </div>
-              <div css={{ marginTop: '1rem' }} className='title2'>
+              <Spacing rem='2'></Spacing>
+              <div
+                className='title2'
+                css={{
+                  transform: 'translateX(-100%)',
+                  animation: `${slideIn} 1.5s forwards`,
+                }}
+              >
                 <h1>{mainData.title2}</h1>
               </div>
             </div>
@@ -47,8 +68,9 @@ function Main() {
             css={{
               display: 'flex',
               justifyContent: 'center',
-              width: '50%',
+              width: '53%',
               alignItems: 'flex-end',
+              // backgroundColor: colors.black,
             }}
           >
             <img

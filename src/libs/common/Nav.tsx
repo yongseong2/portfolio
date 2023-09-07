@@ -37,6 +37,7 @@ export function Nav() {
             <h3
               css={{
                 fontSize: '1rem',
+                cursor: 'pointer',
               }}
             >
               Home
@@ -62,6 +63,7 @@ export function Nav() {
               <h3
                 css={{
                   fontSize: '1rem',
+                  cursor: 'pointer',
                 }}
               >
                 About me
@@ -80,6 +82,7 @@ export function Nav() {
               <h3
                 css={{
                   fontSize: '1rem',
+                  cursor: 'pointer',
                 }}
               >
                 Portfolio

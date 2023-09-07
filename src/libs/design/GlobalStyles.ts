@@ -7,7 +7,7 @@ const globalStyles = css`
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: 'Pretendard';
+    font-family: 'BlackHanSans-Regular';
     font-size: 90%;
     color: ${colors.black};
     line-height: 1.2rem;
@@ -15,14 +15,14 @@ const globalStyles = css`
 
   @font-face {
     font-family: 'Montserrat';
-    src: url('/fonts/NanumMyeongjo-Regular.ttf') format('truetype');
+    src: url('/fonts/BlackHanSans-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Montserrat';
-    src: url('/fonts/NanumMyeongjo-ExtraBold.ttf') format('truetype');
+    src: url('/fonts/BlackHanSans-Regular.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
   }
@@ -34,7 +34,13 @@ const globalStyles = css`
   }
 
   body {
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-family: 'BlackHanSans-Regular', Arial, Helvetica, sans-serif;
+    background: radial-gradient(
+        50% 50% at 50% 50%,
+        rgba(26, 21, 21, 0) 0%,
+        rgba(1, 1, 1, 0.16) 100%
+      ),
+      #fff;
   }
 
   h1,
