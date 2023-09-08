@@ -1,9 +1,9 @@
 /** @jsxImportSource @emotion/react */
-import { Nav } from '../../libs/common/Nav';
-import AboutMePage from '../aboutMe/AboutMe';
-import PortfolioPage from '../portfollio/Portfolio';
-import useMain from '../../libs/hooks/useMain';
-import Main from './mainContainer/Main';
+import { Nav } from '../libs/common/Nav';
+import AboutMe from './aboutMe/AboutMe';
+import PortfolioPage from './portfollio/Portfolio';
+import useMain from '../libs/hooks/useMain';
+import Main from './main/Main';
 
 function MainPage() {
   const { showNav } = useMain();
@@ -29,7 +29,7 @@ function MainPage() {
           </div>
         )}
 
-        <AboutMePage />
+        <AboutMe />
         <PortfolioPage />
       </div>
     </div>

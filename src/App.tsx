@@ -2,7 +2,7 @@
 import { Global } from '@emotion/react';
 import globalStyles from './libs/design/GlobalStyles';
 
-import MainPage from './pages/main/MainPage';
+import MainPage from './pages/MainPage';
 
 function App() {
   return (

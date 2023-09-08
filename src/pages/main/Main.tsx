@@ -1,9 +1,10 @@
 /** @jsxImportSource @emotion/react */
-import mainData from '../../../data/mainData';
+import mainData from '../../data/mainData';
 import { Element } from 'react-scroll';
-import { MainNav } from './MainNav';
-import { Spacing } from '../../../libs/common/Spacing';
+import { MainNav } from './container/MainNav';
+import { Spacing } from '../../libs/common/Spacing';
 import { keyframes } from '@emotion/react';
+// import { Footer } from '../../../libs/common/Footer';
 
 const slideIn = keyframes`
   0% {
@@ -39,7 +40,7 @@ function Main() {
               display: 'flex',
               justifyContent: 'start',
               alignItems: 'center',
-              fontSize: '0.9vw',
+              fontSize: '1vw',
             }}
           >
             <div>
@@ -48,16 +49,27 @@ function Main() {
                 css={{
                   transform: 'translateX(-100%)',
                   animation: `${slideIn} 1s forwards`,
+                  fontSize: '1.5vw',
+                }}
+              >
+                <h1>HELLO!</h1>
+              </div>
+              <Spacing rem='2.5' />
+              <div
+                className='title1'
+                css={{
+                  transform: 'translateX(-100%)',
+                  animation: `${slideIn} 1.5s forwards`,
                 }}
               >
                 <h1>{mainData.title1}</h1>
               </div>
-              <Spacing rem='2'></Spacing>
+              <Spacing rem='2' />
               <div
                 className='title2'
                 css={{
                   transform: 'translateX(-100%)',
-                  animation: `${slideIn} 1.5s forwards`,
+                  animation: `${slideIn} 2s forwards`,
                 }}
               >
                 <h1>{mainData.title2}</h1>
@@ -70,16 +82,16 @@ function Main() {
               justifyContent: 'center',
               width: '53%',
               alignItems: 'flex-end',
-              // backgroundColor: colors.black,
             }}
           >
             <img
-              src={`${process.env.PUBLIC_URL}/Image/profileImg.png`}
+              src={`${process.env.PUBLIC_URL}/Image/profileImg.gif`}
               alt='profileImg'
             />
           </div>
         </div>
       </Element>
+      {/* <Footer /> */}
     </div>
   );
 }
