@@ -6,6 +6,7 @@ import IconDescription from './container/IconDescription';
 import { MainSkill } from './container/MainSkill';
 import { SubSkill } from './container/SubSkill';
 import { JustUsed } from './container/JustUsed';
+import { Introduce } from './container/Introduce';
 
 function AboutMe() {
   return (
@@ -19,7 +20,9 @@ function AboutMe() {
         }}
       >
         <SubTitle title='ABOUT ME' />
-        <Spacing rem='3' />
+        <Spacing rem='5' />
+        <Introduce />
+        <Spacing rem='5' />
 
         <div
           css={{
@@ -40,7 +43,7 @@ function AboutMe() {
             <IconDescription
               img={`${process.env.PUBLIC_URL}/Image/aboutImg/development.svg`}
               title='DEVELOPMENT'
-              description='리액트, TypeScript를 비롯한 프론트엔드 기술을 활용하여 사용자에게 더 나은 경험을 제공하는 것을 지향합니다. 서비스의 성능과 사용성, 그리고 안정성에 대한 컨벤션 고민을 통해 확장 가능하고 유지보수가 쉬운 프론트엔드 아키텍처를 구축하려고 노력하고 있습니다.'
+              description='프론트엔드 기술을 활용하여 사용자에게 더 나은 경험을 제공하는 것을 지향합니다. 서비스의 성능과 사용성, 그리고 안정성에 대한 컨벤션 고민을 통해 확장 가능하고 유지보수가 쉬운 프론트엔드 아키텍처를 구축하려고 노력하고 있습니다.'
             />
           </div>
           <div

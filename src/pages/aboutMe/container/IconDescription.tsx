@@ -50,7 +50,7 @@ function IconDescription({ img, title, description }: Props) {
             left: '50%',
             fontSize: '15px',
             width: '30rem',
-            lineHeight: '20px',
+            lineHeight: '25px',
           }}
         >
           {description}
