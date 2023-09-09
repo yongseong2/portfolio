@@ -7,6 +7,7 @@ import { MainSkill } from './container/MainSkill';
 import { SubSkill } from './container/SubSkill';
 import { JustUsed } from './container/JustUsed';
 import { Introduce } from './container/Introduce';
+import { CommunitcationTool } from './container/CommunitcationTool';
 
 function AboutMe() {
   return (
@@ -99,14 +100,17 @@ function AboutMe() {
         >
           <Spacing rem='3' />
           <div>
-            <MainSkill title='주력기술로 연습중이에요:' />
-            <Spacing rem='3' />
+            <MainSkill title='주력기술로 연습중이에요' />
+            <Spacing rem='5' />
 
-            <SubSkill title='일반적으로 개발에 사용했어요:' />
-            <Spacing rem='3' />
+            <SubSkill title='일반적으로 개발에 사용했어요' />
+            <Spacing rem='5' />
 
-            <JustUsed title='가볍게 사용만 해봤어요:' />
-            <Spacing rem='3' />
+            <JustUsed title='가볍게 사용만 해봤어요' />
+            <Spacing rem='5' />
+
+            <CommunitcationTool title='Communitcation & Tools' />
+            <Spacing rem='5' />
           </div>
         </div>
       </div>

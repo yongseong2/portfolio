@@ -17,13 +17,16 @@ export const SkillIcon: React.FC<SkillIconProps> = ({
       display: 'flex',
       width: '300px',
       justifyContent: 'center',
+      alignItems: 'center',
       marginTop: '2rem',
+      textAlign: 'center',
     }}
   >
     <div
       css={{
         display: 'flex',
         flexDirection: 'column',
+        alignItems: 'center',
       }}
     >
       <IconComponent />

@@ -7,6 +7,8 @@ import ReactQueryIcon from '../../../libs/Icons/ReactQueryIcon';
 import YarnIcon from '../../../libs/Icons/YarnIcon';
 import StoryBookIcon from '../../../libs/Icons/StoryBook';
 import ReactIcon from '../../../libs/Icons/ReactIcon';
+
+import EmotionIcon from '../../../libs/Icons/EmotionIcon';
 import { Spacing } from '../../../libs/common/Spacing';
 import { SkillIcon } from './SkillIcon'; // import your new SkillIcon component
 
@@ -19,6 +21,7 @@ export function SubSkill({ title }: Props) {
     { Icon: ReactIcon, label: 'React Native' },
     { Icon: ReduxIcon, label: 'Redux' },
     { Icon: ReactQueryIcon, label: 'React Query' },
+    { Icon: EmotionIcon, label: 'Emotion CSS' },
     { Icon: StoryBookIcon, label: 'StoryBook' },
     { Icon: YarnIcon, label: 'Yarn' },
     { Icon: VueIcon, label: 'Vue' },
@@ -29,24 +32,19 @@ export function SubSkill({ title }: Props) {
       <div
         css={{
           display: 'flex',
-          justifyContent: 'start',
+          justifyContent: 'center',
         }}
       >
         <h1
           css={{
             fontSize: '26px',
             lineHeight: '30px',
-            '@media (min-width: 768px)': {
-              paddingLeft: '240px',
-            },
-            '@media (max-width: 768px)': {
-              justifyContent: 'center',
-            },
+            justifyContent: 'center',
           }}
         >
           {title}
         </h1>
-        <Spacing rem='2' />
+        <Spacing rem='5' />
       </div>
       <div
         css={{

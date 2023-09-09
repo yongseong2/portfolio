@@ -27,24 +27,19 @@ export function MainSkill({ title }: Props) {
       <div
         css={{
           display: 'flex',
-          justifyContent: 'start',
+          justifyContent: 'center',
         }}
       >
         <h1
           css={{
             fontSize: '26px',
             lineHeight: '30px',
-            '@media (min-width: 768px)': {
-              paddingLeft: '240px',
-            },
-            '@media (max-width: 768px)': {
-              justifyContent: 'center',
-            },
+            justifyContent: 'center',
           }}
         >
           {title}
         </h1>
-        <Spacing rem='2' />
+        <Spacing rem='5' />
       </div>
       <div
         css={{

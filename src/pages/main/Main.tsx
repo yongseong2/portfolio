@@ -4,6 +4,8 @@ import { Element } from 'react-scroll';
 import { MainNav } from './container/MainNav';
 import { Spacing } from '../../libs/common/Spacing';
 import { keyframes } from '@emotion/react';
+import { LinkIcon } from './container/LinkIcon';
+
 // import { Footer } from '../../../libs/common/Footer';
 
 const slideIn = keyframes`
@@ -45,7 +47,7 @@ function Main() {
           >
             <div>
               <div
-                className='title1'
+                className='title'
                 css={{
                   transform: 'translateX(-100%)',
                   animation: `${slideIn} 1s forwards`,
@@ -64,7 +66,7 @@ function Main() {
               >
                 <h1>{mainData.title1}</h1>
               </div>
-              <Spacing rem='2' />
+              <Spacing rem='2.5' />
               <div
                 className='title2'
                 css={{
@@ -73,6 +75,20 @@ function Main() {
                 }}
               >
                 <h1>{mainData.title2}</h1>
+              </div>
+              <Spacing rem='2.5' />
+
+              <div
+                css={{
+                  display: 'flex',
+                  transform: 'translateX(-100%)',
+                  animation: `${slideIn} 2.5s forwards`,
+                }}
+              >
+                <LinkIcon
+                  href='https://github.com/yongseong2'
+                  img={`${process.env.PUBLIC_URL}/Image/github.svg`}
+                />
               </div>
             </div>
           </div>

@@ -1,20 +1,24 @@
 // MainSkill.tsx
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import SCSSIcon from '../../../libs/Icons/SCSSIcon';
+import JiraIcon from '../../../libs/Icons/JiraIcon';
+import GitIcon from '../../../libs/Icons/GitIcon';
+import GithubIcon from '../../../libs/Icons/GithubIcon';
+import FigmaIcon from '../../../libs/Icons/FigmaIcon';
 
 import { Spacing } from '../../../libs/common/Spacing';
 import { SkillIcon } from './SkillIcon'; // import your new SkillIcon component
-import StyledComponentsIcon from '../../../libs/Icons/StyledComponentsIcon';
 
 interface Props {
   title: string;
 }
 
-export function JustUsed({ title }: Props) {
+export function CommunitcationTool({ title }: Props) {
   const skills = [
-    { Icon: SCSSIcon, label: 'SCSS' },
-    { Icon: StyledComponentsIcon, label: 'Styled-components' },
+    { Icon: FigmaIcon, label: 'Figma' },
+    { Icon: JiraIcon, label: 'Jira' },
+    { Icon: GitIcon, label: 'Git' },
+    { Icon: GithubIcon, label: 'Github' },
   ];
 
   return (
