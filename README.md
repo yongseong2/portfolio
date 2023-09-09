@@ -1,46 +1,64 @@
-# Getting Started with Create React App
+# 포트폴리오 웹사이트
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 프로젝트 정보
 
-## Available Scripts
+- URL: https://yongseong2.github.io/portfolio/
+- 기술스택: React, Typescript, Emotion CSS, React Router
 
-In the project directory, you can run:
+## 프로젝트 소개
 
-### `npm start`
+이 웹사이트는 제 개인 포트폴리오를 담고 있습니다. 프로젝트, 스킬셋, 프로젝트 등을 볼 수 있습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 와이어프레임
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![와이어프레임](https://yongseong2.github.io/portfolio/Image/portfolioWireframe.png)
 
-### `npm test`
+## 설치 및 실행 방법
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+이 프로젝트를 로컬에서 실행하려면 다음과 같이 해주세요.
 
-### `npm run build`
+## 필요한 도구
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js
+- npm or yarn
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 설치 및 실행
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# 저장소 클론
+git clone https://github.com/yongseong2/portfolio.git
 
-### `npm run eject`
+# 디렉토리 이동
+cd portfolio
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# 의존성 설치
+npm install
+# 또는
+yarn install
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 프로젝트 실행
+npm start
+# 또는
+yarn start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 기능
 
-## Learn More
+- 홈페이지: 자기소개와 최근 프로젝트 목록
+- 프로젝트: 진행한 프로젝트에 대한 설명과 코드 링크
+- 스킬셋: 주로 사용하는 기술 스택과 능력
+- 이력서: 경력과 학력에 대한 요약
+- 연락처: 이메일, LinkedIn, GitHub 등 연락처 정보
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 개발 과정
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React와 Typescript를 사용하여 컴포넌트 기반의 SPA(Single Page Application) 구조로 개발
+- Emotion CSS를 사용하여 스타일링
+- React Router를 사용하여 라우팅 구현
+- React Scroll를 사용하여 페이지 구분
+
+---
+
+작성자: yongseong2(김성용)
+최종 업데이트: 2023-09-09
