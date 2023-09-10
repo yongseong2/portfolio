@@ -5,6 +5,7 @@ import { MainNav } from './container/MainNav';
 import { Spacing } from '../../libs/common/Spacing';
 import { keyframes } from '@emotion/react';
 import { LinkIcon } from './container/LinkIcon';
+import Hello from './container/Hello';
 
 // import { Footer } from '../../../libs/common/Footer';
 
@@ -46,16 +47,7 @@ function Main() {
             }}
           >
             <div>
-              <div
-                className='title'
-                css={{
-                  transform: 'translateX(-100%)',
-                  animation: `${slideIn} 1s forwards`,
-                  fontSize: '1.5vw',
-                }}
-              >
-                <h1>HELLO!</h1>
-              </div>
+              <Hello />
               <Spacing rem='2.5' />
               <div
                 className='title1'

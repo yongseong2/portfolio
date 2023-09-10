@@ -39,7 +39,13 @@ export function MainNav() {
         </li>
         <Spacing rem='3' dir='h' />
         <li>
-          <Link to='portfolio' spy={true} smooth={true} duration={500}>
+          <Link
+            to='portfolio'
+            offset={1.05}
+            spy={true}
+            smooth={true}
+            duration={500}
+          >
             <h3
               css={{
                 fontSize: '1rem',

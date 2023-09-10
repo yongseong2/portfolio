@@ -4,20 +4,24 @@ import colors from '../design/colors';
 
 interface Props {
   title: string;
+  theme?: 'white' | 'black';
 }
 
-export function SubTitle({ title }: Props) {
+export function SubTitle({ title, theme = 'black' }: Props) {
   return (
     <div
       css={{
-        width: '300px', // Changed from 21vw to 300px
-        height: '90px', // Changed from 5vw to 90px
-        border: `6px solid ${colors.black}`, // Changed from 0.4vw to 4px
-        fontSize: '17px', // Changed from 1vw to 14px
+        width: '300px',
+        height: '90px',
+        border: `6px solid ${
+          theme === 'black' ? `${colors.black}` : `${colors.white}`
+        }`,
+        fontSize: '17px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        letterSpacing: '1.5px', // Changed from 0.1vw to 1.5px
+        letterSpacing: '1.5px',
+        color: theme === 'black' ? `${colors.black}` : `${colors.white}`,
       }}
     >
       <h1>{title}</h1>

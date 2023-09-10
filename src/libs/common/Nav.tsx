@@ -94,7 +94,7 @@ export function Nav() {
               to='portfolio'
               spy={true}
               smooth={true}
-              offset={-46.05}
+              offset={-45}
               duration={500}
             >
               <h3

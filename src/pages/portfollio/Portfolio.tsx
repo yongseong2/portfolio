@@ -1,5 +1,8 @@
 /** @jsxImportSource @emotion/react */
+import React from 'react';
 import { Element } from 'react-scroll';
+import PortfolioTitle from './container/PortfolioTitle';
+import Project from './container/Project';
 
 function PortfolioPage() {
   return (
@@ -8,7 +11,25 @@ function PortfolioPage() {
         height: '100vh',
       }}
     >
-      <Element name='portfolio'>포트폴리오 페이지입니다.</Element>
+      <Element name='portfolio'>
+        <PortfolioTitle />
+        <Project
+          img='crown.png'
+          category='coded'
+          title='입찰왕'
+          description='쉽고 재미있는 라이브 경매 플랫폼'
+          github='#'
+          notion='#'
+        />
+        <Project
+          img='movie101.png'
+          category='coded'
+          title='입찰왕'
+          description='쉽고 재미있는 라이브 경매 플랫폼'
+          github='#'
+          notion='#'
+        />
+      </Element>
     </div>
   );
 }
