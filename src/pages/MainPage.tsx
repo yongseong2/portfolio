@@ -4,12 +4,26 @@ import AboutMe from './aboutMe/AboutMe';
 import Portfolio from './portfollio/Portfolio';
 import useMain from '../libs/hooks/useMain';
 import Main from './main/Main';
+import { css, keyframes } from '@emotion/react';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 function MainPage() {
   const { showNav } = useMain();
 
   return (
-    <div>
+    <div
+      css={css`
+        animation: ${fadeIn} 1.5s ease-in-out;
+      `}
+    >
       <Main />
       <div
         css={{

@@ -33,8 +33,8 @@ function Project({ img, category, title, description, github, notion }: Props) {
         width: '640px',
         height: '401px',
         background: isHovered
-          ? `linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url(${process.env.PUBLIC_URL}/Image/portfolioImg/${img}), lightgray 50% / cover no-repeat`
-          : `linear-gradient(0deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.80) 100%),  url(${process.env.PUBLIC_URL}/Image/portfolioImg/${img}), lightgray 50% / cover no-repeat`,
+          ? `linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%),  url(${process.env.PUBLIC_URL}/Image/portfolioImg/${img}), lightgray 50% / cover no-repeat`
+          : `linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%),  url(${process.env.PUBLIC_URL}/Image/portfolioImg/${img}), lightgray 50% / cover no-repeat`,
         color: colors.white,
         margin: '50px',
         borderRadius: '1rem',
@@ -50,7 +50,7 @@ function Project({ img, category, title, description, github, notion }: Props) {
       >
         <b
           css={{
-            fontSize: '10px',
+            fontSize: '15px',
           }}
         >
           {category}
@@ -58,7 +58,7 @@ function Project({ img, category, title, description, github, notion }: Props) {
         <Spacing rem='1' />
         <h3
           css={{
-            fontSize: '25px',
+            fontSize: '35px',
           }}
         >
           {title}
@@ -66,7 +66,7 @@ function Project({ img, category, title, description, github, notion }: Props) {
         <Spacing rem='1' />
         <b
           css={{
-            fontSize: '10px',
+            fontSize: '15px',
           }}
         >
           {description}
