@@ -10,7 +10,7 @@ function PortfolioTitle() {
         justifyContent: 'center',
         alignItems: 'center',
         backgroundImage: `url(${process.env.PUBLIC_URL}/Image/portfolioBackgroundImg.jpg)`,
-        height: '12rem',
+        height: '12vh',
         backgroundPosition: 'center',
         boxShadow:
           '0 4px 10px rgba(0, 0, 0, 0.5), 0 -4px 10px rgba(0, 0, 0, 0.5)',

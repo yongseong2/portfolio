@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { Nav } from '../libs/common/Nav';
 import AboutMe from './aboutMe/AboutMe';
-import PortfolioPage from './portfollio/Portfolio';
+import Portfolio from './portfollio/Portfolio';
 import useMain from '../libs/hooks/useMain';
 import Main from './main/Main';
 
@@ -30,7 +30,7 @@ function MainPage() {
         )}
 
         <AboutMe />
-        <PortfolioPage />
+        <Portfolio />
       </div>
     </div>
   );

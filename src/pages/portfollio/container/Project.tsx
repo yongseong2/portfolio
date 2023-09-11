@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import React, { useState } from 'react';
 import { Spacing } from '../../../libs/common/Spacing';
 import colors from '../../../libs/design/colors';
 
@@ -13,6 +13,16 @@ interface Props {
 }
 
 function Project({ img, category, title, description, github, notion }: Props) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   return (
     <div
       css={{
@@ -22,8 +32,12 @@ function Project({ img, category, title, description, github, notion }: Props) {
         alignItems: 'center',
         width: '640px',
         height: '401px',
-        background: `linear-gradient(0deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.80) 100%),  url(${process.env.PUBLIC_URL}/Image/portfolioImg/${img}), lightgray 50% / cover no-repeat`,
+        background: isHovered
+          ? `linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url(${process.env.PUBLIC_URL}/Image/portfolioImg/${img}), lightgray 50% / cover no-repeat`
+          : `linear-gradient(0deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.80) 100%),  url(${process.env.PUBLIC_URL}/Image/portfolioImg/${img}), lightgray 50% / cover no-repeat`,
         color: colors.white,
+        margin: '50px',
+        borderRadius: '1rem',
       }}
     >
       <div
@@ -68,6 +82,8 @@ function Project({ img, category, title, description, github, notion }: Props) {
         }}
       >
         <a
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           href={github}
           css={{
             width: '120px',
@@ -80,6 +96,8 @@ function Project({ img, category, title, description, github, notion }: Props) {
         </a>
         <Spacing rem='1' dir='h' />
         <a
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
           href={notion}
           css={{
             width: '120px',
