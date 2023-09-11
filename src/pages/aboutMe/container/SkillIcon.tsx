@@ -1,4 +1,3 @@
-// SkillIcon.tsx
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { Spacing } from '../../../libs/common/Spacing';

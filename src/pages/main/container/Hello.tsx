@@ -8,7 +8,6 @@ const bounce = keyframes`
 `;
 
 function Hello() {
-  // String to animate
   const text = 'HELLO!';
 
   return (

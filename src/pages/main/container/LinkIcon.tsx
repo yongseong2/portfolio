@@ -18,6 +18,11 @@ export function LinkIcon({ href, img }: Props) {
           justifyContent: 'center',
           alignItems: 'center',
           boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+          opacity: 1,
+          transition: 'opacity 0.3s ease',
+          '&:hover': {
+            opacity: 0.7,
+          },
         }}
       >
         <img width={'40px'} height={'40px'} src={img} alt='github' />

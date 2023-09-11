@@ -1,4 +1,3 @@
-// MainSkill.tsx
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import JiraIcon from '../../../libs/Icons/JiraIcon';
@@ -7,7 +6,7 @@ import GithubIcon from '../../../libs/Icons/GithubIcon';
 import FigmaIcon from '../../../libs/Icons/FigmaIcon';
 
 import { Spacing } from '../../../libs/common/Spacing';
-import { SkillIcon } from './SkillIcon'; // import your new SkillIcon component
+import { SkillIcon } from './SkillIcon';
 
 interface Props {
   title: string;

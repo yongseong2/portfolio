@@ -1,10 +1,9 @@
-// MainSkill.tsx
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import SCSSIcon from '../../../libs/Icons/SCSSIcon';
 
 import { Spacing } from '../../../libs/common/Spacing';
-import { SkillIcon } from './SkillIcon'; // import your new SkillIcon component
+import { SkillIcon } from './SkillIcon';
 import StyledComponentsIcon from '../../../libs/Icons/StyledComponentsIcon';
 
 interface Props {

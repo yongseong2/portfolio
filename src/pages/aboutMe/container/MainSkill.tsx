@@ -1,13 +1,12 @@
-// MainSkill.tsx
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import TypeScriptIcon from '../../../libs/Icons/TypeScripyIcon'; // 오타가 있는 것 같습니다. TypeScriptIcon 으로 수정을 추천합니다.
+import TypeScriptIcon from '../../../libs/Icons/TypeScripyIcon';
 import ReactIcon from '../../../libs/Icons/ReactIcon';
 import HTML5Icon from '../../../libs/Icons/HTML5Icon';
 import CSS3Icon from '../../../libs/Icons/CSS3Icon';
 import JavaScriptIcon from '../../../libs/Icons/JavaScriptIcon';
 import { Spacing } from '../../../libs/common/Spacing';
-import { SkillIcon } from './SkillIcon'; // import your new SkillIcon component
+import { SkillIcon } from './SkillIcon';
 
 interface Props {
   title: string;
