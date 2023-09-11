@@ -11,7 +11,6 @@ function MainPage() {
   return (
     <div>
       <Main />
-
       <div
         css={{
           position: 'relative',

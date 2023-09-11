@@ -85,6 +85,8 @@ function Project({ img, category, title, description, github, notion }: Props) {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           href={github}
+          target='_blank'
+          rel='noopener noreferrer'
           css={{
             width: '120px',
             textAlign: 'center',
@@ -99,6 +101,8 @@ function Project({ img, category, title, description, github, notion }: Props) {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           href={notion}
+          target='_blank'
+          rel='noopener noreferrer'
           css={{
             width: '120px',
             textAlign: 'center',
