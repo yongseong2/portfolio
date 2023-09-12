@@ -42,13 +42,14 @@ export function JustUsed({ title }: Props) {
         }}
       >
         <Spacing rem='2' />
+
         <div
           css={{
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'flex-start',
             alignItems: 'center',
-            maxWidth: '1200px',
+            width: '80rem',
           }}
         >
           {skills.map((skill, index) => (

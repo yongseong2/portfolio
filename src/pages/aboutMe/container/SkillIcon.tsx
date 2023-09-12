@@ -14,7 +14,7 @@ export const SkillIcon: React.FC<SkillIconProps> = ({
   <div
     css={{
       display: 'flex',
-      width: '300px',
+      width: '20rem',
       justifyContent: 'center',
       alignItems: 'center',
       marginTop: '2rem',
