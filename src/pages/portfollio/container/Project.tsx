@@ -30,11 +30,11 @@ function Project({ img, category, title, description, github, notion }: Props) {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        width: '640px',
+        width: '40%',
         height: '401px',
         background: isHovered
-          ? `linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%),  url(${process.env.PUBLIC_URL}/Image/portfolioImg/${img}), lightgray 50% / cover no-repeat`
-          : `linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%),  url(${process.env.PUBLIC_URL}/Image/portfolioImg/${img}), lightgray 50% / cover no-repeat`,
+          ? `linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%), url(${process.env.PUBLIC_URL}/Image/portfolioImg/${img}) center center / cover no-repeat lightgray`
+          : `linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(${process.env.PUBLIC_URL}/Image/portfolioImg/${img}) center center / cover no-repeat lightgray`,
         color: colors.white,
         margin: '50px',
         borderRadius: '1rem',
@@ -81,21 +81,24 @@ function Project({ img, category, title, description, github, notion }: Props) {
           alignItems: 'center',
         }}
       >
-        <a
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          href={github}
-          target='_blank'
-          rel='noopener noreferrer'
-          css={{
-            width: '120px',
-            textAlign: 'center',
-            borderLeft: '4px solid white',
-            borderRight: '4px solid white',
-          }}
-        >
-          <h2>Github</h2>
-        </a>
+        {github !== '' && (
+          <a
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            href={github}
+            target='_blank'
+            rel='noopener noreferrer'
+            css={{
+              width: '120px',
+              textAlign: 'center',
+              borderLeft: '4px solid white',
+              borderRight: '4px solid white',
+            }}
+          >
+            <h2>Github</h2>
+          </a>
+        )}
+
         <Spacing rem='1' dir='h' />
         <a
           onMouseEnter={handleMouseEnter}

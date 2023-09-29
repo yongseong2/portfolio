@@ -88,7 +88,7 @@ function Main() {
             css={{
               display: 'flex',
               justifyContent: 'center',
-              width: '53%',
+              width: '50%',
               alignItems: 'flex-end',
             }}
           >
