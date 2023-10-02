@@ -4,6 +4,7 @@ import colors from '../design/colors';
 import { Spacing } from './Spacing';
 import { Link } from 'react-scroll';
 import { keyframes } from '@emotion/react';
+import { ViewCount } from './ViewCount';
 
 const bounce = keyframes`
   0%, 20%, 50%, 80%, 100% {
@@ -40,6 +41,7 @@ export function Nav() {
             alignItems: 'center',
           }}
         >
+          <ViewCount />
           <Link
             to='home'
             spy={true}
