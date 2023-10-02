@@ -3,7 +3,7 @@
 ## 프로젝트 정보
 
 - URL: https://yongseong2.github.io/portfolio/
-- 기술스택: React, Typescript, Emotion CSS, React Router
+- 기술스택: React, Typescript, Emotion CSS, React Router, Firebase
 
 ## 프로젝트 소개
 
@@ -48,6 +48,7 @@ yarn start
 - 홈페이지: 자기소개와 최근 프로젝트 목록
 - 프로젝트: 진행한 프로젝트에 대한 설명
 - 스킬셋: 주로 사용하는 기술 스택과 능력
+- 조회수: 포트폴리오 방문자수 표시
 - 연락처: 이메일, GitHub 등 연락처 정보
 
 ## 개발 과정
@@ -56,8 +57,9 @@ yarn start
 - Emotion CSS를 사용하여 스타일링
 - React Router를 사용하여 라우팅 구현
 - React Scroll를 사용하여 페이지 구분
+- Firebase를 활용하여 데이터베이스를 생성 및 조회수 구현
 
 ---
 
 작성자: yongseong2(김성용)
-최종 업데이트: 2023-09-11
+최종 업데이트: 2023-10-02
