@@ -27,6 +27,7 @@ export function MainNav() {
           justifyContent: 'start',
           listStyleType: 'none',
           alignItems: 'center',
+          color: colors.backgroundDark,
         }}
       >
         <li>
@@ -79,6 +80,7 @@ export function MainNav() {
             css={{
               fontSize: '1rem',
               cursor: 'pointer',
+              color: colors.backgroundDark,
             }}
           >
             Contact me

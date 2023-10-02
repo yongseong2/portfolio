@@ -7,31 +7,33 @@ import {
 
 export function ViewCount() {
   const [viewCount, setViewCount] = useState<number | null>(null);
+
   useEffect(() => {
-    async function fetchDataAndUpdate() {
+    async function fetchDataIncrement() {
       try {
         const count = await getViewsCount();
         setViewCount(count);
 
-        // 세션 스토리지를 확인하여 이전에 페이지를 방문한 적이 없으면 조회수를 증가
         if (!sessionStorage.getItem('viewCountIncremented')) {
           await incrementViewsCount();
           sessionStorage.setItem('viewCountIncremented', 'true');
+          setViewCount((prev) => (prev !== null ? prev + 1 : null));
         }
       } catch (error) {
         console.error('Error: ', error);
       }
     }
 
-    fetchDataAndUpdate();
+    fetchDataIncrement();
   }, []);
+
   return (
     <h3
       css={{
         fontSize: '1rem',
       }}
     >
-      방문자수: {viewCount !== null ? viewCount : 'Loading...'}
+      방문자수: {viewCount !== null ? viewCount : '로딩중..'}
     </h3>
   );
 }
