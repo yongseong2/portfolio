@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-scroll';
 import colors from '../../../libs/design/colors';
 import { Spacing } from '../../../libs/common/Spacing';
+import { ViewCount } from '../../../libs/common/ViewCount';
 
 export function MainNav() {
   return (
@@ -11,16 +12,32 @@ export function MainNav() {
         position: 'absolute',
         top: 0,
         right: 0,
+        left: 0,
         backgroundColor: 'transparent',
         color: colors.white,
         padding: '1rem',
+        display: 'flex',
+        justifyContent: 'space-between',
         zIndex: 1,
       }}
     >
       <ul
         css={{
           display: 'flex',
-          justifyContent: 'end',
+          justifyContent: 'start',
+          listStyleType: 'none',
+          alignItems: 'center',
+        }}
+      >
+        <li>
+          <ViewCount />
+        </li>
+      </ul>
+
+      <ul
+        css={{
+          display: 'flex',
+          justifyContent: 'flex-end',
           listStyleType: 'none',
           alignItems: 'center',
         }}
