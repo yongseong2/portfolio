@@ -8,7 +8,7 @@ interface Props {
 
 export function LinkIcon({ href, img }: Props) {
   return (
-    <a href={href}>
+    <a href={href} target='_blank'>
       <div
         css={{
           display: 'flex',

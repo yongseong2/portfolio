@@ -12,6 +12,12 @@ _프론트엔드 파트_
 
 <br/>
 
+**시연영상**
+
+<a href="https://www.youtube.com/watch?v=KMJX3GOS7eo" target="_blank" style="background-color: #FDFD96; font-weight: bold;">YouTube 링크</a>
+
+<br/>
+
 - 위치 기반 카드 추천 서비스
   - SSAFY 특화 프로젝트
   - 백엔드4, 프론트엔드2

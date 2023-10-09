@@ -25,7 +25,7 @@ export function ContactMe() {
       await navigator.clipboard.writeText('ancjs369@naver.com');
       alert('이메일이 복사되었습니다');
     } else if (text === 'Phone: 010-9380-1663') {
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText('010-9380-1663');
       alert('전화번호가 복사되었습니다');
     }
   };

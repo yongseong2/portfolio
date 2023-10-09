@@ -11,6 +11,12 @@ _프론트엔드 파트_
 
 <br/>
 
+**시연영상**
+
+<a href="https://www.youtube.com/watch?v=iyUf4gSRbaA" target="_blank" style="background-color: #FDFD96; font-weight: bold;">YouTube 링크</a>
+
+<br/>
+
 - 쉽고 재미있는 라이브 경매 플랫폼, 입찰왕
   - SSAFY 공통 프로젝트
   - 백엔드4, 프론트엔드2
