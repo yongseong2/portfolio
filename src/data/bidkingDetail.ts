@@ -13,7 +13,7 @@ _프론트엔드 파트_
 
 **시연영상**
 
-<a href="https://www.youtube.com/watch?v=iyUf4gSRbaA" target="_blank" style="background-color: #FDFD96; font-weight: bold;">YouTube 링크</a>
+<a href="https://www.youtube.com/watch?v=iyUf4gSRbaA" target="_blank" rel='noopener noreferrer' style="background-color: #FDFD96; font-weight: bold;">YouTube 링크</a>
 
 <br/>
 

@@ -30,10 +30,15 @@ function Main() {
           css={{
             display: 'flex',
             justifyContent: 'space-between',
-            height: '100vh',
             backgroundSize: 'cover',
+            height: '100vh',
             backgroundPosition: 'center',
-            paddingLeft: '3.5rem',
+            '@media (max-width: 768px)': {
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'flex-end',
+              paddingInline: '3%',
+            },
           }}
         >
           <div
@@ -42,6 +47,11 @@ function Main() {
               justifyContent: 'start',
               alignItems: 'center',
               fontSize: '1vw',
+              paddingLeft: '5%',
+              '@media (max-width: 768px)': {
+                fontSize: '8px',
+                paddingLeft: '0',
+              },
             }}
           >
             <div>
@@ -86,13 +96,23 @@ function Main() {
             css={{
               display: 'flex',
               justifyContent: 'center',
-              width: '50%',
               alignItems: 'flex-end',
+              width: '50%',
+              '@media (max-width: 768px)': {
+                alignItems: 'center',
+                width: '100%',
+              },
             }}
           >
             <img
               src={`${process.env.PUBLIC_URL}/Image/profileImg.gif`}
               alt='profileImg'
+              css={{
+                width: '70%',
+                '@media (max-width: 768px)': {
+                  width: '90%',
+                },
+              }}
             />
           </div>
         </div>

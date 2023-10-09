@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { MarkdownRenderer } from '../../../markdown/MarkdownRenders';
-import colors from '../../../libs/design/colors';
 
 interface Props {
   isOpen: boolean;

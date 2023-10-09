@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import { css, keyframes } from '@emotion/react';
+import { keyframes } from '@emotion/react';
 import { useNavigate } from 'react-router-dom';
 
 const fadeIn = keyframes`
@@ -54,6 +54,7 @@ export function ContactMe() {
           margin: '20px',
         }}
         src={`${process.env.PUBLIC_URL}/icons/close.svg`}
+        alt='close'
       />
       {contactData.map((text, index) => (
         <div

@@ -22,6 +22,9 @@ function Hello() {
                 animation: `${bounce} 1.5s infinite`,
                 fontSize: '3vw',
                 animationDelay: `${index * 0.1}s`,
+                '@media (max-width: 768px)': {
+                  fontSize: '20px',
+                },
               }}
             >
               {char}
