@@ -48,7 +48,7 @@ function IconDescription({ img, title, description }: Props) {
             position: 'absolute',
             top: '95%',
             left: '50%',
-            fontSize: '16px',
+            fontSize: '18px',
             width: '30rem',
             lineHeight: '25px',
           }}

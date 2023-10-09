@@ -16,6 +16,7 @@ export function Introduce() {
         css={{
           width: '50rem',
           lineHeight: '30px',
+          fontSize: '18px',
         }}
       >
         안녕하세요, 김성용이라고 합니다. 현재 삼성청년SW아카데미 9기 교육생으로

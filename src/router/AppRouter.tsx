@@ -1,18 +1,13 @@
 import React from 'react';
-import { Routes } from 'react-router-dom';
-// import AboutMePage from '../pages/aboutMe/AboutMePage';
-// import PortfolioPage from '../pages/portfollio/PortfolioPage';
-// import { Layout } from './Layout';
-// import MainPage from '../pages/main/MainPage';
+import { Route, Routes } from 'react-router-dom';
+import { ContactMe } from '../pages/contactMe/ContactMe';
+import MainPage from '../pages/MainPage';
 
 export function AppRouter() {
   return (
     <Routes>
-      {/* <Route element={<Layout />}>
-        <Route path='/' element={<MainPage />} />
-        <Route path='/about-me' element={<AboutMePage />} />
-        <Route path='/portfolio' element={<PortfolioPage />} />
-      </Route> */}
+      <Route path='/portfolio' element={<MainPage />} />
+      <Route path='/contact-me' element={<ContactMe />} />
     </Routes>
   );
 }

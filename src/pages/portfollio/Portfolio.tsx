@@ -4,10 +4,14 @@ import { Element } from 'react-scroll';
 import PortfolioTitle from './container/PortfolioTitle';
 import Project from './container/Project';
 import colors from '../../libs/design/colors';
+import { benepickDetail } from '../../data/benepickDetail';
+import { bidkingDetail } from '../../data/bidkingDetail';
+import { movie101Detail } from '../../data/movie101Detail';
 
 function Portfolio() {
   const projects = [
     {
+      detail: bidkingDetail,
       img: 'crown.png',
       category: 'coded',
       title: '입찰왕',
@@ -17,15 +21,17 @@ function Portfolio() {
         'https://glorious-saturday-7de.notion.site/534c8ece478e433f9acb124394fd1253?pvs=4',
     },
     {
+      detail: benepickDetail,
       img: 'benepick.png',
       category: 'coded',
       title: 'BENEPICK',
       description: '위치기반 카드 추천 서비스',
-      github: '',
+      github: 'https://github.com/Benepick/Benepick',
       notion:
         'https://glorious-saturday-7de.notion.site/ca1d3c1683f94710b845ac0e0ef631cb?pvs=4',
     },
     {
+      detail: movie101Detail,
       img: 'movie101.png',
       category: 'coded',
       title: 'MOVIE101',
@@ -44,8 +50,6 @@ function Portfolio() {
           css={{
             display: 'flex',
             flexDirection: 'column',
-            // flexWrap: 'wrap',
-            // justifyContent: 'flex-start',
             alignItems: 'center',
             background: colors.backgroundDark,
           }}
@@ -59,6 +63,7 @@ function Portfolio() {
               description={project.description}
               github={project.github}
               notion={project.notion}
+              markdown={project.detail}
             />
           ))}
         </div>

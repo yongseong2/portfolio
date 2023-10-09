@@ -4,6 +4,7 @@ import { Link } from 'react-scroll';
 import colors from '../../../libs/design/colors';
 import { Spacing } from '../../../libs/common/Spacing';
 import { ViewCount } from '../../../libs/common/ViewCount';
+import { Link as RouterLink } from 'react-router-dom';
 
 export function MainNav() {
   return (
@@ -76,15 +77,15 @@ export function MainNav() {
         </li>
         <Spacing rem='3' dir='h' />
         <li>
-          <h3
-            css={{
-              fontSize: '1rem',
-              cursor: 'pointer',
-              color: colors.backgroundDark,
-            }}
-          >
-            Contact me
-          </h3>
+          <RouterLink to={'/contact-me'}>
+            <h3
+              css={{
+                fontSize: '1rem',
+              }}
+            >
+              Contact me
+            </h3>
+          </RouterLink>
         </li>
         <Spacing rem='3' dir='h' />
       </ul>

@@ -60,7 +60,7 @@ function AboutMe() {
             <IconDescription
               img={`${process.env.PUBLIC_URL}/Image/aboutImg/target.svg`}
               title='TARGET'
-              description='Stack overflow, Git Hub과 같은 개발 커뮤니티에 적극적으로 참여하고, 기술 블로그를 통해 지식을 습득하는 것을 중요하게 생각합니다. 이를 통해 다양한 경험과 지식을 얻고, 더 나아가 프론트엔드 개발의 새로운 가능성을 모색하고 있습니다. 미래에는 훌륭한 기술 리더가 되어 다양한 개발 프로젝트와 팀을 선도하는 것이 목표입니다.'
+              description='3개의 프로젝트를 통해 실질적인 개발 경험을 쌓았습니다. 프로젝트를 진행하며 겪는 문제를 해결하기 위해 Stack Overflow와 온라인 자료를 적극적으로 활용했습니다. 이 과정에서 다양한 기술과 방법론을 배우고 적용해보며, 프론트엔드 개발에 있어 새로운 가능성을 탐색하고 있습니다.'
             />
           </div>
         </div>
@@ -79,7 +79,7 @@ function AboutMe() {
           <IconDescription
             img={`${process.env.PUBLIC_URL}/Image/aboutImg/communication.svg`}
             title='COMMUNICAITION'
-            description='서비스 개발에 있어서도 개발 능력만큼 중요한 것은 팀과의 원활한 커뮤니케이션입니다. 이에 능동적이고 적극적인 커뮤니케이션을 통해 개발 문제뿐만 아니라 프로젝트 목표 달성에도 기여하고 있습니다. 이러한 전반적인 노력과 경험을 바탕으로 더 우수한 프론트엔드 개발자로 계속 성장하려고 노력하고 있습니다.'
+            description='장기적인 목표로는 훌륭한 기술 리더가 되어 다양한 개발 프로젝트와 팀을 선도하는 것입니다. 이를 향한 첫걸음으로, 적극적인 커뮤니케이션을 통해 프로젝트의 목표를 정확히 이해하고, 이를 구현하기 위한 효율적인 방법을 모색하고 있습니다.'
           />
         </div>
         <Spacing rem='5' />

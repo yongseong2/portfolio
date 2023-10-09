@@ -7,24 +7,10 @@ const globalStyles = css`
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: 'BlackHanSans-Regular';
+    font-family: 'SUITE';
     font-size: 90%;
     color: ${colors.black};
     line-height: 1.2rem;
-  }
-
-  @font-face {
-    font-family: 'Montserrat';
-    src: url('/fonts/BlackHanSans-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Montserrat';
-    src: url('/fonts/BlackHanSans-Regular.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
   }
 
   * {
@@ -34,7 +20,7 @@ const globalStyles = css`
   }
 
   body {
-    font-family: 'BlackHanSans-Regular', Arial, Helvetica, sans-serif;
+    font-family: 'SUITE', Arial, Helvetica, sans-serif;
     background: radial-gradient(
         50% 50% at 50% 50%,
         rgba(26, 21, 21, 0) 0%,

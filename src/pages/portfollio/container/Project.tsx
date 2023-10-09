@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Spacing } from '../../../libs/common/Spacing';
 import colors from '../../../libs/design/colors';
+import { ProjectDetail } from './ProjectDetail';
 
 interface Props {
   category: string;
@@ -10,10 +11,20 @@ interface Props {
   github: string;
   notion: string;
   img: string;
+  markdown?: string;
 }
 
-function Project({ img, category, title, description, github, notion }: Props) {
+function Project({
+  img,
+  category,
+  title,
+  description,
+  github,
+  notion,
+  markdown,
+}: Props) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -50,7 +61,7 @@ function Project({ img, category, title, description, github, notion }: Props) {
       >
         <b
           css={{
-            fontSize: '15px',
+            fontSize: 'calc(15px + 0.5vw)',
           }}
         >
           {category}
@@ -58,7 +69,7 @@ function Project({ img, category, title, description, github, notion }: Props) {
         <Spacing rem='1' />
         <h3
           css={{
-            fontSize: '35px',
+            fontSize: 'calc(15px + 1vw)',
           }}
         >
           {title}
@@ -66,7 +77,7 @@ function Project({ img, category, title, description, github, notion }: Props) {
         <Spacing rem='1' />
         <b
           css={{
-            fontSize: '15px',
+            fontSize: 'calc(10px + 0.5vw)',
           }}
         >
           {description}
@@ -79,6 +90,7 @@ function Project({ img, category, title, description, github, notion }: Props) {
           flexDirection: 'row',
           justifyContent: 'center',
           alignItems: 'center',
+          flexWrap: 'wrap',
         }}
       >
         {github !== '' && (
@@ -93,29 +105,43 @@ function Project({ img, category, title, description, github, notion }: Props) {
               textAlign: 'center',
               borderLeft: '4px solid white',
               borderRight: '4px solid white',
+              fontSize: 'calc(10px + 0.2vw)',
             }}
           >
             <h2>Github</h2>
           </a>
         )}
-
-        <Spacing rem='1' dir='h' />
-        <a
+        <div
+          onClick={(e) => {
+            e.preventDefault();
+            setIsModalOpen(true);
+          }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          href={notion}
-          target='_blank'
           rel='noopener noreferrer'
           css={{
             width: '120px',
             textAlign: 'center',
+            marginLeft: '10px',
             borderLeft: '4px solid white',
             borderRight: '4px solid white',
+            fontSize: 'calc(10px + 0.2vw)',
+
+            // Media Query
+            '@media (max-width: 768px)': {
+              marginLeft: '0',
+              marginTop: '10px',
+            },
           }}
         >
-          <h2>Notion</h2>
-        </a>
+          <h2>Detail</h2>
+        </div>
       </div>
+      <ProjectDetail
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        markdown={markdown}
+      />
     </div>
   );
 }

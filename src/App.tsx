@@ -2,15 +2,18 @@
 import { Global } from '@emotion/react';
 import globalStyles from './libs/design/GlobalStyles';
 
-import MainPage from './pages/MainPage';
 import { FollowMouse } from './libs/common/FollowMouse';
+import { AppRouter } from './router/AppRouter';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
     <div>
-      <Global styles={globalStyles} />
-      <MainPage />
-      <FollowMouse />
+      <BrowserRouter>
+        <Global styles={globalStyles} />
+        <FollowMouse />
+        <AppRouter />
+      </BrowserRouter>
     </div>
   );
 }

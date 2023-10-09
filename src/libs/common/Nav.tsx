@@ -5,6 +5,7 @@ import { Spacing } from './Spacing';
 import { Link } from 'react-scroll';
 import { keyframes } from '@emotion/react';
 import { ViewCount } from './ViewCount';
+import { Link as RouterLink } from 'react-router-dom';
 
 const bounce = keyframes`
   0%, 20%, 50%, 80%, 100% {
@@ -111,13 +112,15 @@ export function Nav() {
           </li>
           <Spacing rem='3' dir='h' />
           <li>
-            <h3
-              css={{
-                fontSize: '1rem',
-              }}
-            >
-              Contact me
-            </h3>
+            <RouterLink to={'/contact-me'}>
+              <h3
+                css={{
+                  fontSize: '1rem',
+                }}
+              >
+                Contact me
+              </h3>
+            </RouterLink>
           </li>
           <Spacing rem='3' dir='h' />
         </ul>

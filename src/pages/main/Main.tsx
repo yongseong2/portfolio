@@ -7,8 +7,6 @@ import { keyframes } from '@emotion/react';
 import { LinkIcon } from './container/LinkIcon';
 import Hello from './container/Hello';
 
-// import { Footer } from '../../../libs/common/Footer';
-
 const slideIn = keyframes`
   0% {
     transform: translateX(-100%);
