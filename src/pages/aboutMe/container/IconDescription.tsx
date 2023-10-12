@@ -9,7 +9,7 @@ interface Props {
 
 function IconDescription({ img, title, description }: Props) {
   return (
-    <div css={{ width: '35%' }}>
+    <div css={{ width: '100%' }}>
       <div
         css={{
           display: 'flex',

@@ -29,12 +29,16 @@ export function ProjectDetail({ isOpen, onClose, markdown }: Props) {
         css={{
           width: '70%',
           height: '80%',
+          '@media (max-width: 768px)': {
+            width: '100%',
+            height: '100%',
+            marginTop: '8rem',
+          },
           overflowY: 'scroll',
           background: 'white',
           padding: '40px',
           borderRadius: '10px',
           position: 'relative',
-          marginRight: '30px', // close 버튼을 모달 오른쪽 바깥에 위치시키기 위해 여백 추가
           '&::-webkit-scrollbar': {
             width: '8px',
           },
@@ -55,11 +59,15 @@ export function ProjectDetail({ isOpen, onClose, markdown }: Props) {
       </div>
       <img
         css={{
-          position: 'fixed', // 화면에 고정
-          top: '15%', // 화면 중앙에 수직 위치
-          right: '19%', // 화면 오른쪽에서 15% 위치
-          transform: 'translateY(-50%) translateX(-50%)', // Y축에서 50%만큼 이동하여 수직 중앙 정렬 보정
+          position: 'fixed',
+          top: '15%',
+          right: '19%',
+          transform: 'translateY(-50%) translateX(-50%)',
           cursor: 'pointer',
+          '@media (max-width: 768px)': {
+            top: '15%',
+            right: '8%',
+          },
         }}
         onClick={onClose}
         src={`${process.env.PUBLIC_URL}/icons/close.svg`}

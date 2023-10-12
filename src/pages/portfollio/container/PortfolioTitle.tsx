@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { SubTitle } from '../../../libs/common/SubTitle';
+import { Spacing } from '../../../libs/common/Spacing';
 
 function PortfolioTitle() {
   return (

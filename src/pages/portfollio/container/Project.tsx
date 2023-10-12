@@ -11,6 +11,7 @@ interface Props {
   github: string;
   notion: string;
   img: string;
+  date: string;
   markdown?: string;
 }
 
@@ -21,6 +22,7 @@ function Project({
   description,
   github,
   notion,
+  date,
   markdown,
 }: Props) {
   const [isHovered, setIsHovered] = useState(false);
@@ -41,14 +43,18 @@ function Project({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        width: '40%',
-        height: '401px',
+        width: '30%',
+        height: '30rem',
         background: isHovered
           ? `linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%), url(${process.env.PUBLIC_URL}/Image/portfolioImg/${img}) center center / cover no-repeat lightgray`
           : `linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(${process.env.PUBLIC_URL}/Image/portfolioImg/${img}) center center / cover no-repeat lightgray`,
         color: colors.white,
         margin: '50px',
         borderRadius: '1rem',
+        '@media (max-width: 768px)': {
+          width: '80%',
+          height: '20rem',
+        },
       }}
     >
       <div
@@ -82,6 +88,14 @@ function Project({
         >
           {description}
         </b>
+        <Spacing rem='0.5' />
+        <p
+          css={{
+            fontSize: 'calc(10px + 0.5vw)',
+          }}
+        >
+          {date}
+        </p>
       </div>
       <Spacing rem='1' />
       <div
@@ -90,7 +104,6 @@ function Project({
           flexDirection: 'row',
           justifyContent: 'center',
           alignItems: 'center',
-          flexWrap: 'wrap',
         }}
       >
         {github !== '' && (
@@ -126,12 +139,6 @@ function Project({
             borderLeft: '4px solid white',
             borderRight: '4px solid white',
             fontSize: 'calc(10px + 0.2vw)',
-
-            // Media Query
-            '@media (max-width: 768px)': {
-              marginLeft: '0',
-              marginTop: '10px',
-            },
           }}
         >
           <h2>Detail</h2>

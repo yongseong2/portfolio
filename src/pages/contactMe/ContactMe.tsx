@@ -74,7 +74,8 @@ export function ContactMe() {
             css={{
               position: 'absolute',
               width: '100%',
-              top: '50%',
+              marginTop: '5%',
+              top: '100%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
               opacity: 0,
