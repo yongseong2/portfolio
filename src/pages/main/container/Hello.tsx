@@ -23,7 +23,7 @@ function Hello() {
                 fontSize: '3vw',
                 animationDelay: `${index * 0.1}s`,
                 '@media (max-width: 768px)': {
-                  fontSize: '20px',
+                  fontSize: '35px',
                 },
               }}
             >

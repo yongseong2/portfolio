@@ -9,48 +9,35 @@ interface Props {
 
 function IconDescription({ img, title, description }: Props) {
   return (
-    <div
-      css={{
-        width: '400px',
-        height: '100px',
-      }}
-    >
+    <div css={{ width: '35%' }}>
       <div
         css={{
+          display: 'flex',
+          alignItems: 'center',
           position: 'relative',
-          width: '80px',
-          height: '80px',
         }}
       >
-        <img
-          css={{
-            width: '100%',
-            height: '100%',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-          }}
-          src={img}
-          alt='icon'
-        />
+        <img width={'50rem'} height={'50rem'} src={img} alt='icon' />
         <h2
           css={{
             position: 'absolute',
             top: '50%',
-            left: '50%',
-            fontSize: '26px',
+            left: '1.5rem',
+            transform: 'translateY(-50%)',
+            width: '100%',
+            lineHeight: '30px',
+            fontSize: '20px',
           }}
         >
           {title}
         </h2>
+      </div>
+      <div>
         <h3
           css={{
-            position: 'absolute',
-            top: '95%',
-            left: '50%',
             fontSize: '18px',
-            width: '30rem',
-            lineHeight: '25px',
+            lineHeight: '30px',
+            paddingLeft: '1.5rem',
           }}
         >
           {description}

@@ -37,7 +37,7 @@ function Main() {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'flex-end',
-              paddingInline: '3%',
+              paddingInline: '1rem',
             },
           }}
         >
