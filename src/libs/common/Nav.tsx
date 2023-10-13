@@ -1,11 +1,12 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import colors from '../design/colors';
 import { Spacing } from './Spacing';
 import { Link } from 'react-scroll';
 import { keyframes } from '@emotion/react';
 import { ViewCount } from './ViewCount';
 import { Link as RouterLink } from 'react-router-dom';
+import MenuIcon from '../Icons/MenuIcon';
 
 const bounce = keyframes`
   0%, 20%, 50%, 80%, 100% {
@@ -20,6 +21,21 @@ const bounce = keyframes`
 `;
 
 export function Nav() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div
       css={{
@@ -51,14 +67,14 @@ export function Nav() {
             duration={500}
           >
             <img
-              width={'65x'}
-              height={'65px'}
+              width={'7%'}
+              height={'7%'}
               src={`${process.env.PUBLIC_URL}/Image/arrowUp.svg`}
               css={{
                 cursor: 'pointer',
                 position: 'fixed',
-                bottom: 40,
-                right: 40,
+                bottom: '5%',
+                right: '5%',
                 animation: `${bounce} 2s infinite`,
               }}
               alt='arrow'
@@ -71,6 +87,9 @@ export function Nav() {
             justifyContent: 'end',
             listStyleType: 'none',
             alignItems: 'center',
+            '@media (max-width: 768px)': {
+              display: 'none',
+            },
           }}
         >
           <li>
@@ -122,8 +141,106 @@ export function Nav() {
               </h3>
             </RouterLink>
           </li>
-          <Spacing rem='3' dir='h' />
+          <Spacing rem='1' dir='h' />
         </ul>
+        <div
+          onClick={() => setMenuOpen(!menuOpen)}
+          css={{
+            display: 'none',
+            listStyleType: 'none',
+            '@media (max-width: 768px)': {
+              display: 'flex',
+              justifyContent: 'flex-end',
+              alignItems: 'center',
+            },
+          }}
+        >
+          <MenuIcon fill={colors.white} />
+        </div>
+        {menuOpen && (
+          <div
+            css={{
+              position: 'absolute',
+              top: '100%',
+              right: 0,
+              backgroundColor: '#1D1D1D',
+              borderBottomLeftRadius: '0.5rem',
+              borderBottomRightRadius: '0.5rem',
+              color: colors.white,
+              boxShadow: '3px 3px 3px gray',
+              zIndex: 2,
+              '@media (max-width: 768px)': {
+                width: '100%',
+              },
+            }}
+          >
+            <ul
+              css={{
+                listStyleType: 'none',
+                padding: 0,
+                margin: 0,
+                textAlign: 'center',
+              }}
+            >
+              <Spacing rem='0.5' />
+              <li>
+                <Link
+                  onClick={() => setMenuOpen(false)}
+                  to='about-me'
+                  spy={true}
+                  smooth={true}
+                  offset={-46.05}
+                  duration={500}
+                >
+                  <h3
+                    css={{
+                      fontSize: '1rem',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    About me
+                  </h3>
+                </Link>
+              </li>
+              <Spacing rem='0.5' />
+              <li>
+                <Link
+                  onClick={() => setMenuOpen(false)}
+                  to='portfolio'
+                  spy={true}
+                  smooth={true}
+                  offset={-46.05}
+                  duration={500}
+                >
+                  <h3
+                    css={{
+                      fontSize: '1rem',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Portfolio
+                  </h3>
+                </Link>
+              </li>
+              <Spacing rem='0.5' />
+              <li>
+                <RouterLink
+                  onClick={() => setMenuOpen(false)}
+                  to={'/contact-me'}
+                >
+                  <h3
+                    css={{
+                      fontSize: '1rem',
+                    }}
+                  >
+                    Contact me
+                  </h3>
+                </RouterLink>
+              </li>
+              <Spacing rem='0.5' />
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

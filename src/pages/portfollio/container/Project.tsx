@@ -49,7 +49,7 @@ function Project({
           ? `linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%), url(${process.env.PUBLIC_URL}/Image/portfolioImg/${img}) center center / cover no-repeat lightgray`
           : `linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(${process.env.PUBLIC_URL}/Image/portfolioImg/${img}) center center / cover no-repeat lightgray`,
         color: colors.white,
-        margin: '50px',
+        marginTop: '50px',
         borderRadius: '1rem',
         '@media (max-width: 768px)': {
           width: '80%',

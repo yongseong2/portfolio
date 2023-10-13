@@ -74,6 +74,7 @@ function Portfolio() {
               markdown={project.detail}
             />
           ))}
+          <Spacing rem='3' />
         </div>
       </Element>
     </div>

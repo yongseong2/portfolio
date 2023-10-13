@@ -24,7 +24,6 @@ function IconDescription({ img, title, description }: Props) {
             top: '50%',
             left: '1.5rem',
             transform: 'translateY(-50%)',
-            width: '100%',
             lineHeight: '30px',
             fontSize: '20px',
           }}
