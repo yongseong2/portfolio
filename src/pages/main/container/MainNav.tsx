@@ -5,7 +5,6 @@ import colors from '../../../libs/design/colors';
 import { Spacing } from '../../../libs/common/Spacing';
 import { ViewCount } from '../../../libs/common/ViewCount';
 import { Link as RouterLink } from 'react-router-dom';
-import { keyframes } from '@emotion/react';
 import MenuIcon from '../../../libs/Icons/MenuIcon';
 
 export function MainNav() {
