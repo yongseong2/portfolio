@@ -51,7 +51,7 @@ export const IntroSection = () => {
           variants={sectionItemVariants}
         >
           <motion.div
-            className='relative text-xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent'
+            className='relative text-2xl md:text-4xl lg:text-6xl font-bold text-gray-800 leading-tight mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent'
             variants={sectionItemVariants}
           >
             <div className='flex items-center gap-4'>
