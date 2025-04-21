@@ -3,6 +3,7 @@ import { HiMenu, HiX } from 'react-icons/hi';
 import { IoIosArrowBack } from 'react-icons/io';
 import { useNavStore } from './SectionLayout';
 import ReactTypingEffect from 'react-typing-effect';
+import { navItems } from '../data/navigation';
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('intro');
@@ -40,14 +41,6 @@ const Navbar = () => {
       setIsMobileMenuOpen(false);
     }
   };
-
-  const navItems = [
-    { id: 'intro', name: 'Intro' },
-    { id: 'career', name: 'Career' },
-    { id: 'skills', name: 'Skills' },
-    { id: 'projects', name: 'Projects' },
-    { id: 'experience', name: 'Experience' },
-  ];
 
   return (
     <>
@@ -88,6 +81,7 @@ const Navbar = () => {
               }}
             />
           </h1>
+
           <div className='space-y-8'>
             {navItems.map((item) => (
               <button
@@ -126,7 +120,7 @@ const Navbar = () => {
       </nav>
 
       {/* 모바일 네비게이션 */}
-      <nav className='md:hidden fixed top-0 left-0 w-full z-40 bg-white/80 backdrop-blur-sm shadow-sm'>
+      <nav className='md:hidden fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm z-40 shadow-sm'>
         <div className='px-4 py-4 flex justify-between items-center'>
           <h1 className='text-xl font-bold text-gray-800'>{'<SeongYong />'}</h1>
           <button

@@ -136,7 +136,7 @@ export const ProjectsSection = () => {
                   <h4 className='text-xl lg:text-2xl font-semibold text-blue-800 mb-2 lg:mb-3'>
                     링크
                   </h4>
-                  <div className='flex flex-wrap gap-4 lg:gap-6'>
+                  <div className='flex flex-col gap-4 lg:gap-6'>
                     {project.links.github && (
                       <a
                         href={project.links.github}

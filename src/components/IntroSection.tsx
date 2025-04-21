@@ -9,10 +9,10 @@ import {
   sectionContainerVariants,
   sectionItemVariants,
 } from '../animations/sectionAnimations';
+import { introData } from '../data/intro';
 
 export const IntroSection = () => {
   const [showFullText, setShowFullText] = useState(false);
-  const texts = ['안녕하세요', '프론트엔드 개발자 김성용입니다!'];
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -57,13 +57,13 @@ export const IntroSection = () => {
             <div className='flex items-center gap-4'>
               {showFullText ? (
                 <div className='flex flex-col gap-2'>
-                  {texts.map((text, index) => (
+                  {introData.texts.map((text, index) => (
                     <div key={index}>{text}</div>
                   ))}
                 </div>
               ) : (
                 <ReactTypingEffect
-                  text={texts}
+                  text={introData.texts}
                   speed={100}
                   eraseSpeed={100}
                   eraseDelay={2000}
@@ -72,18 +72,18 @@ export const IntroSection = () => {
               )}
             </div>
           </motion.div>
-          <motion.p className='text-sm md:text-lg text-gray-600 leading-relaxed max-w-2xl flex flex-col gap-2'>
-            <span>
-              눈에 보이는 페이지에 생동감을 불어넣는 매력에 빠져 프론트엔드
-              개발자가 되었습니다.
-            </span>
-            <span className='text-blue-600'>
-              특히, 디자인을 보며 구현 과정에 대해 깊이 고민하는 것을
-              좋아합니다.
-            </span>
-            <span>완벽함이란 없다고 생각하고 있습니다.</span>
-            <span>더 나은 방법을 찾으며 고민하는 개발자 김성용입니다.</span>
+
+          <motion.p
+            className='text-lg md:text-xl text-gray-600 leading-relaxed space-y-2'
+            variants={sectionItemVariants}
+          >
+            {introData.description.map((text, index) => (
+              <span key={index} className={index === 1 ? 'text-blue-600' : ''}>
+                {text}
+              </span>
+            ))}
           </motion.p>
+
           <motion.div
             variants={sectionItemVariants}
             className='flex flex-col gap-3 mt-6'
@@ -93,48 +93,46 @@ export const IntroSection = () => {
             </div>
             <div className='flex flex-col gap-3'>
               <a
-                href='mailto:ancjs369@naver.com'
+                href={`mailto:${introData.contacts.email}`}
                 className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
               >
                 <MdEmail className='text-xl text-blue-500 group-hover:text-blue-600' />
-                <span className='text-sm'>ancjs369@naver.com</span>
+                <span className='text-sm'>{introData.contacts.email}</span>
               </a>
               <a
-                href='tel:010-9380-1663'
+                href={`tel:${introData.contacts.phone}`}
                 className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
               >
                 <MdPhone className='text-xl text-green-500 group-hover:text-green-600' />
-                <span className='text-sm'>010-9380-1663</span>
+                <span className='text-sm'>{introData.contacts.phone}</span>
               </a>
               <div className='flex flex-col gap-3'>
                 <a
-                  href='https://github.com/yongseong2'
+                  href={introData.contacts.github}
                   target='_blank'
                   rel='noopener noreferrer'
                   className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
                 >
                   <FaGithub className='text-xl text-gray-700 group-hover:text-gray-800' />
-                  <span className='text-sm'>github.com/yongseong2</span>
+                  <span className='text-sm'>{introData.contacts.github}</span>
                 </a>
                 <a
-                  href='https://www.linkedin.com/in/seongyong-kim-048a49297'
+                  href={introData.contacts.linkedin}
                   target='_blank'
                   rel='noopener noreferrer'
                   className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
                 >
                   <FaLinkedin className='text-xl text-blue-600 group-hover:text-blue-700' />
-                  <span className='text-sm'>
-                    linkedin.com/in/seongyong-kim-048a49297
-                  </span>
+                  <span className='text-sm'>{introData.contacts.linkedin}</span>
                 </a>
                 <a
-                  href='https://velog.io/@yongseong2/posts'
+                  href={introData.contacts.velog}
                   target='_blank'
                   rel='noopener noreferrer'
                   className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
                 >
                   <SiVelog className='text-xl text-green-600 group-hover:text-green-700' />
-                  <span className='text-sm'>velog.io/@yongseong2</span>
+                  <span className='text-sm'>{introData.contacts.velog}</span>
                 </a>
               </div>
             </div>
