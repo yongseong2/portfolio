@@ -36,10 +36,23 @@ export const IntroSection = () => {
         variants={containerVariants}
         initial='hidden'
         animate={inView ? 'visible' : 'hidden'}
-        className='w-full relative z-10 flex flex-col md:flex-row items-start gap-8 md:gap-12'
+        className='w-full relative z-10 flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12'
       >
         <motion.div
-          className='w-full md:w-2/3 flex flex-col items-start justify-center space-y-6 md:space-y-8'
+          className='w-48 h-48 md:w-64 md:h-64 md:order-2 flex-shrink-0'
+          variants={itemVariants}
+        >
+          <div className='relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-xl'>
+            <img
+              src='/assets/images/profile.jpg'
+              alt='프로필 이미지'
+              className='object-cover'
+            />
+          </div>
+        </motion.div>
+
+        <motion.div
+          className='w-full md:w-2/3 md:order-1 flex flex-col items-start justify-center space-y-6 md:space-y-8'
           variants={itemVariants}
         >
           <motion.div
@@ -54,8 +67,7 @@ export const IntroSection = () => {
               typingDelay={1000}
             />
           </motion.div>
-
-          <motion.p className='text-sm md:text-lg  text-gray-600 leading-relaxed max-w-2xl'>
+          <motion.p className='text-sm md:text-lg text-gray-600 leading-relaxed max-w-2xl'>
             사용자 경험을 중요시하며, 혁신적이고 직관적인 웹 인터페이스를
             구현하는 것을 즐기는 개발자입니다.
           </motion.p>

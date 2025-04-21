@@ -133,7 +133,7 @@ export const ProjectsSection = () => {
                         rel='noopener noreferrer'
                         className='text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-2 text-base lg:text-lg'
                       >
-                        <span>🌐</span> Demo
+                        <span>🌐</span> 배포 링크
                       </a>
                     )}
                     {project.links.video && (
@@ -143,7 +143,7 @@ export const ProjectsSection = () => {
                         rel='noopener noreferrer'
                         className='text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-2 text-base lg:text-lg'
                       >
-                        <span>📺</span> Video
+                        <span>📺</span> 영상
                       </a>
                     )}
                     {project.links.review &&
@@ -155,7 +155,7 @@ export const ProjectsSection = () => {
                           rel='noopener noreferrer'
                           className='text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-2 text-base lg:text-lg'
                         >
-                          <span>📝</span> Review {index + 1}
+                          <span>📝</span> 후기 {index + 1}
                         </a>
                       ))}
                   </div>
@@ -165,7 +165,7 @@ export const ProjectsSection = () => {
               {/* 오른쪽 이미지 */}
               {project.images && (
                 <div className='lg:w-2/5 relative'>
-                  <div className='sticky top-24 space-y-6'>
+                  <div className='flex flex-col gap-6'>
                     {project.images.slice(0, 2).map((image, imgIndex) => (
                       <div
                         key={imgIndex}
@@ -178,7 +178,7 @@ export const ProjectsSection = () => {
                         <img
                           src={image}
                           alt={`${project.title} 스크린샷 ${imgIndex + 1}`}
-                          className='w-full h-auto rounded-xl shadow-xl'
+                          className='w-full h-auto max-h-[500px] object-contain'
                         />
                       </div>
                     ))}

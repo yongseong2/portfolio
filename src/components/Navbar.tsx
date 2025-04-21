@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { IoIosArrowBack } from 'react-icons/io';
 import { useNavStore } from './SectionLayout';
+import ReactTypingEffect from 'react-typing-effect';
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('intro');
@@ -58,11 +59,34 @@ const Navbar = () => {
       >
         <div className={`px-8 relative ${!isExpanded && 'px-4'}`}>
           <h1
-            className={`text-2xl font-bold mb-12 text-gray-800 transition-opacity duration-300 ${
+            className={`text-xl font-bold mb-12 text-gray-800 transition-opacity duration-300 ${
               !isExpanded && 'opacity-0'
             }`}
           >
-            Portfolio
+            <ReactTypingEffect
+              text={['> npm start', '> Loading...', '> <SeongYong />']}
+              speed={50}
+              eraseSpeed={50}
+              typingDelay={1000}
+              eraseDelay={2000}
+              displayTextRenderer={(text) => {
+                return (
+                  <span className='typing-effect'>
+                    {text.split('').map((char, i) => (
+                      <span
+                        key={i}
+                        style={{
+                          animation: 'glitch 0.3s infinite',
+                          animationDelay: `${i * 0.1}s`,
+                        }}
+                      >
+                        {char}
+                      </span>
+                    ))}
+                  </span>
+                );
+              }}
+            />
           </h1>
           <div className='space-y-8'>
             {navItems.map((item) => (
@@ -104,7 +128,7 @@ const Navbar = () => {
       {/* 모바일 네비게이션 */}
       <nav className='md:hidden fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-sm shadow-sm'>
         <div className='px-4 py-4 flex justify-between items-center'>
-          <h1 className='text-xl font-bold text-gray-800'>Portfolio</h1>
+          <h1 className='text-xl font-bold text-gray-800'>{'<SeongYong />'}</h1>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className='p-2 text-gray-600 hover:text-blue-600 transition-colors'
