@@ -60,7 +60,7 @@ export const ProjectsSection = () => {
           className='text-4xl font-bold mb-24 text-blue-800 text-center'
           variants={sectionTitleVariants}
         >
-          프로젝트
+          Projects
         </motion.h2>
 
         <div className='space-y-40'>

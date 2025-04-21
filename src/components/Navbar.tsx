@@ -43,17 +43,17 @@ const Navbar = () => {
 
   const navItems = [
     { id: 'intro', name: 'Intro' },
+    { id: 'career', name: 'Career' },
     { id: 'skills', name: 'Skills' },
     { id: 'projects', name: 'Projects' },
     { id: 'experience', name: 'Experience' },
-    { id: 'career', name: 'Career' },
   ];
 
   return (
     <>
       {/* 데스크톱 사이드바 */}
       <nav
-        className={`hidden md:flex fixed left-0 top-0 h-screen bg-white/80 backdrop-blur-sm text-gray-600 flex-col justify-center shadow-sm z-50 transition-all duration-300 ${
+        className={`hidden md:flex fixed left-0 top-0 h-screen bg-white/80 backdrop-blur-sm text-gray-600 flex-col justify-center shadow-sm z-40 transition-all duration-300 ${
           isExpanded ? 'w-64' : 'w-14'
         }`}
       >
@@ -126,7 +126,7 @@ const Navbar = () => {
       </nav>
 
       {/* 모바일 네비게이션 */}
-      <nav className='md:hidden fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-sm shadow-sm'>
+      <nav className='md:hidden fixed top-0 left-0 w-full z-40 bg-white/80 backdrop-blur-sm shadow-sm'>
         <div className='px-4 py-4 flex justify-between items-center'>
           <h1 className='text-xl font-bold text-gray-800'>{'<SeongYong />'}</h1>
           <button

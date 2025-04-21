@@ -34,7 +34,7 @@ export const SkillsSection = () => {
         className='text-4xl font-bold mb-16 text-blue-800 text-center'
         variants={sectionTitleVariants}
       >
-        기술 스택
+        Skills
       </motion.h2>
 
       <div className='space-y-16'>
