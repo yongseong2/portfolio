@@ -31,7 +31,7 @@ export const SectionLayout = ({
         intro ? 'pt-16 pb-24' : 'py-24',
         'px-cp-sm sm:px-cp-md lg:px-cp',
         'transition-all duration-300',
-        isExpanded ? 'md:ml-64' : 'md:ml-20'
+        isExpanded ? 'md:ml-64' : 'md:ml-14'
       )}
       {...props}
     >

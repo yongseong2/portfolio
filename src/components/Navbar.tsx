@@ -54,7 +54,7 @@ const Navbar = () => {
       {/* 데스크톱 사이드바 */}
       <nav
         className={`hidden md:flex fixed left-0 top-0 h-screen bg-white/80 backdrop-blur-sm text-gray-600 flex-col justify-center shadow-sm z-50 transition-all duration-300 ${
-          isExpanded ? 'w-64' : 'w-20'
+          isExpanded ? 'w-64' : 'w-14'
         }`}
       >
         <div className={`px-8 relative ${!isExpanded && 'px-4'}`}>
@@ -64,7 +64,7 @@ const Navbar = () => {
             }`}
           >
             <ReactTypingEffect
-              text={['> npm start', '> Loading...', '> <SeongYong />']}
+              text={['npm start', 'Loading...', '<SeongYong />']}
               speed={50}
               eraseSpeed={50}
               typingDelay={1000}

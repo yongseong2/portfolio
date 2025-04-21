@@ -1,8 +1,14 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import ReactTypingEffect from 'react-typing-effect';
+import { FaPlay, FaStop, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { MdEmail, MdPhone } from 'react-icons/md';
+import { SiVelog } from 'react-icons/si';
+import { useState } from 'react';
 
 export const IntroSection = () => {
+  const [showFullText, setShowFullText] = useState(false);
+  const texts = ['안녕하세요', '프론트엔드 개발자 김성용입니다!'];
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -31,6 +37,12 @@ export const IntroSection = () => {
 
   return (
     <div className='flex-1 flex flex-col items-center justify-center relative'>
+      <button
+        onClick={() => setShowFullText(!showFullText)}
+        className='fixed top-4 right-4 z-50 flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors text-white shadow-lg'
+      >
+        {showFullText ? <FaPlay size={14} /> : <FaStop size={14} />}
+      </button>
       <motion.div
         ref={ref}
         variants={containerVariants}
@@ -56,21 +68,94 @@ export const IntroSection = () => {
           variants={itemVariants}
         >
           <motion.div
-            className='text-xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent'
+            className='relative text-xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent'
             variants={itemVariants}
           >
-            <ReactTypingEffect
-              text={['안녕하세요', '프론트엔드 개발자 김성용입니다.']}
-              speed={100}
-              eraseSpeed={100}
-              eraseDelay={2000}
-              typingDelay={1000}
-            />
+            <div className='flex items-center gap-4'>
+              {showFullText ? (
+                <div className='flex flex-col gap-2'>
+                  {texts.map((text, index) => (
+                    <div key={index}>{text}</div>
+                  ))}
+                </div>
+              ) : (
+                <ReactTypingEffect
+                  text={texts}
+                  speed={100}
+                  eraseSpeed={100}
+                  eraseDelay={2000}
+                  typingDelay={1000}
+                />
+              )}
+            </div>
           </motion.div>
-          <motion.p className='text-sm md:text-lg text-gray-600 leading-relaxed max-w-2xl'>
-            사용자 경험을 중요시하며, 혁신적이고 직관적인 웹 인터페이스를
-            구현하는 것을 즐기는 개발자입니다.
+          <motion.p className='text-sm md:text-lg text-gray-600 leading-relaxed max-w-2xl flex flex-col gap-2'>
+            <span>
+              눈에 보이는 페이지에 생동감을 불어넣는 매력에 빠져 프론트엔드
+              개발자가 되었습니다.
+            </span>
+            <span className='text-blue-600'>
+              특히, 디자인을 보며 구현 과정에 대해 깊이 고민하는 것을
+              좋아합니다.
+            </span>
+            <span>완벽함이란 없다고 생각하고 있습니다.</span>
+            <span>더 나은 방법을 찾으며 고민하는 개발자 김성용입니다.</span>
           </motion.p>
+          <motion.div
+            variants={itemVariants}
+            className='flex flex-col gap-3 mt-6'
+          >
+            <div className='text-gray-700 font-medium mb-2'>
+              Contact & Links
+            </div>
+            <div className='flex flex-col gap-3'>
+              <a
+                href='mailto:ancjs369@naver.com'
+                className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
+              >
+                <MdEmail className='text-xl text-blue-500 group-hover:text-blue-600' />
+                <span className='text-sm'>ancjs369@naver.com</span>
+              </a>
+              <a
+                href='tel:010-9380-1663'
+                className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
+              >
+                <MdPhone className='text-xl text-green-500 group-hover:text-green-600' />
+                <span className='text-sm'>010-9380-1663</span>
+              </a>
+              <div className='flex flex-col gap-3'>
+                <a
+                  href='https://github.com/yongseong2'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
+                >
+                  <FaGithub className='text-xl text-gray-700 group-hover:text-gray-800' />
+                  <span className='text-sm'>github.com/yongseong2</span>
+                </a>
+                <a
+                  href='https://www.linkedin.com/in/seongyong-kim-048a49297'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
+                >
+                  <FaLinkedin className='text-xl text-blue-600 group-hover:text-blue-700' />
+                  <span className='text-sm'>
+                    linkedin.com/in/seongyong-kim-048a49297
+                  </span>
+                </a>
+                <a
+                  href='https://velog.io/@yongseong2/posts'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
+                >
+                  <SiVelog className='text-xl text-green-600 group-hover:text-green-700' />
+                  <span className='text-sm'>velog.io/@yongseong2</span>
+                </a>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </motion.div>
     </div>
