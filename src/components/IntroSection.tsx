@@ -5,6 +5,10 @@ import { FaPlay, FaStop, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { MdEmail, MdPhone } from 'react-icons/md';
 import { SiVelog } from 'react-icons/si';
 import { useState } from 'react';
+import {
+  sectionContainerVariants,
+  sectionItemVariants,
+} from '../animations/sectionAnimations';
 
 export const IntroSection = () => {
   const [showFullText, setShowFullText] = useState(false);
@@ -13,27 +17,6 @@ export const IntroSection = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.5 },
-    },
-  };
 
   return (
     <div className='flex-1 flex flex-col items-center justify-center relative'>
@@ -45,14 +28,14 @@ export const IntroSection = () => {
       </button>
       <motion.div
         ref={ref}
-        variants={containerVariants}
+        variants={sectionContainerVariants}
         initial='hidden'
         animate={inView ? 'visible' : 'hidden'}
         className='w-full relative z-10 flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12'
       >
         <motion.div
           className='w-48 h-48 md:w-64 md:h-64 md:order-2 flex-shrink-0'
-          variants={itemVariants}
+          variants={sectionItemVariants}
         >
           <div className='relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-xl'>
             <img
@@ -65,11 +48,11 @@ export const IntroSection = () => {
 
         <motion.div
           className='w-full md:w-2/3 md:order-1 flex flex-col items-start justify-center space-y-6 md:space-y-8'
-          variants={itemVariants}
+          variants={sectionItemVariants}
         >
           <motion.div
             className='relative text-xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent'
-            variants={itemVariants}
+            variants={sectionItemVariants}
           >
             <div className='flex items-center gap-4'>
               {showFullText ? (
@@ -102,7 +85,7 @@ export const IntroSection = () => {
             <span>더 나은 방법을 찾으며 고민하는 개발자 김성용입니다.</span>
           </motion.p>
           <motion.div
-            variants={itemVariants}
+            variants={sectionItemVariants}
             className='flex flex-col gap-3 mt-6'
           >
             <div className='text-gray-700 font-medium mb-2'>

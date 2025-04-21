@@ -1,6 +1,11 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { projects } from '../data/projects';
+import {
+  sectionContainerVariants,
+  sectionItemVariants,
+  sectionTitleVariants,
+} from '../animations/sectionAnimations';
 
 export const ProjectsSection = () => {
   const [ref, inView] = useInView({
@@ -8,36 +13,17 @@ export const ProjectsSection = () => {
     threshold: 0.1,
   });
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
   return (
     <div className='min-h-screen w-full relative z-10'>
       <motion.div
         ref={ref}
-        variants={containerVariants}
+        variants={sectionContainerVariants}
         initial='hidden'
         animate={inView ? 'visible' : 'hidden'}
       >
         <motion.h2
           className='text-4xl font-bold mb-24 text-blue-800 text-center'
-          variants={itemVariants}
+          variants={sectionTitleVariants}
         >
           프로젝트
         </motion.h2>
@@ -46,7 +32,7 @@ export const ProjectsSection = () => {
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              variants={itemVariants}
+              variants={sectionItemVariants}
               className='relative flex flex-col lg:flex-row gap-8 lg:gap-16 mb-24 last:mb-0'
             >
               {/* 왼쪽 컨텐츠 */}

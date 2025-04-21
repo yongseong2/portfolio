@@ -1,6 +1,11 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { HiAcademicCap, HiOfficeBuilding } from 'react-icons/hi';
+import {
+  sectionContainerVariants,
+  sectionItemVariants,
+  sectionTitleVariants,
+} from '../animations/sectionAnimations';
 
 interface Experience {
   category: string;
@@ -47,50 +52,17 @@ export const ExperienceEducationSection = () => {
     return acc;
   }, {} as Record<string, Experience[]>);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
-  const categoryVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.4,
-      },
-    },
-  };
-
   return (
     <>
       <motion.div
         ref={ref}
-        variants={containerVariants}
+        variants={sectionContainerVariants}
         initial='hidden'
         animate={inView ? 'visible' : 'hidden'}
       >
         <motion.h2
           className='text-4xl font-bold mb-16 text-blue-800 text-center'
-          variants={categoryVariants}
+          variants={sectionTitleVariants}
         >
           경험 및 교육
         </motion.h2>
@@ -99,12 +71,12 @@ export const ExperienceEducationSection = () => {
           {Object.entries(groupedItems).map(([category, categoryItems]) => (
             <motion.div
               key={category}
-              variants={categoryVariants}
+              variants={sectionItemVariants}
               className='relative'
             >
               <motion.h3
                 className='text-2xl font-semibold mb-8 text-blue-700 relative inline-block'
-                variants={cardVariants}
+                variants={sectionItemVariants}
               >
                 {category}
                 <div className='absolute bottom-0 left-0 w-full h-1 bg-blue-200 rounded-full -mb-2'></div>
@@ -112,12 +84,12 @@ export const ExperienceEducationSection = () => {
 
               <motion.div
                 className='grid grid-cols-1 gap-6'
-                variants={categoryVariants}
+                variants={sectionItemVariants}
               >
                 {categoryItems.map((item, index) => (
                   <motion.div
                     key={`${item.title}-${index}`}
-                    variants={cardVariants}
+                    variants={sectionItemVariants}
                     className='p-6 bg-white rounded-lg border border-blue-100 shadow-sm
                       hover:shadow-lg hover:border-blue-200 transition-all duration-300 relative hover:z-10
                       backdrop-blur-sm'
