@@ -78,9 +78,9 @@ export const IntroSection = () => {
             variants={sectionItemVariants}
           >
             {introData.description.map((text, index) => (
-              <span key={index} className={index === 1 ? 'text-blue-600' : ''}>
+              <div key={index} className={index === 1 ? 'text-blue-600' : ''}>
                 {text}
-              </span>
+              </div>
             ))}
           </motion.p>
 

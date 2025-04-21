@@ -19,26 +19,22 @@ export const ProjectsSection = () => {
 
   const [galleryState, setGalleryState] = useState<{
     isOpen: boolean;
-    images: string[];
-    descriptions: string[];
+    projectImages: { url: string; description?: string; title?: string }[];
     title: string;
     initialSlide: number;
   }>({
     isOpen: false,
-    images: [],
-    descriptions: [],
+    projectImages: [],
     title: '',
     initialSlide: 0,
   });
 
   const openGallery = (project: (typeof projects)[0], initialSlide: number) => {
+    if (!project.projectImages) return;
+
     setGalleryState({
       isOpen: true,
-      images: project.images || [],
-      descriptions:
-        project.imageDescriptions ||
-        project.images?.map((_, i) => `이미지 ${i + 1}`) ||
-        [],
+      projectImages: project.projectImages,
       title: project.title,
       initialSlide,
     });
@@ -94,7 +90,7 @@ export const ProjectsSection = () => {
                     <h4 className='text-xl lg:text-2xl font-semibold text-blue-800 mb-2 lg:mb-3'>
                       팀 구성
                     </h4>
-                    <p className='text-base lg:text-lg text-gray-700'>
+                    <p className='text-base lg:text-lg text-gray-700 whitespace-pre-line'>
                       {project.team}
                     </p>
                   </div>
@@ -184,40 +180,42 @@ export const ProjectsSection = () => {
               </div>
 
               {/* 오른쪽 이미지 */}
-              {project.images && (
+              {project.projectImages && project.projectImages.length > 0 && (
                 <div className='lg:w-2/5'>
                   <div className='space-y-6'>
-                    {project.images.slice(0, 2).map((image, imgIndex) => (
-                      <div
-                        key={imgIndex}
-                        className={clsx(
-                          'relative group',
-                          imgIndex === 0
-                            ? 'lg:translate-x-12'
-                            : 'lg:-translate-x-4 lg:translate-y-4',
-                          'cursor-pointer'
-                        )}
-                      >
-                        <div className='relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300'>
-                          <img
-                            src={image}
-                            alt={`${project.title} 스크린샷 ${imgIndex + 1}`}
-                            className='w-full h-auto max-h-[500px] object-contain select-none border border-gray-200/20'
-                            onClick={() => openGallery(project, imgIndex)}
-                          />
-                          <button
-                            className='absolute top-3 right-3 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform hover:scale-110'
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              openGallery(project, imgIndex);
-                            }}
-                            aria-label='갤러리에서 보기'
-                          >
-                            <BsArrowsFullscreen className='w-5 h-5' />
-                          </button>
+                    {project.projectImages
+                      .slice(0, 2)
+                      .map((image, imgIndex) => (
+                        <div
+                          key={imgIndex}
+                          className={clsx(
+                            'relative group',
+                            imgIndex === 0
+                              ? 'lg:translate-x-12'
+                              : 'lg:-translate-x-4 lg:translate-y-4',
+                            'cursor-pointer'
+                          )}
+                        >
+                          <div className='relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300'>
+                            <img
+                              src={image.url}
+                              alt={`${project.title} 스크린샷 ${imgIndex + 1}`}
+                              className='w-full h-auto max-h-[500px] object-contain select-none border border-gray-200/20'
+                              onClick={() => openGallery(project, imgIndex)}
+                            />
+                            <button
+                              className='absolute top-3 right-3 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform hover:scale-110'
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                openGallery(project, imgIndex);
+                              }}
+                              aria-label='갤러리에서 보기'
+                            >
+                              <BsArrowsFullscreen className='w-5 h-5' />
+                            </button>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
                   </div>
                 </div>
               )}
@@ -227,8 +225,7 @@ export const ProjectsSection = () => {
       </motion.div>
       <ImageGallery
         isOpen={galleryState.isOpen}
-        images={galleryState.images}
-        descriptions={galleryState.descriptions}
+        projectImages={galleryState.projectImages}
         title={galleryState.title}
         initialSlide={galleryState.initialSlide}
         onClose={closeGallery}
