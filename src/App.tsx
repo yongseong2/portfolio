@@ -12,7 +12,7 @@ function App() {
       {/* 네비게이션 바 */}
       <Navbar />
       {/* 컨텐츠 */}
-      <main className='relative z-10'>
+      <main className='relative'>
         <SectionLayout id='intro' intro>
           <IntroSection />
         </SectionLayout>

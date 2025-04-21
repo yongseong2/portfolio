@@ -61,7 +61,7 @@ export const SkillsSection = () => {
                   key={`${skill.name}-${index}`}
                   variants={sectionItemVariants}
                   className='p-6 bg-white rounded-lg border border-blue-100 shadow-sm
-                      hover:shadow-lg hover:border-blue-200 transition-all duration-300 relative hover:z-10
+                      hover:shadow-lg hover:border-blue-200 transition-all duration-300 relative 
                       backdrop-blur-sm'
                   whileHover={{
                     scale: 1.02,

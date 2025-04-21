@@ -13,6 +13,7 @@ interface Project {
   techStack: string[];
   role: string[];
   images?: string[];
+  imageDescriptions?: string[];
 }
 
 export const projects: Project[] = [
@@ -53,6 +54,12 @@ export const projects: Project[] = [
       '/assets/images/project/sumbisori-2.png',
       '/assets/images/project/sumbisori-3.png',
       '/assets/images/project/sumbisori-4.png',
+    ],
+    imageDescriptions: [
+      '메인 페이지\n- 제주도의 해녀 문화를 소개하는 랜딩 페이지\n- 스크롤 애니메이션을 통한 인터랙티브한 UX 제공',
+      '수족관 페이지\n- matter.js를 활용한 2D 물리엔진 구현\n- 해녀들이 채취한 해산물을 실시간으로 확인',
+      '지도 페이지\n- 네이버 지도 API를 활용한 제주도 해녀 활동 지역 표시\n- 실시간 수온과 물때 정보 제공',
+      '갤러리 페이지\n- 해녀들의 활동 사진과 영상을 공유\n- 이미지 업로드 및 AI를 통한 해산물 인식 기능',
     ],
   },
   {
@@ -145,7 +152,7 @@ export const projects: Project[] = [
       '/assets/images/project/benepick-0.png',
       '/assets/images/project/benepick-1.png',
       '/assets/images/project/benepick-2.png',
-      '/assets/images/project/benepick-3.png',
+      '/assets/images/project/benepick-3.jpg',
       '/assets/images/project/benepick-4.png',
       '/assets/images/project/benepick-5.png',
       '/assets/images/project/benepick-6.png',

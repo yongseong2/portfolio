@@ -1,11 +1,15 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { projects } from '../data/projects';
+import { useState } from 'react';
+import { ImageGallery } from './ImageGallery';
+import { BsArrowsFullscreen } from 'react-icons/bs';
 import {
   sectionContainerVariants,
   sectionItemVariants,
   sectionTitleVariants,
 } from '../animations/sectionAnimations';
+import clsx from 'clsx';
 
 export const ProjectsSection = () => {
   const [ref, inView] = useInView({
@@ -13,8 +17,39 @@ export const ProjectsSection = () => {
     threshold: 0.05,
   });
 
+  const [galleryState, setGalleryState] = useState<{
+    isOpen: boolean;
+    images: string[];
+    descriptions: string[];
+    title: string;
+    initialSlide: number;
+  }>({
+    isOpen: false,
+    images: [],
+    descriptions: [],
+    title: '',
+    initialSlide: 0,
+  });
+
+  const openGallery = (project: (typeof projects)[0], initialSlide: number) => {
+    setGalleryState({
+      isOpen: true,
+      images: project.images || [],
+      descriptions:
+        project.imageDescriptions ||
+        project.images?.map((_, i) => `이미지 ${i + 1}`) ||
+        [],
+      title: project.title,
+      initialSlide,
+    });
+  };
+
+  const closeGallery = () => {
+    setGalleryState((prev) => ({ ...prev, isOpen: false }));
+  };
+
   return (
-    <div className='min-h-screen w-full relative z-10'>
+    <div className='min-h-screen w-full relative'>
       <motion.div
         ref={ref}
         variants={sectionContainerVariants}
@@ -109,7 +144,7 @@ export const ProjectsSection = () => {
                         rel='noopener noreferrer'
                         className='text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-2 text-base lg:text-lg'
                       >
-                        <span>🔗</span> GitHub
+                        <span>🔗</span> GitHub: {project.links.github}
                       </a>
                     )}
                     {project.links.demo && (
@@ -119,7 +154,7 @@ export const ProjectsSection = () => {
                         rel='noopener noreferrer'
                         className='text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-2 text-base lg:text-lg'
                       >
-                        <span>🌐</span> 배포 링크
+                        <span>🌐</span> 배포 링크: {project.links.demo}
                       </a>
                     )}
                     {project.links.video && (
@@ -129,7 +164,7 @@ export const ProjectsSection = () => {
                         rel='noopener noreferrer'
                         className='text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-2 text-base lg:text-lg'
                       >
-                        <span>📺</span> 영상
+                        <span>📺</span> 영상: {project.links.video}
                       </a>
                     )}
                     {project.links.review &&
@@ -141,7 +176,7 @@ export const ProjectsSection = () => {
                           rel='noopener noreferrer'
                           className='text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-2 text-base lg:text-lg'
                         >
-                          <span>📝</span> 후기 {index + 1}
+                          <span>📝</span> 후기 {index + 1}: {review}
                         </a>
                       ))}
                   </div>
@@ -150,22 +185,37 @@ export const ProjectsSection = () => {
 
               {/* 오른쪽 이미지 */}
               {project.images && (
-                <div className='lg:w-2/5 relative'>
-                  <div className='flex flex-col gap-6'>
+                <div className='lg:w-2/5'>
+                  <div className='space-y-6'>
                     {project.images.slice(0, 2).map((image, imgIndex) => (
                       <div
                         key={imgIndex}
-                        className={`relative ${
+                        className={clsx(
+                          'relative group',
                           imgIndex === 0
-                            ? 'lg:transform lg:translate-x-12'
-                            : 'lg:-translate-x-4 lg:translate-y-4'
-                        }`}
+                            ? 'lg:translate-x-12'
+                            : 'lg:-translate-x-4 lg:translate-y-4',
+                          'cursor-pointer'
+                        )}
                       >
-                        <img
-                          src={image}
-                          alt={`${project.title} 스크린샷 ${imgIndex + 1}`}
-                          className='w-full h-auto max-h-[500px] object-contain'
-                        />
+                        <div className='relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300'>
+                          <img
+                            src={image}
+                            alt={`${project.title} 스크린샷 ${imgIndex + 1}`}
+                            className='w-full h-auto max-h-[500px] object-contain select-none border border-gray-200/20'
+                            onClick={() => openGallery(project, imgIndex)}
+                          />
+                          <button
+                            className='absolute top-3 right-3 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform hover:scale-110'
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              openGallery(project, imgIndex);
+                            }}
+                            aria-label='갤러리에서 보기'
+                          >
+                            <BsArrowsFullscreen className='w-5 h-5' />
+                          </button>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -175,6 +225,14 @@ export const ProjectsSection = () => {
           ))}
         </div>
       </motion.div>
+      <ImageGallery
+        isOpen={galleryState.isOpen}
+        images={galleryState.images}
+        descriptions={galleryState.descriptions}
+        title={galleryState.title}
+        initialSlide={galleryState.initialSlide}
+        onClose={closeGallery}
+      />
     </div>
   );
 };
