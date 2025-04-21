@@ -3,7 +3,9 @@ import { MdEmail, MdPhone } from 'react-icons/md';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SiVelog } from 'react-icons/si';
 import { IoIosArrowBack } from 'react-icons/io';
+import { BsPersonVcard } from 'react-icons/bs';
 import { useState } from 'react';
+import { introData } from '../data/intro';
 
 const itemVariants = {
   hidden: { opacity: 0, x: -20 },
@@ -53,47 +55,59 @@ export const Contact = () => {
         >
           <div className='flex items-center gap-4'>
             <a
-              href='mailto:ancjs369@naver.com'
+              href={`mailto:${introData.contacts.email}`}
               className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
             >
               <MdEmail className='text-2xl text-blue-500 group-hover:text-blue-600' />
-              <span className='text-sm sr-only sm:not-sr-only sm:inline'>
-                ancjs369@naver.com
+              <span className='text-sm sm:inline'>
+                {introData.contacts.email}
               </span>
             </a>
             <a
-              href='tel:010-9380-1663'
+              href={`tel:${introData.contacts.phone}`}
               className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
             >
               <MdPhone className='text-2xl text-green-500 group-hover:text-green-600' />
-              <span className='text-sm sr-only sm:not-sr-only sm:inline'>
-                010-9380-1663
+              <span className='text-sm sm:inline'>
+                {introData.contacts.phone}
               </span>
             </a>
             <div className='flex items-center gap-4'>
               <a
-                href='https://github.com/yongseong2'
+                href={introData.contacts.github}
                 target='_blank'
                 rel='noopener noreferrer'
                 className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
+                title='GitHub'
               >
                 <FaGithub className='text-2xl text-gray-700 group-hover:text-gray-800' />
               </a>
               <a
-                href='https://www.linkedin.com/in/seongyong-kim-048a49297'
+                href={introData.contacts.linkedin}
                 target='_blank'
                 rel='noopener noreferrer'
                 className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
+                title='LinkedIn'
               >
                 <FaLinkedin className='text-2xl text-blue-600 group-hover:text-blue-700' />
               </a>
               <a
-                href='https://velog.io/@yongseong2/posts'
+                href={introData.contacts.velog}
                 target='_blank'
                 rel='noopener noreferrer'
                 className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
+                title='Velog'
               >
                 <SiVelog className='text-2xl text-green-600 group-hover:text-green-700' />
+              </a>
+              <a
+                href={introData.contacts.portfolio}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
+                title='Portfolio'
+              >
+                <BsPersonVcard className='text-2xl text-blue-500 group-hover:text-blue-600' />
               </a>
             </div>
           </div>

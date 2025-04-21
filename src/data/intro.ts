@@ -7,6 +7,7 @@ export interface IntroData {
     github: string;
     linkedin: string;
     velog: string;
+    portfolio: string;
   };
 }
 
@@ -24,5 +25,6 @@ export const introData: IntroData = {
     github: 'https://github.com/yongseong2',
     linkedin: 'https://www.linkedin.com/in/seongyong-kim-048a49297',
     velog: 'https://velog.io/@yongseong2/posts',
+    portfolio: 'https://seongyong2.vercel.app/',
   },
 };

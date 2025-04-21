@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import ReactTypingEffect from 'react-typing-effect';
 import { FaPlay, FaStop, FaGithub, FaLinkedin } from 'react-icons/fa';
-import { MdEmail, MdPhone } from 'react-icons/md';
+import { MdEmail, MdLibraryBooks, MdPhone } from 'react-icons/md';
 import { SiVelog } from 'react-icons/si';
 import { useState } from 'react';
 import {
@@ -10,7 +10,7 @@ import {
   sectionItemVariants,
 } from '../animations/sectionAnimations';
 import { introData } from '../data/intro';
-
+import { BsLink, BsPersonVcard } from 'react-icons/bs';
 export const IntroSection = () => {
   const [showFullText, setShowFullText] = useState(false);
   const [ref, inView] = useInView({
@@ -97,14 +97,18 @@ export const IntroSection = () => {
                 className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
               >
                 <MdEmail className='text-xl text-blue-500 group-hover:text-blue-600' />
-                <span className='text-sm'>{introData.contacts.email}</span>
+                <span className='text-sm'>
+                  Email : {introData.contacts.email}
+                </span>
               </a>
               <a
                 href={`tel:${introData.contacts.phone}`}
                 className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
               >
                 <MdPhone className='text-xl text-green-500 group-hover:text-green-600' />
-                <span className='text-sm'>{introData.contacts.phone}</span>
+                <span className='text-sm'>
+                  Phone : {introData.contacts.phone}
+                </span>
               </a>
               <div className='flex flex-col gap-3'>
                 <a
@@ -114,7 +118,9 @@ export const IntroSection = () => {
                   className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
                 >
                   <FaGithub className='text-xl text-gray-700 group-hover:text-gray-800' />
-                  <span className='text-sm'>{introData.contacts.github}</span>
+                  <span className='text-sm'>
+                    GitHub : {introData.contacts.github}
+                  </span>
                 </a>
                 <a
                   href={introData.contacts.linkedin}
@@ -123,7 +129,9 @@ export const IntroSection = () => {
                   className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
                 >
                   <FaLinkedin className='text-xl text-blue-600 group-hover:text-blue-700' />
-                  <span className='text-sm'>{introData.contacts.linkedin}</span>
+                  <span className='text-sm'>
+                    LinkedIn : {introData.contacts.linkedin}
+                  </span>
                 </a>
                 <a
                   href={introData.contacts.velog}
@@ -132,7 +140,20 @@ export const IntroSection = () => {
                   className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
                 >
                   <SiVelog className='text-xl text-green-600 group-hover:text-green-700' />
-                  <span className='text-sm'>{introData.contacts.velog}</span>
+                  <span className='text-sm'>
+                    Velog : {introData.contacts.velog}
+                  </span>
+                </a>
+                <a
+                  href={introData.contacts.portfolio}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
+                >
+                  <BsPersonVcard className='text-2xl text-blue-500 group-hover:text-blue-600' />
+                  <span className='text-sm'>
+                    Portfolio : {introData.contacts.portfolio}
+                  </span>
                 </a>
               </div>
             </div>
