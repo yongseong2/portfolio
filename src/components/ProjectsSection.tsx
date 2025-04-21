@@ -10,6 +10,7 @@ import {
   sectionTitleVariants,
 } from '../animations/sectionAnimations';
 import clsx from 'clsx';
+import { SectionTitle } from './SectionTitle';
 
 export const ProjectsSection = () => {
   const [ref, inView] = useInView({
@@ -52,12 +53,7 @@ export const ProjectsSection = () => {
         initial='hidden'
         animate={inView ? 'visible' : 'hidden'}
       >
-        <motion.h2
-          className='text-4xl font-bold mb-24 text-blue-800 text-center'
-          variants={sectionTitleVariants}
-        >
-          Projects
-        </motion.h2>
+        <SectionTitle>Projects</SectionTitle>
 
         <div className='space-y-40'>
           {projects.map((project, index) => (

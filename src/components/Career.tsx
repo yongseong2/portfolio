@@ -7,6 +7,7 @@ import {
   sectionTitleVariants,
 } from '../animations/sectionAnimations';
 import { careerData } from '../data/career';
+import { SectionTitle } from './SectionTitle';
 
 const listItemVariants = {
   hidden: { opacity: 0, x: 20 },
@@ -34,12 +35,7 @@ export const Career = () => {
       animate={inView ? 'visible' : 'hidden'}
       className='min-h-screen'
     >
-      <motion.h2
-        className='text-4xl font-bold mb-24 text-blue-800 text-center'
-        variants={sectionTitleVariants}
-      >
-        Career
-      </motion.h2>
+      <SectionTitle>Career</SectionTitle>
 
       <div className='space-y-16'>
         {careerData.map((item, index) => (

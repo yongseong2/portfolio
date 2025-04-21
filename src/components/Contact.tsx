@@ -59,7 +59,7 @@ export const Contact = () => {
               className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
             >
               <MdEmail className='text-2xl text-blue-500 group-hover:text-blue-600' />
-              <span className='text-sm sm:inline'>
+              <span className='hidden md:inline text-sm'>
                 {introData.contacts.email}
               </span>
             </a>
@@ -68,7 +68,7 @@ export const Contact = () => {
               className='flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors group'
             >
               <MdPhone className='text-2xl text-green-500 group-hover:text-green-600' />
-              <span className='text-sm sm:inline'>
+              <span className='hidden md:inline text-sm'>
                 {introData.contacts.phone}
               </span>
             </a>

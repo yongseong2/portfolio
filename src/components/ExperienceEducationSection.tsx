@@ -8,6 +8,7 @@ import {
   sectionTitleVariants,
 } from '../animations/sectionAnimations';
 import { experienceData } from '../data/experience';
+import { SectionTitle } from './SectionTitle';
 
 export const ExperienceEducationSection = () => {
   const [ref, inView] = useInView({
@@ -46,12 +47,7 @@ export const ExperienceEducationSection = () => {
       initial='hidden'
       animate={inView ? 'visible' : 'hidden'}
     >
-      <motion.h2
-        className='text-4xl font-bold mb-16 text-blue-800 text-center'
-        variants={sectionTitleVariants}
-      >
-        Experience & Education
-      </motion.h2>
+      <SectionTitle>Experience & Education</SectionTitle>
 
       <div className='space-y-16'>
         {Object.entries(groupedItems).map(([category, items]) => (

@@ -22,7 +22,7 @@ export const IntroSection = () => {
     <div className='flex-1 flex flex-col items-center justify-center relative'>
       <button
         onClick={() => setShowFullText(!showFullText)}
-        className='fixed top-4 right-4 z-50 flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors text-white shadow-lg'
+        className='fixed top-4 right-4 z-50 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors text-white shadow-lg'
       >
         {showFullText ? <FaPlay size={14} /> : <FaStop size={14} />}
       </button>
@@ -54,21 +54,23 @@ export const IntroSection = () => {
             className='relative text-2xl md:text-4xl lg:text-6xl font-bold text-gray-800 leading-tight mb-4 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent'
             variants={sectionItemVariants}
           >
-            <div className='flex items-center gap-4'>
+            <div className='h-[4rem] md:h-[6rem] lg:h-[8rem] flex items-start'>
               {showFullText ? (
-                <div className='flex flex-col gap-2'>
+                <div className='flex flex-col gap-2 h-full'>
                   {introData.texts.map((text, index) => (
                     <div key={index}>{text}</div>
                   ))}
                 </div>
               ) : (
-                <ReactTypingEffect
-                  text={introData.texts}
-                  speed={100}
-                  eraseSpeed={100}
-                  eraseDelay={2000}
-                  typingDelay={1000}
-                />
+                <div className='whitespace-pre-line h-full flex items-start'>
+                  <ReactTypingEffect
+                    text={introData.texts.join('\n')}
+                    speed={100}
+                    eraseSpeed={100}
+                    eraseDelay={2000}
+                    typingDelay={1000}
+                  />
+                </div>
               )}
             </div>
           </motion.div>
