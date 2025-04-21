@@ -1,15 +1,29 @@
 import { useState, useEffect } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
+import { IoIosArrowBack } from 'react-icons/io';
+import { useNavStore } from './SectionLayout';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('intro');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isExpanded, setIsExpanded } = useNavStore();
 
+  // 스크롤 위치에 따른 활성 섹션 감지
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 50);
+      const sections = navItems.map((item) => document.getElementById(item.id));
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+      sections.forEach((section) => {
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionBottom = sectionTop + section.offsetHeight;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            setActiveSection(section.id);
+          }
+        }
+      });
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -27,87 +41,113 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { id: 'intro', name: 'Home' },
+    { id: 'intro', name: 'Intro' },
     { id: 'skills', name: 'Skills' },
     { id: 'projects', name: 'Projects' },
     { id: 'experience', name: 'Experience' },
+    { id: 'career', name: 'Career' },
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-sm' : 'bg-transparent'
-      }`}
-    >
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex items-center justify-between h-16'>
-          <div className='flex-shrink-0'>
-            <button
-              onClick={handleNavClick('intro')}
-              className='text-blue-800 text-xl font-bold hover:text-blue-600 transition-colors'
-            >
-              Portfolio
-            </button>
-          </div>
-
-          {/* 데스크톱 메뉴 */}
-          <div className='hidden md:block'>
-            <div className='ml-10 flex items-baseline space-x-4'>
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={handleNavClick(item.id)}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    activeSection === item.id
-                      ? 'text-blue-800 bg-blue-50'
-                      : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50/50'
-                  }`}
-                >
-                  {item.name}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* 모바일 메뉴 버튼 */}
-          <div className='md:hidden'>
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className='inline-flex items-center justify-center p-2 rounded-md text-blue-800 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500'
-            >
-              {isMobileMenuOpen ? (
-                <HiX className='block h-6 w-6' />
-              ) : (
-                <HiMenu className='block h-6 w-6' />
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* 모바일 메뉴 패널 */}
-      <div
-        className={`md:hidden transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
-        } overflow-hidden bg-white/90 backdrop-blur-lg`}
+    <>
+      {/* 데스크톱 사이드바 */}
+      <nav
+        className={`hidden md:flex fixed left-0 top-0 h-screen bg-white/80 backdrop-blur-sm text-gray-600 flex-col justify-center shadow-sm z-50 transition-all duration-300 ${
+          isExpanded ? 'w-64' : 'w-20'
+        }`}
       >
-        <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3'>
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={handleNavClick(item.id)}
-              className={`block w-full px-3 py-2 rounded-md text-base font-medium ${
-                activeSection === item.id
-                  ? 'text-blue-800 bg-blue-50'
-                  : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50/50'
+        <div className={`px-8 relative ${!isExpanded && 'px-4'}`}>
+          <h1
+            className={`text-2xl font-bold mb-12 text-gray-800 transition-opacity duration-300 ${
+              !isExpanded && 'opacity-0'
+            }`}
+          >
+            Portfolio
+          </h1>
+          <div className='space-y-8'>
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={handleNavClick(item.id)}
+                className={`w-full text-left text-lg font-medium transition-all duration-500 relative group ${
+                  activeSection === item.id
+                    ? 'text-blue-600 translate-x-2'
+                    : 'hover:text-blue-600 hover:translate-x-2'
+                } ${!isExpanded && 'opacity-0'}`}
+              >
+                {item.name}
+                <span
+                  className={`absolute left-0 -bottom-2 w-full h-0.5 bg-blue-600 transform origin-left transition-transform duration-500 ${
+                    activeSection === item.id
+                      ? 'scale-x-100'
+                      : 'scale-x-0 group-hover:scale-x-75'
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+
+          {/* 토글 버튼 */}
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className='absolute -right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-50 transition-all duration-300'
+          >
+            <IoIosArrowBack
+              className={`h-5 w-5 text-gray-600 transition-transform duration-300 ${
+                !isExpanded && 'rotate-180'
               }`}
-            >
-              {item.name}
-            </button>
-          ))}
+            />
+          </button>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* 모바일 네비게이션 */}
+      <nav className='md:hidden fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-sm shadow-sm'>
+        <div className='px-4 py-4 flex justify-between items-center'>
+          <h1 className='text-xl font-bold text-gray-800'>Portfolio</h1>
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className='p-2 text-gray-600 hover:text-blue-600 transition-colors'
+          >
+            {isMobileMenuOpen ? (
+              <HiX className='h-6 w-6' />
+            ) : (
+              <HiMenu className='h-6 w-6' />
+            )}
+          </button>
+        </div>
+
+        {/* 모바일 메뉴 패널 */}
+        <div
+          className={`transition-all duration-300 ease-in-out ${
+            isMobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+          } overflow-hidden bg-white/90`}
+        >
+          <div className='px-4 py-4 space-y-4'>
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={handleNavClick(item.id)}
+                className={`block w-full text-left text-base font-medium transition-all duration-500 relative group ${
+                  activeSection === item.id
+                    ? 'text-blue-600 translate-x-2'
+                    : 'text-gray-600 hover:text-blue-600 hover:translate-x-2'
+                }`}
+              >
+                {item.name}
+                <span
+                  className={`absolute left-0 -bottom-2 w-full h-0.5 bg-blue-600 transform origin-left transition-transform duration-500 ${
+                    activeSection === item.id
+                      ? 'scale-x-100'
+                      : 'scale-x-0 group-hover:scale-x-75'
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
+    </>
   );
 };
 

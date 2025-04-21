@@ -3,7 +3,7 @@ import { SkillsSection } from './components/SkillsSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { ExperienceEducationSection } from './components/ExperienceEducationSection';
 import Navbar from './components/Navbar';
-import { SectionLayout } from './components/Layout';
+import { SectionLayout } from './components/SectionLayout';
 import { Contact } from './components/Contact';
 
 function App() {
