@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { IoIosArrowBack } from 'react-icons/io';
-import { useNavStore } from './SectionLayout';
+import { useNavStore } from '../store/useNavStore';
 import ReactTypingEffect from 'react-typing-effect';
 import { navItems } from '../data/navigation';
 
@@ -45,79 +45,79 @@ const Navbar = () => {
   return (
     <>
       {/* 데스크톱 사이드바 */}
-      <nav
-        className={`hidden md:flex fixed left-0 top-0 h-screen bg-white/80 backdrop-blur-sm text-gray-600 flex-col justify-center shadow-sm z-40 transition-all duration-300 ${
-          isExpanded ? 'w-64' : 'w-14'
-        }`}
-      >
-        <div className={`px-8 relative ${!isExpanded && 'px-4'}`}>
-          <h1
-            className={`text-xl font-bold mb-12 text-gray-800 transition-opacity duration-300 ${
-              !isExpanded && 'opacity-0'
-            }`}
-          >
-            <ReactTypingEffect
-              text={['npm start', 'Loading...', '<SeongYong />']}
-              speed={50}
-              eraseSpeed={50}
-              typingDelay={1000}
-              eraseDelay={2000}
-              displayTextRenderer={(text) => {
-                return (
-                  <span className='typing-effect'>
-                    {text.split('').map((char, i) => (
-                      <span
-                        key={i}
-                        style={{
-                          animation: 'glitch 0.3s infinite',
-                          animationDelay: `${i * 0.1}s`,
-                        }}
-                      >
-                        {char}
-                      </span>
-                    ))}
-                  </span>
-                );
-              }}
-            />
-          </h1>
+      <div className='hidden md:block fixed left-0 top-0 z-40'>
+        <nav
+          className={`h-screen bg-white/80 backdrop-blur-sm text-gray-600 flex flex-col justify-center shadow-sm transition-all duration-300 ${
+            isExpanded ? 'w-64' : 'w-0'
+          } overflow-hidden`}
+        >
+          <div className='w-64 px-8'>
+            <h1 className='text-xl font-bold mb-12 text-gray-800'>
+              <ReactTypingEffect
+                text={['npm start', 'Loading...', '<SeongYong />']}
+                speed={50}
+                eraseSpeed={50}
+                typingDelay={1000}
+                eraseDelay={2000}
+                displayTextRenderer={(text) => {
+                  return (
+                    <span className='typing-effect'>
+                      {text.split('').map((char, i) => (
+                        <span
+                          key={i}
+                          style={{
+                            animation: 'glitch 0.3s infinite',
+                            animationDelay: `${i * 0.1}s`,
+                          }}
+                        >
+                          {char}
+                        </span>
+                      ))}
+                    </span>
+                  );
+                }}
+              />
+            </h1>
 
-          <div className='space-y-8'>
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={handleNavClick(item.id)}
-                className={`w-full text-left text-lg font-medium transition-all duration-500 relative group ${
-                  activeSection === item.id
-                    ? 'text-blue-600 translate-x-2'
-                    : 'hover:text-blue-600 hover:translate-x-2'
-                } ${!isExpanded && 'opacity-0'}`}
-              >
-                {item.name}
-                <span
-                  className={`absolute left-0 -bottom-2 w-full h-0.5 bg-blue-600 transform origin-left transition-transform duration-500 ${
+            <div className='space-y-8'>
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={handleNavClick(item.id)}
+                  className={`w-full text-left text-lg font-medium transition-all duration-500 relative group ${
                     activeSection === item.id
-                      ? 'scale-x-100'
-                      : 'scale-x-0 group-hover:scale-x-75'
+                      ? 'text-blue-600 translate-x-2'
+                      : 'hover:text-blue-600 hover:translate-x-2'
                   }`}
-                />
-              </button>
-            ))}
+                >
+                  {item.name}
+                  <span
+                    className={`absolute left-0 -bottom-2 w-full h-0.5 bg-blue-600 transform origin-left transition-transform duration-500 ${
+                      activeSection === item.id
+                        ? 'scale-x-100'
+                        : 'scale-x-0 group-hover:scale-x-75'
+                    }`}
+                  />
+                </button>
+              ))}
+            </div>
           </div>
+        </nav>
 
-          {/* 토글 버튼 */}
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className='absolute -right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-50 transition-all duration-300'
-          >
-            <IoIosArrowBack
-              className={`h-5 w-5 text-gray-600 transition-transform duration-300 ${
-                !isExpanded && 'rotate-180'
-              }`}
-            />
-          </button>
-        </div>
-      </nav>
+        {/* 토글 버튼 */}
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className={`fixed top-1/2 transform -translate-y-1/2 ${
+            isExpanded ? 'left-60' : 'left-5'
+          } bg-white rounded-full p-2 shadow-md hover:bg-gray-50 transition-all duration-300 z-50`}
+        >
+          <IoIosArrowBack
+            className={`h-5 w-5 text-gray-600 transition-transform duration-300 ${
+              !isExpanded && 'rotate-180'
+            }`}
+          />
+        </button>
+      </div>
 
       {/* 모바일 네비게이션 */}
       <nav className='md:hidden fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm z-40 shadow-sm'>
