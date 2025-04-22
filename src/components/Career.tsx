@@ -78,10 +78,14 @@ export const Career = () => {
                     variants={listItemVariants}
                     initial='hidden'
                     animate={inView ? 'visible' : 'hidden'}
-                    className='text-gray-700 flex flex-col gap-2 bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-300 hover:bg-blue-50'
+                    whileHover={{
+                      scale: 1.02,
+                      transition: { duration: 0.2 },
+                    }}
+                    className='text-gray-700 flex flex-col gap-2 bg-white rounded-lg p-4 shadow-sm hover:shadow-lg border hover:border-blue-200 transition-all duration-300'
                   >
-                    <div className='flex items-start gap-3'>
-                      <span className='text-blue-500 text-lg font-bold min-w-[24px] font-sans'>
+                    <div className='flex items-start gap-2'>
+                      <span className='text-blue-500 text-lg font-bold min-w-[24px] font-sans text-center'>
                         •
                       </span>
                       <span className='text-gray-800 text-lg font-medium leading-relaxed font-sans'>

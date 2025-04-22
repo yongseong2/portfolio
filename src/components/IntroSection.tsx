@@ -80,9 +80,12 @@ export const IntroSection = () => {
             variants={sectionItemVariants}
           >
             {introData.description.map((text, index) => (
-              <div key={index} className={index === 1 ? 'text-blue-600' : ''}>
+              <span
+                key={index}
+                className={index === 1 ? 'text-blue-600 block' : 'block'}
+              >
                 {text}
-              </div>
+              </span>
             ))}
           </motion.p>
 

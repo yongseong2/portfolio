@@ -17,21 +17,24 @@ export const careerData: Career[] = [
     description: '메가존클라우드 자회사\n클라우드 보안 솔루션 프론트엔드 개발',
     details: [
       {
-        title:
-          '프론트엔드 온프레미스(On-premise) 및 클라우드 모두 호환 가능한 환경 구축',
+        title: '쿠버네티스 기반 프론트엔드 배포 환경 구축',
         description: `
 ### 구축 내용
-- 쿠버네티스 + 도커 배포 파이프라인 구축
-- Config Map으로 시스템 환경 변수 관리
-- 런타임 환경 변수 적용
+- 쿠버네티스 + 도커 기반 배포 파이프라인 구축
+- 온프레미스(설치형)과 AWS EKS 환경 모두 호환되는 배포 구조 설계
+- Config Map을 활용한 환경별 시스템 변수 관리 체계 구축
+- 런타임 환경 변수 적용으로 배포 환경 유연성 확보
 
 ### 기술 스택
 - Docker
 - Kubernetes(Service, Deployment, ConfigMap)
+- AWS EKS
 
 ### 성과
+- 유연한 배포 시스템 확보
 - 빌드 신뢰성 향상
 - 운영 비용 절감
+- 환경 전환 시 추가 개발 비용 최소화
 
 ### 관련 링크
 - [React에 런타임 환경 변수 사용하기](https://velog.io/@yongseong2/React%EC%97%90-%EB%9F%B0%ED%83%80%EC%9E%84-%ED%99%98%EA%B2%BD-%EB%B3%80%EC%88%98-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
@@ -45,7 +48,7 @@ export const careerData: Career[] = [
 - 디자인 시스템 개선 및 의존성 높은 로직 분리
 - 마이크로 프론트엔드 아키텍처 도입
 
-### 주요 기능
+### 주요 사항
 - 패키지 간 의존성 관리
 - 병렬 빌드 처리
 
@@ -87,7 +90,7 @@ export const careerData: Career[] = [
       {
         title: 'Cypress를 활용한 E2E 테스트 환경 구축',
         description: `
-### 주요 기능
+### 주요 사항
 - 대표 기능 시나리오 별 자동화 테스트
 - API 연동 테스트
 
@@ -147,7 +150,7 @@ export const careerData: Career[] = [
       {
         title: 'Next.js 기반 CSPM 솔루션 관리자 페이지 개발',
         description: `
-### 주요 기능
+### 주요 사항
 - 사용자 권한 관리
 - 실시간 로그 차트 구현
 - 계정 컴플라이언스 및 룰셋 관리 기능 구현
