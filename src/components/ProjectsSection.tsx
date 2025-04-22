@@ -65,13 +65,13 @@ export const ProjectsSection = () => {
               {/* 왼쪽 컨텐츠 */}
               <div className='lg:w-3/5 space-y-6 lg:space-y-8'>
                 <div>
-                  <h3 className='text-3xl lg:text-4xl font-bold text-blue-800 mb-2 lg:mb-3'>
+                  <h3 className='text-2xl lg:text-3xl font-bold text-blue-600 mb-2 lg:mb-3 '>
                     {project.title}
                   </h3>
                   <p className='text-lg lg:text-xl text-gray-600 mb-4 lg:mb-6'>
                     {project.period}
                   </p>
-                  <p className='text-xl lg:text-2xl text-gray-700 leading-relaxed'>
+                  <p className='text-lg lg:text-xl text-gray-700 leading-relaxed'>
                     {project.description}
                   </p>
                   {project.award && (
@@ -83,7 +83,7 @@ export const ProjectsSection = () => {
 
                 {project.team && (
                   <div>
-                    <h4 className='text-xl lg:text-2xl font-semibold text-blue-800 mb-2 lg:mb-3'>
+                    <h4 className='text-xl lg:text-2xl font-semibold text-blue-600 mb-2 lg:mb-3'>
                       팀 구성
                     </h4>
                     <p className='text-base lg:text-lg text-gray-700 whitespace-pre-line'>
@@ -93,7 +93,7 @@ export const ProjectsSection = () => {
                 )}
 
                 <div>
-                  <h4 className='text-xl lg:text-2xl font-semibold text-blue-800 mb-2 lg:mb-3'>
+                  <h4 className='text-xl lg:text-2xl font-semibold text-blue-600 mb-2 lg:mb-3'>
                     기술 스택
                   </h4>
                   <div className='flex flex-wrap gap-2'>
@@ -109,7 +109,7 @@ export const ProjectsSection = () => {
                 </div>
 
                 <div>
-                  <h4 className='text-xl lg:text-2xl font-semibold text-blue-800 mb-2 lg:mb-3'>
+                  <h4 className='text-xl lg:text-2xl font-semibold text-blue-600 mb-2 lg:mb-3'>
                     담당 역할
                   </h4>
                   <ul className='list-disc list-inside space-y-1.5 lg:space-y-2'>
@@ -125,7 +125,7 @@ export const ProjectsSection = () => {
                 </div>
 
                 <div>
-                  <h4 className='text-xl lg:text-2xl font-semibold text-blue-800 mb-2 lg:mb-3'>
+                  <h4 className='text-xl lg:text-2xl font-semibold text-blue-600 mb-2 lg:mb-3'>
                     링크
                   </h4>
                   <div className='flex flex-col gap-4 lg:gap-6'>
