@@ -1,31 +1,27 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import ReactTypingEffect from 'react-typing-effect';
-import { FaPlay, FaStop, FaGithub, FaLinkedin } from 'react-icons/fa';
-import { MdEmail, MdLibraryBooks, MdPhone } from 'react-icons/md';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { MdEmail, MdPhone } from 'react-icons/md';
 import { SiVelog } from 'react-icons/si';
-import { useState } from 'react';
 import {
   sectionContainerVariants,
   sectionItemVariants,
 } from '../animations/sectionAnimations';
 import { introData } from '../data/intro';
-import { BsLink, BsPersonVcard } from 'react-icons/bs';
+import { BsPersonVcard } from 'react-icons/bs';
+import { usePlayingStore } from '../store/usePlaying';
+
 export const IntroSection = () => {
-  const [showFullText, setShowFullText] = useState(false);
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
+  const { isPlaying } = usePlayingStore();
+
   return (
     <div className='flex-1 flex flex-col items-center justify-center relative'>
-      <button
-        onClick={() => setShowFullText(!showFullText)}
-        className='fixed top-4 right-4 z-50 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors text-white shadow-lg'
-      >
-        {showFullText ? <FaPlay size={14} /> : <FaStop size={14} />}
-      </button>
       <motion.div
         ref={ref}
         variants={sectionContainerVariants}
@@ -55,13 +51,7 @@ export const IntroSection = () => {
             variants={sectionItemVariants}
           >
             <div className='h-[4rem] md:h-[6rem] lg:h-[8rem] flex items-start'>
-              {showFullText ? (
-                <div className='flex flex-col gap-2 h-full'>
-                  {introData.texts.map((text, index) => (
-                    <div key={index}>{text}</div>
-                  ))}
-                </div>
-              ) : (
+              {isPlaying ? (
                 <div className='whitespace-pre-line h-full flex items-start'>
                   <ReactTypingEffect
                     text={introData.texts.join('\n')}
@@ -70,6 +60,12 @@ export const IntroSection = () => {
                     eraseDelay={2000}
                     typingDelay={1000}
                   />
+                </div>
+              ) : (
+                <div className='flex flex-col gap-2 h-full'>
+                  {introData.texts.map((text, index) => (
+                    <div key={index}>{text}</div>
+                  ))}
                 </div>
               )}
             </div>

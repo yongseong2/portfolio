@@ -4,11 +4,12 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { useNavStore } from '../store/useNavStore';
 import ReactTypingEffect from 'react-typing-effect';
 import { navItems } from '../data/navigation';
-
+import { usePlayingStore } from '../store/usePlaying';
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('intro');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isExpanded, setIsExpanded } = useNavStore();
+  const { isPlaying } = usePlayingStore();
 
   // 스크롤 위치에 따른 활성 섹션 감지
   useEffect(() => {
@@ -53,30 +54,36 @@ const Navbar = () => {
         >
           <div className='w-64 px-8'>
             <h1 className='text-xl font-bold mb-12 text-gray-800'>
-              <ReactTypingEffect
-                text={['npm start', 'Loading...', '<SeongYong />']}
-                speed={50}
-                eraseSpeed={50}
-                typingDelay={1000}
-                eraseDelay={2000}
-                displayTextRenderer={(text) => {
-                  return (
-                    <span className='typing-effect'>
-                      {text.split('').map((char, i) => (
-                        <span
-                          key={i}
-                          style={{
-                            animation: 'glitch 0.3s infinite',
-                            animationDelay: `${i * 0.1}s`,
-                          }}
-                        >
-                          {char}
-                        </span>
-                      ))}
-                    </span>
-                  );
-                }}
-              />
+              {isPlaying ? (
+                <ReactTypingEffect
+                  text={['npm start', 'Loading...', '<SeongYong />']}
+                  speed={50}
+                  eraseSpeed={50}
+                  typingDelay={1000}
+                  eraseDelay={2000}
+                  displayTextRenderer={(text) => {
+                    return (
+                      <span className='typing-effect'>
+                        {text.split('').map((char, i) => (
+                          <span
+                            key={i}
+                            style={{
+                              animation: 'glitch 0.3s infinite',
+                              animationDelay: `${i * 0.1}s`,
+                            }}
+                          >
+                            {char}
+                          </span>
+                        ))}
+                      </span>
+                    );
+                  }}
+                />
+              ) : (
+                <span className='text-xl font-bold mb-12 text-gray-800'>
+                  {'<SeongYong />'}
+                </span>
+              )}
             </h1>
 
             <div className='space-y-8'>
