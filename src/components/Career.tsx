@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { HiOfficeBuilding } from 'react-icons/hi';
+import ReactMarkdown from 'react-markdown';
 import {
   sectionContainerVariants,
   sectionItemVariants,
@@ -8,6 +9,7 @@ import {
 } from '../animations/sectionAnimations';
 import { careerData } from '../data/career';
 import { SectionTitle } from './SectionTitle';
+import '../styles/markdown.css';
 
 const listItemVariants = {
   hidden: { opacity: 0, x: 20 },
@@ -61,7 +63,9 @@ export const Career = () => {
                   </h3>
                 </div>
                 <p className='text-lg text-gray-600 mb-2'>{item.period}</p>
-                <p className='text-lg text-gray-700'>{item.description}</p>
+                <p className='text-lg text-gray-700 whitespace-pre-line'>
+                  {item.description}
+                </p>
               </div>
             </div>
 
@@ -74,14 +78,19 @@ export const Career = () => {
                     variants={listItemVariants}
                     initial='hidden'
                     animate={inView ? 'visible' : 'hidden'}
-                    className='text-gray-700 flex items-start gap-3 bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-300 hover:bg-blue-50'
+                    className='text-gray-700 flex flex-col gap-2 bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-300 hover:bg-blue-50'
                   >
-                    <span className='text-blue-500 text-lg font-bold min-w-[24px]'>
-                      •
-                    </span>
-                    <span className='text-gray-700 leading-relaxed'>
-                      {detail}
-                    </span>
+                    <div className='flex items-start gap-3'>
+                      <span className='text-blue-500 text-lg font-bold min-w-[24px] font-sans'>
+                        •
+                      </span>
+                      <span className='text-gray-800 text-lg font-medium leading-relaxed font-sans'>
+                        {detail.title}
+                      </span>
+                    </div>
+                    <div className='pl-10 text-sm markdown-content'>
+                      <ReactMarkdown>{detail.description}</ReactMarkdown>
+                    </div>
                   </motion.li>
                 ))}
               </ul>
