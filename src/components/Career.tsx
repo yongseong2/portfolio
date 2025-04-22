@@ -9,8 +9,8 @@ import {
 } from '../animations/sectionAnimations';
 import { careerData } from '../data/career';
 import { SectionTitle } from './SectionTitle';
-import '../styles/markdown.css';
 
+import { Markdown } from './Markdown';
 const listItemVariants = {
   hidden: { opacity: 0, x: 20 },
   visible: (i: number) => ({
@@ -88,9 +88,10 @@ export const Career = () => {
                         {detail.title}
                       </span>
                     </div>
-                    <div className='pl-10 text-sm markdown-content'>
-                      <ReactMarkdown>{detail.description}</ReactMarkdown>
-                    </div>
+
+                    <Markdown className='pl-10 text-sm'>
+                      {detail.description}
+                    </Markdown>
                   </motion.li>
                 ))}
               </ul>
