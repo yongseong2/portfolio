@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import { SectionLayout } from './components/SectionLayout';
 import { Contact } from './components/Contact';
 import ScrollProgressBar from './components/ScrollProgressBar';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <SectionLayout id='experience'>
             <ExperienceEducationSection />
           </SectionLayout>
+          <Footer />
 
           <Contact />
         </main>
