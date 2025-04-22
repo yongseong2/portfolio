@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 import { projects } from '../data/projects';
 import { useState } from 'react';
 import { ImageGallery } from './ImageGallery';
-import { BsArrowsFullscreen } from 'react-icons/bs';
+import { BsImages } from 'react-icons/bs';
 import {
   sectionContainerVariants,
   sectionItemVariants,
@@ -64,8 +64,18 @@ export const ProjectsSection = () => {
             >
               {/* 왼쪽 컨텐츠 */}
               <div className='lg:w-3/5 space-y-6 lg:space-y-8'>
-                <div>
-                  <h3 className='text-2xl lg:text-3xl font-bold text-blue-600 mb-2 lg:mb-3 '>
+                <div className='relative'>
+                  {project.projectImages &&
+                    project.projectImages.length > 0 && (
+                      <button
+                        onClick={() => openGallery(project, 0)}
+                        className='absolute -top-2 -right-2 p-1.5 bg-white hover:bg-blue-50 rounded-full transition-all duration-200 shadow-md hover:shadow-lg border border-blue-200 group'
+                        aria-label='갤러리 보기'
+                      >
+                        <BsImages className='w-5 h-5 text-blue-500 group-hover:text-blue-600 transition-colors' />
+                      </button>
+                    )}
+                  <h3 className='text-2xl lg:text-3xl font-bold text-blue-600 mb-2 lg:mb-3'>
                     {project.title}
                   </h3>
                   <p className='text-lg lg:text-xl text-gray-600 mb-4 lg:mb-6'>
@@ -207,7 +217,7 @@ export const ProjectsSection = () => {
                               }}
                               aria-label='갤러리에서 보기'
                             >
-                              <BsArrowsFullscreen className='w-5 h-5' />
+                              <BsImages className='w-5 h-5' />
                             </button>
                           </div>
                         </div>

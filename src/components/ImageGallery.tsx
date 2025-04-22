@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './ImageGallery.css';
-
+import { Markdown } from './Markdown';
 interface ProjectImage {
   url: string;
   description?: string;
@@ -131,9 +131,9 @@ export const ImageGallery = ({
                         </h3>
                       )}
                       {image.description && (
-                        <p className='text-gray-300 whitespace-pre-line leading-relaxed'>
+                        <Markdown className='pl-2' white>
                           {image.description}
-                        </p>
+                        </Markdown>
                       )}
                     </div>
                   ))}

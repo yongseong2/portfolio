@@ -7,6 +7,7 @@ import {
   sectionTitleVariants,
 } from '../animations/sectionAnimations';
 import { SectionTitle } from './SectionTitle';
+import { Markdown } from './Markdown';
 
 export const SkillsSection = () => {
   const [ref, inView] = useInView({
@@ -72,13 +73,7 @@ export const SkillsSection = () => {
                       {skill.name}
                     </h4>
                   </div>
-                  <ul className='list-disc list-inside space-y-1.5 text-sm text-gray-600 ml-1'>
-                    {skill.description.map((desc, index) => (
-                      <li key={index} className='break-keep'>
-                        {desc}
-                      </li>
-                    ))}
-                  </ul>
+                  <Markdown className='text-sm'>{skill.description}</Markdown>
                 </motion.div>
               ))}
             </motion.div>
