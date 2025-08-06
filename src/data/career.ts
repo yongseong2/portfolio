@@ -13,7 +13,7 @@ export const careerData: Career[] = [
   {
     category: '프론트엔드 개발',
     title: '클라우드가드',
-    period: '2023.12 ~ 재직중',
+    period: '2023.12 ~ 2025.07',
     description: '메가존클라우드 자회사\n클라우드 보안 솔루션 프론트엔드 개발',
     details: [
       {
