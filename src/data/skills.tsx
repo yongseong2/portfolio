@@ -4,10 +4,12 @@ import {
   SiReact,
   SiNextdotjs,
   SiTurborepo,
-  SiVuedotjs,
   SiYarn,
   SiGit,
   SiJira,
+  SiReactquery,
+  SiCypress,
+  SiSentry,
 } from 'react-icons/si';
 import { TbBrandReactNative } from 'react-icons/tb';
 
@@ -21,82 +23,92 @@ export interface Skill {
 export const skills: Skill[] = [
   {
     category: 'Language',
-    name: 'Typescript',
+    name: 'TypeScript',
     icon: <SiTypescript className='text-2xl text-[#3178C6]' />,
     description: `
-- 확장성을 위해 Typescript 사용을 주저하지 않습니다.
-- 객체 타입과 주요 tsconfig의 설정을 이해하고 있습니다.`,
+- 확장성과 안정성을 위해 TypeScript를 기본으로 사용하며, 제네릭·유틸리티 타입과 주요 tsconfig 옵션을 이해하고 타입 설계로 런타임 오류를 예방합니다.`,
   },
   {
     category: 'Language',
-    name: 'Javascript(ES6)',
+    name: 'JavaScript (ES6+)',
     icon: <SiJavascript className='text-2xl text-[#F7DF1E]' />,
-    description: `- ES6 자바스크립트 문법을 주로 활용합니다.
-- 코드의 재사용성과 가독성 향상을 위해 함수형 프로그래밍을 사용합니다.`,
+    description: `
+- ES6+ 문법을 주로 활용하며, 재사용성과 가독성 향상을 위해 함수형 프로그래밍을 지향합니다.`,
   },
   {
-    category: 'Framework/Library',
+    category: 'Framework / Library',
     name: 'React',
     icon: <SiReact className='text-2xl text-[#61DAFB]' />,
-    description: `- 아토믹 컴포넌트 설계 기반의 Storybook을 활용한 디자인 시스템을 서류로 남기며 구축해본 경험이 있습니다.
-- 프로젝트 초기 설정 및 최신 개발 환경 구축 (eslint, prettier, next.config.js, cypress)을 다수 해본 경험이 있습니다.
-- 최신 CSS in JS 를 사용했습니다. styled-components, emotion, tailwind 등 다양한 CSS 구조에 익숙합니다.
-- 불필요한 props drilling을 피하며, 전역 상태 관리 환경을 구축합니다.`,
-  },
-  {
-    category: 'Framework/Library',
-    name: 'Next.js 13',
-    icon: <SiNextdotjs className='text-2xl text-black dark:text-white' />,
     description: `
-- Next.js와 Postgres DB, Prisma를 활용한 풀스택 개발 경험이 있습니다.
-- data fetching을 활용하기 위해 axios 사용 대신 data 캐싱이 적용되는 라이브러리를 활용하였습니다.
-- SSR, SSG, ISR 적용을 고민하여 페이지를 설계한 경험이 있습니다.
-- SEO를 적용하여 배포 후 서비스 검색 결과를 상위에 노출 시킨 경험이 있습니다.`,
+- 아토믹 컴포넌트 설계 기반의 Storybook 디자인 시스템을 문서로 남기며 구축한 경험이 있습니다.
+- 불필요한 props drilling을 지양하고 Zustand·Redux Toolkit·Jotai로 전역 상태 관리 환경을 구축합니다.
+- eslint·prettier·cypress 등 프로젝트 초기 설정과 최신 개발 환경 구축을 다수 경험했습니다.
+- styled-components·emotion·Tailwind 등 다양한 CSS-in-JS 구조에 익숙합니다.`,
   },
   {
-    category: 'Framework/Library',
-    name: 'turborepo',
-    icon: <SiTurborepo className='text-2xl text-[#EF4444]' />,
-    description: `
-- 세 가지의 서비스를 분기하며 의존성을 분리해본 경험이 있습니다.
-- 공통된 컴포넌트,페이지, 훅들을 package로 분리했습니다.`,
-  },
-  {
-    category: 'Framework/Library',
-    name: 'React Native',
+    category: 'Framework / Library',
+    name: 'React Native (Expo)',
     icon: <TbBrandReactNative className='text-2xl text-[#61DAFB]' />,
     description: `
-- React Native CLI의 주요 컴포넌트와 속성을 공식 문서를 참고하여 개발한 경험이 있습니다.
-- 플레이스토어 배포를 위해 검토사항을 고려하여 오류 테스팅과 빌드 최적화 과정을 경험하였습니다.`,
+- vision-camera·BLE 등 네이티브 모듈을 연동하고, EAS Build/Update(OTA) 기반으로 앱을 배포·운영합니다.
+- iOS·Android 플랫폼 차이로 발생하는 카메라·렌더링 이슈를 트러블슈팅한 경험이 있습니다.`,
   },
   {
-    category: 'Framework/Library',
-    name: 'Vue',
-    icon: <SiVuedotjs className='text-2xl text-[#4FC08D]' />,
+    category: 'Framework / Library',
+    name: 'Next.js',
+    icon: <SiNextdotjs className='text-2xl text-black dark:text-white' />,
     description: `
-- methods, computed, 그리고 watch 간의 차이점을 이해하며 프로젝트를 진행해본 경험이 있습니다.`,
+- App Router 및 SSR·SSG·ISR을 고려해 페이지를 설계하고 fetching을 최적화합니다.
+- SEO를 적용해 배포 후 서비스 검색 결과를 상위에 노출시킨 경험이 있습니다.
+- Postgres·Prisma를 활용한 풀스택 개발 경험이 있습니다.`,
   },
   {
-    category: 'Package Manager',
+    category: 'Framework / Library',
+    name: 'TanStack Query',
+    icon: <SiReactquery className='text-2xl text-[#FF4154]' />,
+    description: `
+- 서버 상태 캐싱·동기화로 API 호출을 체계화하고, keepPreviousData 등으로 화면 전환 끊김을 최소화합니다.`,
+  },
+  {
+    category: 'Framework / Library',
+    name: 'Turborepo',
+    icon: <SiTurborepo className='text-2xl text-[#EF4444]' />,
+    description: `
+- 세 가지 서비스를 분기하며 의존성을 분리하고, 공통 컴포넌트·페이지·훅을 package로 분리한 경험이 있습니다.`,
+  },
+  {
+    category: 'Package Manager / Build',
     name: 'Yarn Berry',
     icon: <SiYarn className='text-2xl text-[#2C8EBB]' />,
     description: `
-- React와 Next js에 도입하여 CI 향상, Zero Install을 구축한 경험이 있습니다.
-- 프로젝트의 요구사항에 맞게 Webpack과 Babel 설정을 수정 및 최적화한 경험이 있습니다.`,
+- Zero Install을 구축해 CI 속도를 향상시키고, 요구사항에 맞게 Webpack·Babel 설정을 수정·최적화한 경험이 있습니다.`,
+  },
+  {
+    category: 'Quality / Monitoring',
+    name: 'Cypress',
+    icon: <SiCypress className='text-2xl text-[#17202C]' />,
+    description: `
+- 핵심 사용자 시나리오를 E2E로 자동화해 배포 전 회귀 오류를 검증합니다.`,
+  },
+  {
+    category: 'Quality / Monitoring',
+    name: 'Sentry',
+    icon: <SiSentry className='text-2xl text-[#362D59]' />,
+    description: `
+- 글로벌 에러 모니터링을 연동해 운영 중 발생하는 장애를 추적·대응합니다.`,
   },
   {
     category: 'Collaboration & Tool',
     name: 'Git',
     icon: <SiGit className='text-2xl text-[#F05032]' />,
     description: `
-- Git Flow를 이해하며 master, develop, feature, hotfix 등의 브랜치 전략을 수립하여 개발을 진행하였습니다.`,
+- Git Flow를 이해하며 master·develop·feature·hotfix 브랜치 전략을 수립해 개발합니다.`,
   },
   {
     category: 'Collaboration & Tool',
     name: 'JIRA',
     icon: <SiJira className='text-2xl text-[#0052CC]' />,
     description: `
-- 애자일 기반의 프로젝트 관리를 진행하였습니다.
-- 스프린트 단위로 일정을 조율하며 협업하였습니다.`,
+- 애자일 기반으로 스프린트 단위 일정을 조율하며 협업합니다.`,
   },
 ];
