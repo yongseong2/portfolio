@@ -48,14 +48,14 @@ export const Career = () => {
           >
             <div className='md:w-1/3 relative'>
               {/* 타임라인 선 */}
-              <div className='absolute left-4 top-12 bottom-0 w-0.5 bg-blue-200' />
+              {/* <div className='absolute left-4 top-12 bottom-0 w-0.5 bg-blue-200' />
               {index !== careerData.length - 1 && (
                 <div className='absolute left-4 top-12 bottom-[-4rem] w-0.5 bg-blue-200' />
-              )}
+              )} */}
               {/* 타임라인 원 */}
-              <div className='absolute left-2 top-3 w-4 h-4 rounded-full bg-blue-500 border-4 border-blue-100' />
+              {/* <div className='absolute left-2 top-3 w-4 h-4 rounded-full bg-blue-500 border-4 border-blue-100' /> */}
 
-              <div className='pl-12'>
+              <div>
                 <div className='flex items-center gap-3 mb-4'>
                   <HiOfficeBuilding className='text-blue-500 text-2xl' />
                   <h3 className='text-2xl font-bold text-gray-800'>
