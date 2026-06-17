@@ -54,7 +54,7 @@ const Navbar = () => {
           <div className='w-64 px-8'>
             <h1 className='text-xl font-bold mb-12 text-gray-800'>
               <ReactTypingEffect
-                text={['npm start', 'Loading...', '<SeongYong />']}
+                text={['npm run dev', 'Loading...', '<SeongYong />']}
                 speed={50}
                 eraseSpeed={50}
                 typingDelay={1000}
