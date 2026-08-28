@@ -14,10 +14,20 @@ export const Markdown = ({ children, className, white }: MarkdownProps) => {
       className={clsx(
         'markdown-content',
         white && 'markdown-content-white',
-        className
+        className,
       )}
     >
-      <ReactMarkdown>{children}</ReactMarkdown>
+      <ReactMarkdown
+        components={{
+          a: ({ href, children, ...props }) => (
+            <a href={href} target='_blank' rel='noopener noreferrer' {...props}>
+              {children}
+            </a>
+          ),
+        }}
+      >
+        {children}
+      </ReactMarkdown>
     </div>
   );
 };

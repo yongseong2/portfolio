@@ -346,7 +346,7 @@ export const projects: Project[] = [
     award: '삼성 청년SW아카데미 웹기술 트랙 우수상',
     team: '프론트엔드 2명 / 백엔드 4명',
     links: {
-      github: 'https://github.com/yongseong2/bidding-king',
+      github: 'https://github.com/bid-king',
       video: 'https://www.youtube.com/watch?v=iyUf4gSRbaA',
     },
     techStack: [
