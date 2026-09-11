@@ -118,7 +118,7 @@ export const careerData: Career[] = [
   {
     category: '프론트엔드 개발',
     title: '클라우드 가드 (전 린아레나)',
-    period: '2024.12 ~ 2025.07',
+    period: '2023.12 ~ 2025.07',
     description:
       '메가존 클라우드 자회사\n클라우드 보안 솔루션 B2B SaaS 프론트엔드',
     details: [
