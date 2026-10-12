@@ -1,46 +1,61 @@
 import type { Config } from 'tailwindcss';
-import typography from '@tailwindcss/typography';
 
-/** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    // A4 is narrower than md, so print opts into the desktop layout explicitly.
+    screens: {
+      sm: '640px',
+      md: { raw: '(min-width: 768px), print' },
+      lg: { raw: '(min-width: 1024px), print' },
+    },
     extend: {
-      fontFamily: {
-        sans: ['Pretendard', 'sans-serif'],
-      },
-      spacing: {
-        'cp-sm': '1rem', // 모바일
-        'cp-md': '2rem', // 태블릿
-        cp: '10rem', // 데스크톱
-      },
-      typography: {
-        DEFAULT: {
-          css: {
-            maxWidth: 'none',
-            color: 'inherit',
-            h3: {
-              color: 'inherit',
-              fontWeight: '700',
-            },
-            ul: {
-              listStyleType: 'none',
-              padding: '0',
-            },
-            li: {
-              marginTop: '0',
-              marginBottom: '0',
-            },
-            'ul > li': {
-              paddingLeft: '0',
-            },
-            'ul > li::before': {
-              display: 'none',
-            },
-          },
+      colors: {
+        grey: {
+          50: '#f9fafb',
+          100: '#f2f4f6',
+          200: '#e5e8eb',
+          300: '#d1d6db',
+          400: '#b0b8c1',
+          500: '#8b95a1',
+          600: '#6b7684',
+          700: '#4e5968',
+          800: '#333d4b',
+          900: '#191f28',
         },
+        blue: {
+          50: '#e8f3ff',
+          100: '#c9e2ff',
+          200: '#90c2ff',
+          400: '#4593fc',
+          500: '#3182f6',
+          600: '#2272eb',
+          700: '#1b64da',
+        },
+      },
+      fontFamily: {
+        sans: [
+          'Pretendard',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Apple SD Gothic Neo',
+          'Malgun Gothic',
+          'sans-serif',
+        ],
+      },
+      letterSpacing: {
+        tightest: '-0.04em',
+        tighter: '-0.03em',
+        tight: '-0.02em',
+      },
+      maxWidth: {
+        content: '1080px',
+      },
+      boxShadow: {
+        card: '0 1px 2px rgba(0, 27, 55, 0.04), 0 8px 24px rgba(0, 27, 55, 0.06)',
+        lift: '0 2px 4px rgba(0, 27, 55, 0.05), 0 20px 48px rgba(0, 27, 55, 0.12)',
       },
     },
   },
-  plugins: [typography],
+  plugins: [],
 } satisfies Config;

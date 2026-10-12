@@ -1,394 +1,286 @@
-interface Project {
+import type { Link } from './experience';
+
+export interface GalleryImage {
+  src: string;
   title: string;
-  period: string;
-  description: string;
-  award?: string;
-  team?: string;
-  links: {
-    github?: string;
-    demo?: string;
-    review?: string[];
-    video?: string;
-  };
-  techStack: string[];
-  role: string[];
-  projectImages?: {
-    url: string;
-    description?: string;
-    title?: string;
-  }[];
+  points?: string[];
+  link?: Link;
+  wide?: boolean;
 }
 
-export const projects: Project[] = [
+export type ProjectCover =
+  | { type: 'mobile'; images: string[] }
+  | { type: 'desktop'; image: string }
+  | { type: 'none' };
+
+export interface SideProject {
+  id: string;
+  title: string;
+  subtitle: string;
+  period: string;
+  award: string;
+  awardOrg: string;
+  team: string;
+  highlights: string[];
+  stack: string[];
+  links: Link[];
+  cover: ProjectCover;
+  gallery: GalleryImage[];
+}
+
+const img = (name: string) => `/assets/images/project/${name}`;
+
+export const sideProjects: SideProject[] = [
   {
-    title: 'Fallaylist (폴레이리스트)',
-    period: '2025.07.14 ~ 2025.10.28',
-    description: '강원도 계곡 여행 전문 플랫폼',
-    award: '2025 관광데이터 활용 공모전 장려상 (한국관광공사 x Kakao 주관)',
-    team: '기획자 1명 / 디자이너 1명 / 백엔드 1명 / 프론트엔드 1명',
-    links: {
-      github: 'https://github.com/fallaylist/fallaylist-frontend',
-    },
-    techStack: [
-      'Typescript',
+    id: 'fallaylist',
+    title: 'Fallaylist',
+    subtitle: '강원도 계곡 여행 플랫폼',
+    period: '2025.07 – 2025.10',
+    award: '관광데이터 활용 공모전 장려상',
+    awardOrg: '한국관광공사 × 카카오',
+    team: '기획 1 · 디자인 1 · 백엔드 1 · 프론트엔드 1',
+    highlights: [
+      'Kakao Map API 기반 계곡 지도·위치 탐색과 지역·정렬 필터 바텀시트 구현',
+      '여행 일정 생성 Funnel을 Zustand로 단계별 상태 관리, React Hook Form + Zod로 입력 검증',
+      'Spring AI + Gemini 기반 키워드별 테마 계곡 추천 UI 구현',
+      '카카오 소셜 로그인·JWT 인증과 TanStack Query 무한 스크롤 구현',
+    ],
+    stack: [
       'React 19',
+      'TypeScript',
       'Vite',
-      'React Router 7',
       'TanStack Query',
       'Zustand',
       'React Hook Form',
       'Zod',
-      'TailWind CSS',
-      'framer-motion',
-      'Kakao Map API',
+      'Tailwind CSS',
     ],
-    role: [
-      'React 19 + Vite + TypeScript 기반 모바일 웹 프론트엔드 개발 담당',
-      '카카오 소셜 로그인 및 JWT(Access/Refresh Token) 기반 인증 구현',
-      'Kakao Map API를 활용한 계곡 지도 및 위치 기반 탐색 기능 구현',
-      'react-spring-bottom-sheet를 활용한 지역/계곡/정렬 필터 바텀시트 구현',
-      '폴레이리스트(여행 일정) 생성 Funnel을 Zustand로 단계별 상태 관리하여 구현',
-      'React Hook Form + Zod를 활용한 폼 유효성 검사 및 입력 관리',
-      'TanStack Query를 활용한 서버 상태 관리 및 캐싱, 무한 스크롤 처리',
-      'AI(Spring AI + Gemini) 기반 키워드별 테마 계곡 추천 조회 UI 구현',
-      '리뷰/프로필 이미지 S3 업로드 및 커뮤니티(리뷰, 댓글, 좋아요) UI 구현',
-      '재사용 가능한 공통 컴포넌트 및 도메인 단위 폴더 구조 설계',
-    ],
+    links: [{ label: 'GitHub', href: 'https://github.com/fallaylist/fallaylist-frontend' }],
+    cover: { type: 'none' },
+    gallery: [],
   },
   {
+    id: 'sumbisori',
     title: '숨비소리',
-    period: '2024.10.29 ~ 2025.06.06',
-    description: '제주 해녀 문화보존 프로젝트',
-    award: '구름톤 인 제주 11기 최우수상',
-    team: '기획자 1명 / 디자이너 1명 / 백엔드 1명 / 프론트엔드 2명\n(해커톤 이후: 디자이너 1명/ 백엔드 1명 / 프론트엔드 1명)',
-    links: {
-      github: 'https://github.com/sumbisori',
-      demo: 'https://www.sumbisori.site',
-      review: [
-        'https://velog.io/@yongseong2/후기-구름톤-in-JEJU-11기-프론트엔드-개발-참가-후기',
-        'https://velog.io/@yongseong2/후기-구름톤-in-JEJU-11기-프론트엔드-개발-참가-후기2',
-      ],
-    },
-    techStack: [
-      'Typescript',
-      'React',
-      'TailWind CSS',
-      'tanstack query',
-      'Zustand',
-      'framer-motion',
+    subtitle: '제주 해녀 문화 보존 서비스',
+    period: '2024.10 – 2025.06',
+    award: '구름톤 in 제주 11기 최우수상',
+    awardOrg: '카카오 × 구름',
+    team: '기획 1 · 디자인 1 · 백엔드 1 · 프론트엔드 2',
+    highlights: [
+      'matter.js로 해산물 수족관 2D 물리 엔진 인터랙션 구현',
+      '해산물 사진을 S3 업로드 후 AI 이미지 분석으로 종류·개수 인식, Promise.all 병렬 처리와 낙관적 UI 적용',
+      '해양수산부 API로 실시간 수온·물때를 연동하고 네이버 지도 기반 제주 지도 구현',
+      'Tailwind 테마로 스타일 가이드의 색상·타이포를 변수화하고 공통 컴포넌트 설계',
     ],
-    role: [
-      '컴포넌트 구조를 활용하여 각 UI 요소를 재사용 가능한 구성 요소로 분리',
-      'AWS amplify를 활용한 배포',
-      'tailwind의 커스터마이징 기능을 이용해 스타일 가이드에 맞는 색상 팔레트와 테마를 설정',
-      'matter.js를 활용한 수족관 2D 물리 엔진 기능 구현',
-      '해양수산부 API를 활용하여 실시간 수온, 물 때 데이터 연동',
-      '네이버 지도 API를 활용하여 제주도 지도 페이지 구현',
-      '해산물 이미지 s3에 업로드 및 chat gpt를 활용한 해산물 갯수 파악 기능 구현',
-      '모바일 기기 반응형 화면 구현',
-    ],
-    projectImages: [
+    stack: ['React', 'TypeScript', 'TanStack Query', 'Zustand', 'Tailwind CSS', 'framer-motion', 'matter.js'],
+    links: [
+      { label: '서비스', href: 'https://www.sumbisori.site' },
+      { label: 'GitHub', href: 'https://github.com/sumbisori' },
       {
-        url: '/assets/images/project/sumbisori-0.png',
+        label: '회고',
+        href: 'https://velog.io/@yongseong2/후기-구름톤-in-JEJU-11기-프론트엔드-개발-참가-후기',
+      },
+    ],
+    cover: {
+      type: 'mobile',
+      images: [img('sumbisori-1.png'), img('sumbisori-5.png'), img('sumbisori-9.png')],
+    },
+    gallery: [
+      {
+        src: img('sumbisori-0.png'),
         title: '스타일 가이드',
-        description: `
-- tailwind.config에 미리 등록하여 색상을 변수화 하여 사용했습니다.
-- Text, Spacing 등 일관된 스타일을 구현하기 위해 컴포넌트를 작은 단위부터 구현했습니다.`,
+        wide: true,
+        points: [
+          '디자인 시스템의 색상을 tailwind.config에 토큰으로 등록해 사용했습니다.',
+          'Text·Spacing 등 일관된 스타일을 위해 작은 단위 컴포넌트부터 구현했습니다.',
+        ],
       },
       {
-        url: '/assets/images/project/sumbisori-1.png',
-        title: '수족관 물리엔진',
-        description: `
-- matter.js 를 활용하여 다이버, 해산물, 돌, 배경 레이어 특성을 정의하며 구현하였습니다. 
-- 구현 과정: [Matter.js 사용기](https://velog.io/@yongseong2/Matter.js-사용기)`,
+        src: img('sumbisori-1.png'),
+        title: '수족관 물리 엔진',
+        points: ['matter.js로 다이버·해산물·돌·배경 레이어의 물리 특성을 정의해 구현했습니다.'],
+        link: { label: 'Matter.js 사용기', href: 'https://velog.io/@yongseong2/Matter.js-사용기' },
       },
       {
-        url: '/assets/images/project/sumbisori-2.png',
-        title: '체험일지 작성 폼',
-        description: `- 사용자의 입력을 받는 form을 효율적으로 관리 및 유효성 검사를 위해 zustand 와 react-query mutation을 활용했습니다.\n- form 과정(Funnel)을 벗어 날 때 초기화 하거나 요구 사항에 따라 임시 저장이 가능하게 설계 했습니다.`,
+        src: img('sumbisori-2.png'),
+        title: '체험일지 작성 Funnel',
+        points: [
+          'Zustand와 useMutation으로 단계별 입력과 유효성 검사를 관리했습니다.',
+          'Funnel 이탈 시 초기화하거나 요구사항에 따라 임시 저장되도록 설계했습니다.',
+        ],
       },
+      { src: img('sumbisori-3.png'), title: '체험 장소 선택' },
+      { src: img('sumbisori-4.png'), title: '날씨 및 일행 선택' },
       {
-        url: '/assets/images/project/sumbisori-3.png',
-        title: '체험 장소 선택',
-        description: `- 체험 장소 목록 선택`,
-      },
-      {
-        url: '/assets/images/project/sumbisori-4.png',
-        title: '날씨 및 일행 선택',
-        description: `- 날씨 및 일행 선택`,
-      },
-      {
-        url: '/assets/images/project/sumbisori-5.png',
+        src: img('sumbisori-5.png'),
         title: '해산물 이미지 분석',
-        description: `
-- 단일 이미지가 아니라 복수의 이미지를 처리하게 위해 Promise.all을 활용했습니다.
-- 분석 과정을 거친 이미지들은 pending에서 complete 상태로 변경되면서 응답 받은 해산물 종류와 개수를 표시합니다.`,
+        points: [
+          '여러 장의 이미지를 Promise.all로 병렬 처리했습니다.',
+          '분석이 끝나면 pending에서 complete로 바뀌며 인식된 해산물 종류와 개수를 보여줍니다.',
+        ],
       },
       {
-        url: '/assets/images/project/sumbisori-6.png',
+        src: img('sumbisori-6.png'),
         title: '이미지 업로드 프로세스',
-        description: `- 해산물 이미지 올릴 때 아래와 같은 과정을 거칩니다.\n  1. 이미지를 S3에 업로드한 후, 업로드 전 로컬 이미지는 화면에 낙관적으로 표시됩니다.\n  2. S3 업로드에 성공한 경우 AI 이미지 분석 API를 호출합니다.\n  3. 위 과정이 진행 될 때 이미지는 pending 상태를 가지면서 로딩 바에서 숫자가 올라가는 애니메이션을 확인합니다. `,
+        points: [
+          'S3 업로드 전 로컬 이미지를 낙관적으로 먼저 표시합니다.',
+          '업로드 성공 시 AI 분석 API를 호출하고, 진행 상태를 숫자 애니메이션으로 보여줍니다.',
+        ],
       },
+      { src: img('sumbisori-7.png'), title: '최종 내용 확인' },
+      { src: img('sumbisori-8.png'), title: '완료 화면' },
       {
-        url: '/assets/images/project/sumbisori-7.png',
-        title: '최종 내용 확인',
-        description: `- 최종 내용 확인`,
-      },
-      {
-        url: '/assets/images/project/sumbisori-8.png',
-        title: '완료 이벤트',
-        description: `- 완료 이벤트 페이지`,
-      },
-      {
-        url: '/assets/images/project/sumbisori-9.png',
+        src: img('sumbisori-9.png'),
         title: '체험일지 목록',
-        description: `- 체험일지 목록 페이지: useInfiniteQuery를 활용하여 grid cols가 1개, 2개, 3개 별로 무한 스크롤을 구현하였습니다.`,
+        points: ['useInfiniteQuery로 1·2·3열 그리드 각각에 무한 스크롤을 구현했습니다.'],
       },
     ],
   },
   {
-    title: '나뭇잎 롤링페이퍼',
-    period: '2024.03.15~2024.04.15',
-    description: '나뭇잎으로 구성된 롤링 페이퍼 공유 어플리케이션',
-    links: {
-      github: 'https://github.com/yongseong2/rolling-leaf',
-      demo: 'https://rolling-leaf.vercel.app',
-    },
-    techStack: [
-      'Typescript',
-      'Next.js 14',
-      'Prisma',
-      'next-auth',
-      'PostgreSQL',
-      'Redux-toolkit',
-      'TailWind CSS',
-      'React-Query',
-    ],
-    role: [
-      '풀스텍 개발',
-      'api router를 활용한 백엔드 CRUD 구현',
-      'next-auth 기반 Oauth 카카오톡 로그인 구현',
-      'react-draggble를 활용한 드래그 앤 드랍이 가능한 편지 UI 기능',
-    ],
-    projectImages: [
-      {
-        url: '/assets/images/project/rolling-leaf-0.png',
-        title: '수신 나뭇잎(편지) 조회',
-        description: `
-- 편지함 페이지에서 수신 나뭇잎을 클릭하면 편지 상세 페이지로 이동합니다.
-- 공유하기 버튼을 통해 편지함 링크를 공유할 수 있습니다.
-        `,
-      },
-      {
-        url: '/assets/images/project/rolling-leaf-1.png',
-        title: '나뭇잎(편지) 작성',
-        description: `
-- 편지 작성 페이지에서 편지 내용을 작성할 수 있습니다.
-        `,
-      },
-    ],
-  },
-  {
+    id: 'ziglog',
     title: 'ZigLog',
-    period: '2023.10.09~2023.11.20',
-    description: '지식그래프로 확인하는 문서 툴',
-    award: '삼성 청년SW아카데미 자율 주제 프로젝트 우수상',
-    team: '프론트엔드 4명 / 백엔드 2명',
-    links: {
-      github: 'https://github.com/BittleBeatles/Ziglog',
-      video: 'https://www.youtube.com/watch?v=tOWOvG0jEx8',
-    },
-    techStack: [
-      'Typescript',
-      'Next.js',
-      'Cypress',
-      'Storybook',
-      'Redux-toolkit',
-      'TailWind CSS',
-      'Yarn Berry',
-      'Three.js',
+    subtitle: '지식 그래프로 탐색하는 문서 툴',
+    period: '2023.10 – 2023.11',
+    award: 'SSAFY 자율 프로젝트 우수상',
+    awardOrg: '삼성전자',
+    team: '프론트엔드 4 · 백엔드 2',
+    highlights: [
+      'Canvas 2D·Three.js로 2D/3D 지식 그래프를 커스텀하고 노드 인터랙션 구현',
+      '재귀 컴포넌트 기반 폴더 탐색기와 부모 폴더 위치를 고려한 폴더 생성 로직 구현',
+      'Atomic Design 기반 Storybook으로 컴포넌트 주도 개발 환경 구축',
+      '랜딩 페이지 SEO 적용으로 구글 검색 상위 노출, 라이트·다크 모드 구현',
     ],
-    role: [
-      '프론트엔드 개발 담당',
-      '공통 UI 컴포넌트 개발(폴더 탐색, 북마크, 인풋, 버튼)',
-      '지식 그래프 개발 및 커스텀(2D, 3D, 모든 유저 노트를 포함하는 그래프)',
-      '에러 핸들링 페이지 적용 및 API 요청 오류 발생 시 안내문구 출력',
-      '랜딩페이지 SEO 적용 - 구글에 Ziglog 검색시 상위 노출',
-      '프로젝트 초기 설정 및 컴포넌트 주도 개발 환경 구축',
-      '라이트모드/다크모드 구현',
+    stack: ['Next.js', 'TypeScript', 'Redux Toolkit', 'Tailwind CSS', 'Three.js', 'Storybook', 'Cypress', 'Yarn Berry'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/BittleBeatles/Ziglog' },
+      { label: '시연 영상', href: 'https://www.youtube.com/watch?v=tOWOvG0jEx8' },
     ],
-    projectImages: [
+    cover: { type: 'desktop', image: img('ziglog-1.png') },
+    gallery: [
       {
-        url: '/assets/images/project/ziglog-0.png',
+        src: img('ziglog-0.png'),
         title: '2D 지식 그래프',
-        description: `
-- 폴더탐색기: 각각의 폴더 또는 노트 컴포넌트를 재귀적으로 호출하였습니다. 특히, 폴더 생성시에는 각각의 부모폴더 id를 파악하는 로직을 호출하여 사용자 입장에서 생각되는 위치에 폴더가 생성되도록 구현하였습니다.
-- 2D 그래프 커스텀을 위해 CanvasRenderingContext2D 객체를 조작하였습니다.
-        `,
+        points: [
+          '폴더·노트 컴포넌트를 재귀적으로 호출하고, 부모 폴더 id를 파악해 사용자가 기대하는 위치에 폴더가 생성되도록 했습니다.',
+          'CanvasRenderingContext2D를 직접 조작해 그래프를 커스텀했습니다.',
+        ],
       },
       {
-        url: '/assets/images/project/ziglog-1.png',
+        src: img('ziglog-1.png'),
         title: '3D 지식 그래프',
-        description: `
-- 3D로 구체를 렌더링 하기위해 Three.js의 객체를 생성하였습니다.
-- 노트 또는 폴더 클릭 시 3D 애니메이션 효과를 부여하였습니다.
-        `,
+        points: ['Three.js로 구체를 렌더링하고, 노드 클릭 시 3D 카메라 애니메이션을 적용했습니다.'],
       },
       {
-        url: '/assets/images/project/ziglog-2.png',
-        title: '검색페이지',
-        description: `
-- 모든 사용자의 노트 참조관계를 그래프로 확인 할 수 있습니다. 
-- 검색 결과에 무한 스크롤링을 적용하여 공개된 노트를 조회할 수 있습니다.
-        `,
+        src: img('ziglog-2.png'),
+        title: '검색 페이지',
+        points: ['전체 사용자의 노트 참조 관계를 그래프로 보여주고, 검색 결과에 무한 스크롤을 적용했습니다.'],
       },
       {
-        url: '/assets/images/project/ziglog-3.png',
-        title: 'Atomic 디자인 기반의 CDD 진행으로 Storybook 사용',
-        description: `
-- 각 컴포넌트의 사용법과 속성을 명확하게 해, 팀원들이 컴포넌트를 쉽게 이해하고 사용할 수 있도록 하였습니다.
-        `,
+        src: img('ziglog-3.png'),
+        title: 'Storybook 기반 CDD',
+        points: ['컴포넌트의 사용법과 속성을 문서화해 팀원들이 쉽게 이해하고 재사용하도록 했습니다.'],
       },
     ],
   },
   {
+    id: 'benepick',
     title: '베네픽',
-    period: '2023.08.21~2023.10.06',
-    description: '위치 기반 카드 추천 서비스',
-    award: '삼성 청년SW아카데미 핀테크 트랙 우수상',
-    team: '프론트엔드 2명 / 백엔드 4명',
-    links: {
-      github: 'https://github.com/Benepick/Benepick',
-      video: 'https://www.youtube.com/watch?v=KMJX3GOS7eo',
+    subtitle: '위치 기반 카드 혜택 추천 앱',
+    period: '2023.08 – 2023.10',
+    award: 'SSAFY 핀테크 트랙 우수상',
+    awardOrg: '삼성전자',
+    team: '프론트엔드 2 · 백엔드 4',
+    highlights: [
+      '현재 위치 기반으로 보유 카드의 최대 혜택을 추천하는 메인 화면과 위치 알림 구현',
+      'SVG path를 직접 계산해 선형·막대·원형 소비 그래프 구현',
+      'GPT 응답을 정형화해 옵션 선택형 혜택 안내 챗봇 구현',
+      'axios 인스턴스·인터셉터로 네트워크 모듈화, build.gradle 최적화 후 Play 스토어 배포',
+    ],
+    stack: ['React Native', 'TypeScript', 'React Navigation', 'Redux Toolkit'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/Benepick/Benepick' },
+      { label: '시연 영상', href: 'https://www.youtube.com/watch?v=KMJX3GOS7eo' },
+    ],
+    cover: {
+      type: 'mobile',
+      images: [img('benepick-0.png'), img('benepick-2.png'), img('benepick-6.png')],
     },
-    techStack: [
-      'Typescript',
-      'React Native',
-      'React-Navigation',
-      'Redux-toolkit',
-    ],
-    role: [
-      '프론트엔드 개발 담당',
-      'build.gradle 설정 최적화 및 플레이스토어 배포',
-      'axios의 인터셉터, 인스턴스를 활용한 네트워크 요청 모듈화',
-      '위치기반 추천 페이지(권한 승인을 통한 조회)',
-      '혜택 및 소비 내역 페이지(월별 소비 내역 조회, SVG를 활용한 그래프 구현) 개발',
-      '챗봇 페이지(답변 내용 기반의 옵션 선택 기능) 개발',
-      '혜택 검색 페이지 개발',
-    ],
-    projectImages: [
+    gallery: [
       {
-        url: '/assets/images/project/benepick-0.png',
-        title: '챗봇1',
-        description: `
-- 카드의 다양한 혜택 정보를 사용자에게 효과적으로 전달하고자 챗봇 서비스를 도입을 하였습니다.
-
-        `,
+        src: img('benepick-2.png'),
+        title: '위치 기반 혜택',
+        points: ['앱 실행 시 현재 위치에 맞는 최적의 카드를 바로 추천합니다.'],
       },
       {
-        url: '/assets/images/project/benepick-1.png',
-        title: '챗봇2',
-        description: `
-- Chat GPT 응답을 정형화 시켜 사용자가 보기 쉬운 혜택 정보를 제공합니다.
-        `,
+        src: img('benepick-3.jpg'),
+        title: '위치 알림',
+        points: ['알림 모듈은 Java 네이티브 모듈로 구현했습니다.'],
       },
       {
-        url: '/assets/images/project/benepick-2.png',
-        title: '메인페이지 - 위치 기반 혜택',
-        description: `
-- 앱을 실행하는 순간 간편 로그인이 활성화 된다면, 자신의 위치에 따른 카드 추천을 받을 수 있도록 메인 페이지를 구현하였습니다.      
-        `,
+        src: img('benepick-0.png'),
+        title: '혜택 안내 챗봇',
+        points: ['카드의 다양한 혜택 정보를 대화형으로 전달하기 위해 챗봇을 도입했습니다.'],
       },
       {
-        url: '/assets/images/project/benepick-3.jpg',
-        title: '메인페이지 - 위치 알림',
-        description: `
-- 알림 모듈 구현을 위해 Java 모듈을 활용하였습니다.
-        `,
+        src: img('benepick-1.png'),
+        title: '응답 정형화',
+        points: ['GPT 응답을 정형화해 사용자가 보기 쉬운 혜택 정보로 제공합니다.'],
       },
       {
-        url: '/assets/images/project/benepick-4.png',
-        title: '혜택 그래프 - 선형 그래프',
-        description: `
-- SVG를 활용하여 소비 내역을 그래프로 표시하였습니다.
-- path 속성을 활용하여 그래프의 모양을 커스텀 하였습니다.
-        `,
+        src: img('benepick-4.png'),
+        title: '선형 그래프',
+        points: ['SVG path 속성을 직접 계산해 소비 내역 그래프를 그렸습니다.'],
+      },
+      { src: img('benepick-5.png'), title: '막대 그래프' },
+      {
+        src: img('benepick-6.png'),
+        title: '원형 그래프',
+        points: ['카테고리별 소비 비율에 맞춰 원호를 계산해 그렸습니다.'],
       },
       {
-        url: '/assets/images/project/benepick-5.png',
-        title: '소비 그래프 - 막대 그래프',
+        src: img('benepick-7.png'),
+        title: '장소 기반 혜택 검색',
+        points: ['장소 검색 시 보유 카드의 최대 혜택과 해당 장소 최고 혜택 카드를 함께 보여줍니다.'],
       },
-      {
-        url: '/assets/images/project/benepick-6.png',
-        title: '소비 내역 그래프 - 원 그래프',
-        description: `
-- 장소 카테고리 소비 비율에 따라 원 그래프로 표시하였습니다.
-- radius를 계산하여 원 그래프의 비율을 조절하였습니다.
-        `,
-      },
-      {
-        url: '/assets/images/project/benepick-7.png',
-        title: '장소 기반 혜택 검색1',
-        description: `
-- 사용자가 장소를 검색할 때, 보유한 카드의 최대 혜택을 추천하며 해당 장소에서 최고 혜택을 제공하는 다른 카드도 함께 제시됩니다.
-        `,
-      },
-      {
-        url: '/assets/images/project/benepick-8.png',
-        title: '장소 기반 혜택 검색2',
-      },
+      { src: img('benepick-8.png'), title: '검색 결과 상세' },
     ],
   },
   {
+    id: 'bidking',
     title: '입찰왕',
-    period: '2023.07.04~2023.08.19',
-    description: '쉽고 재미있는 라이브 경매 플랫폼, 입찰왕',
-    award: '삼성 청년SW아카데미 웹기술 트랙 우수상',
-    team: '프론트엔드 2명 / 백엔드 4명',
-    links: {
-      github: 'https://github.com/bid-king',
-      video: 'https://www.youtube.com/watch?v=iyUf4gSRbaA',
-    },
-    techStack: [
-      'Typescript',
-      'React',
-      'Redux-toolkit',
-      'Emotion',
-      'Yarn berry',
-      'Storybook',
-      'React-query',
+    subtitle: '실시간 라이브 경매 플랫폼',
+    period: '2023.07 – 2023.08',
+    award: 'SSAFY 웹기술 트랙 우수상',
+    awardOrg: '삼성전자',
+    team: '프론트엔드 2 · 백엔드 4',
+    highlights: [
+      'OpenVidu로 판매자 실시간 화면 송출(1:N), Socket.io로 경매방 채팅 구현',
+      'SSE 기반 실시간 알림 수신과 알림 내역 조회 구현',
+      '스크롤 이벤트 쓰로틀링 기반 무한 스크롤 경매방 탐색',
+      'Access·Refresh Token 기반 인증·갱신, 판매자·구매자 테마 분리',
     ],
-    role: [
-      '프론트엔드 개발 담당',
-      '메인페이지 및 Scroll event 수신 시 쓰로틀링을 이용한 API 요청으로 무한 스크롤 경매방 탐색 기능',
-      'Openvidu를 활용한 판매자 실시간 화면 송출 기능(1:N)',
-      'Socket.io를 활용한 경매방 구매자간의 채팅 기능',
-      'SSE를 활용한 알림 수신 기능 및 알림 내역 조회 기능',
-      '토큰 기반의 회원 인증 및 갱신 기능(Access Token, Refresh Token 활용)',
-      '경매방 생성, 수정, 삭제 기능',
-      '판매자와 구매자를 구분하는 다크모드와 라이트모드 기능',
+    stack: ['React', 'TypeScript', 'Redux Toolkit', 'React Query', 'Emotion', 'Storybook', 'Yarn Berry'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/bid-king' },
+      { label: '시연 영상', href: 'https://www.youtube.com/watch?v=iyUf4gSRbaA' },
     ],
-    projectImages: [
+    cover: { type: 'desktop', image: img('bidking-cover.webp') },
+    gallery: [
       {
-        url: '/assets/images/project/bidking-0.png',
-        title: '경매진행 페이지 - 판매자 화면',
-        description: `
-- 판매자는 Openvidu로 상품을 실시간 송출합니다.
-        `,
+        src: img('bidking-0.png'),
+        title: '판매자 화면',
+        points: ['판매자는 OpenVidu로 상품을 실시간 송출합니다.'],
       },
       {
-        url: '/assets/images/project/bidking-1.png',
-        title: '경매진행 페이지 - 구매자 화면',
-        description: `
-- 구매자는 동시에 이를 시청하여 다수와 함께 경매에 참여합니다.
-        `,
+        src: img('bidking-1.png'),
+        title: '구매자 화면',
+        points: ['구매자는 실시간 영상을 보며 여러 사람과 함께 경매에 참여합니다.'],
       },
       {
-        url: '/assets/images/project/bidking-2.png',
-        title: '메인페이지 (구매자 페이지)',
-        description: `
-- 메인페이지의 경매 목록 탐색에 카테고리 및 무한 스크롤링 기능을 도입하였습니다.
-        `,
+        src: img('bidking-2.png'),
+        title: '메인 페이지',
+        points: ['카테고리 필터와 무한 스크롤로 경매 목록을 탐색합니다.'],
       },
     ],
   },

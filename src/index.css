@@ -4,30 +4,6 @@
 
 @font-face {
   font-family: 'Pretendard';
-  src: url('/assets/fonts/Pretendard-Thin.woff') format('woff');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Pretendard';
-  src: url('/assets/fonts/Pretendard-ExtraLight.woff') format('woff');
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Pretendard';
-  src: url('/assets/fonts/Pretendard-Light.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Pretendard';
   src: url('/assets/fonts/Pretendard-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
@@ -66,27 +42,82 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Pretendard';
-  src: url('/assets/fonts/Pretendard-Black.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white font-sans text-grey-900 antialiased;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    @apply bg-blue-100 text-grey-900;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+  }
 }
 
-::-webkit-scrollbar {
-  width: 6px;
+@layer components {
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
+@page {
+  size: A4;
+  margin: 10mm;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.3);
+@media print {
+  html {
+    /* Lays the desktop design out at ~1000px and scales it onto A4. */
+    zoom: 0.7;
+    overflow: visible !important;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .print-avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-keep-with-next {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
 }
