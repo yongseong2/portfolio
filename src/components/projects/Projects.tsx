@@ -28,13 +28,15 @@ const ProjectCard = ({
       <div
         className={clsx(
           'print-avoid-break flex flex-1 flex-col print:!grid print:!grid-cols-2',
-          featured && 'md:grid md:grid-cols-2'
+          featured && 'md:grid md:grid-cols-2',
         )}
       >
         <div
           className={clsx(
             'relative overflow-hidden bg-grey-100 print:!order-2 print:!aspect-auto print:!min-h-[340px]',
-            featured ? 'aspect-[16/11] md:order-2 md:aspect-auto md:min-h-[460px]' : 'aspect-[16/11]'
+            featured
+              ? 'aspect-[16/11] md:order-2 md:aspect-auto md:min-h-[460px]'
+              : 'aspect-[16/11]',
           )}
         >
           <ProjectCover project={project} featured={featured} />
@@ -43,7 +45,7 @@ const ProjectCard = ({
         <div
           className={clsx(
             'flex flex-1 flex-col p-6 md:p-8 print:!justify-center print:!p-10',
-            featured && 'md:justify-center md:p-12'
+            featured && 'md:justify-center md:p-12',
           )}
         >
           <p className='inline-flex items-center gap-1 text-[13px] font-semibold text-blue-600'>
@@ -53,7 +55,9 @@ const ProjectCard = ({
           <h3
             className={clsx(
               'mt-2 font-bold tracking-tight text-grey-900',
-              featured ? 'text-[26px] md:text-[34px]' : 'text-[22px] md:text-[24px]'
+              featured
+                ? 'text-[26px] md:text-[34px]'
+                : 'text-[22px] md:text-[24px]',
             )}
           >
             <button
@@ -65,7 +69,9 @@ const ProjectCard = ({
               {project.title}
             </button>
           </h3>
-          <p className='mt-1 text-[16px] text-grey-600 md:text-[17px]'>{project.subtitle}</p>
+          <p className='mt-1 text-[16px] text-grey-600 md:text-[17px]'>
+            {project.subtitle}
+          </p>
           <p className='mt-2 text-[14px] text-grey-500'>
             {project.period}
             <span className='mx-1.5 text-grey-300'>·</span>
@@ -75,8 +81,14 @@ const ProjectCard = ({
           {featured && (
             <ul className='mt-5 hidden space-y-1.5 md:block print:!hidden'>
               {project.highlights.slice(0, 3).map((highlight) => (
-                <li key={highlight} className='flex gap-2 text-[15px] leading-relaxed text-grey-700'>
-                  <span className='mt-[9px] h-1 w-1 shrink-0 rounded-full bg-grey-400' aria-hidden />
+                <li
+                  key={highlight}
+                  className='flex gap-2 text-[15px] leading-relaxed text-grey-700'
+                >
+                  <span
+                    className='mt-[9px] h-1 w-1 shrink-0 rounded-full bg-grey-400'
+                    aria-hidden
+                  />
                   {highlight}
                 </li>
               ))}
@@ -85,7 +97,10 @@ const ProjectCard = ({
 
           <ul className='mt-5 flex flex-wrap gap-1.5' aria-label='기술 스택'>
             {project.stack.slice(0, VISIBLE_STACK).map((tech) => (
-              <li key={tech} className='rounded-full bg-white px-2.5 py-1 text-[13px] font-medium text-grey-600'>
+              <li
+                key={tech}
+                className='rounded-full bg-white px-2.5 py-1 text-[13px] font-medium text-grey-600'
+              >
                 {tech}
               </li>
             ))}
@@ -121,23 +136,38 @@ export const Projects = () => {
       id='projects'
       printNewPage
       eyebrow='Projects'
-      title='수상으로 검증받은 프로젝트'
+      title='프로젝트'
       description='해커톤과 공모전에서 기획·디자인·백엔드와 함께 빠르게 완성도를 끌어올린 프로젝트입니다. 카드를 누르면 화면과 구현 내용을 볼 수 있어요.'
     >
       <div className='grid gap-4 md:grid-cols-2 md:gap-5 print:!grid-cols-1 print:!gap-8'>
         <Reveal className='md:col-span-2 print:!col-span-1'>
-          <ProjectCard project={featured} featured onOpen={() => setSelected(featured)} />
+          <ProjectCard
+            project={featured}
+            featured
+            onOpen={() => setSelected(featured)}
+          />
         </Reveal>
         {others.map((project, index) => (
-          <Reveal key={project.id} delay={(index % 2) * 0.08} className='h-full'>
-            <ProjectCard project={project} onOpen={() => setSelected(project)} />
+          <Reveal
+            key={project.id}
+            delay={(index % 2) * 0.08}
+            className='h-full'
+          >
+            <ProjectCard
+              project={project}
+              onOpen={() => setSelected(project)}
+            />
           </Reveal>
         ))}
       </div>
 
       <AnimatePresence>
         {selected && (
-          <ProjectModal key={selected.id} project={selected} onClose={() => setSelected(null)} />
+          <ProjectModal
+            key={selected.id}
+            project={selected}
+            onClose={() => setSelected(null)}
+          />
         )}
       </AnimatePresence>
     </Section>
