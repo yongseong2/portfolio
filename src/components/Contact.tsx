@@ -32,8 +32,8 @@ export const Contact = () => {
   };
 
   return (
-    <footer id='contact' className='bg-grey-900 text-white'>
-      <div className='print-avoid-break mx-auto max-w-content px-5 pb-10 pt-16 md:px-8 md:pb-14 md:pt-24 print:!pb-12 print:!pt-16'>
+    <footer id='contact' className='bg-grey-900 text-white print:hidden'>
+      <div className='mx-auto max-w-content px-5 pb-10 pt-16 md:px-8 md:pb-14 md:pt-24'>
         <Reveal>
           <p className='text-[15px] font-semibold text-blue-400 md:text-[17px]'>Contact</p>
           <h2 className='mt-3 text-[32px] font-bold leading-[1.25] tracking-tighter md:text-[52px]'>
@@ -68,7 +68,7 @@ export const Contact = () => {
           </div>
         </Reveal>
 
-        <div className='mt-14 flex flex-col-reverse gap-6 border-t border-white/10 pt-8 md:mt-20 md:flex-row md:items-center md:justify-between print:!mt-12'>
+        <div className='mt-14 flex flex-col-reverse gap-6 border-t border-white/10 pt-8 md:mt-20 md:flex-row md:items-center md:justify-between'>
           <p className='text-[14px] text-grey-500'>
             © {new Date().getFullYear()} {profile.nameEn}. All rights reserved.
           </p>
@@ -91,7 +91,7 @@ export const Contact = () => {
       </div>
 
       <div
-        className='pointer-events-none fixed inset-x-0 bottom-8 z-50 flex justify-center px-5 print:hidden'
+        className='pointer-events-none fixed inset-x-0 bottom-8 z-50 flex justify-center px-5'
         aria-live='polite'
       >
         <AnimatePresence>

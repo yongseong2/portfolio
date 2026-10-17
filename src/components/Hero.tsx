@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { motion, useReducedMotion } from 'framer-motion';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { HiOutlineEnvelope } from 'react-icons/hi2';
 import { SiVelog } from 'react-icons/si';
 import { totalCareerMonths } from '../data/experience';
@@ -18,11 +18,12 @@ const metrics = [
 ];
 
 const printContacts = [
-  profile.contacts.email,
-  profile.contacts.phone,
-  displayUrl(profile.contacts.github),
-  displayUrl(profile.contacts.velog),
-  displayUrl(profile.contacts.portfolio),
+  { label: 'Email', value: profile.contacts.email, href: `mailto:${profile.contacts.email}` },
+  { label: 'Phone', value: profile.contacts.phone, href: `tel:${profile.contacts.phone}` },
+  { label: 'Portfolio', value: displayUrl(profile.contacts.portfolio), href: profile.contacts.portfolio },
+  { label: 'GitHub', value: displayUrl(profile.contacts.github), href: profile.contacts.github },
+  { label: 'Blog', value: displayUrl(profile.contacts.velog), href: profile.contacts.velog },
+  { label: 'LinkedIn', value: displayUrl(profile.contacts.linkedin), href: profile.contacts.linkedin },
 ];
 
 const iconButtonClass =
@@ -102,16 +103,27 @@ export const Hero = () => {
             >
               <SiVelog className='h-[18px] w-[18px]' />
             </a>
+            <a
+              href={profile.contacts.linkedin}
+              target='_blank'
+              rel='noopener noreferrer'
+              aria-label='LinkedIn'
+              className={iconButtonClass}
+            >
+              <FaLinkedin className='h-5 w-5' />
+            </a>
           </div>
 
-          <p className='mt-8 hidden text-[16px] font-medium text-grey-700 print:block'>
-            {printContacts.map((item, index) => (
-              <span key={item}>
-                {index > 0 && <span className='mx-2 text-grey-300'>|</span>}
-                {item}
-              </span>
+          <dl className='mt-8 hidden grid-cols-[1fr_1fr_1.4fr] gap-x-8 gap-y-3 rounded-2xl bg-grey-50 px-6 py-5 print:grid'>
+            {printContacts.map((item) => (
+              <div key={item.label} className='min-w-0'>
+                <dt className='text-[13px] font-semibold text-grey-500'>{item.label}</dt>
+                <dd className='mt-0.5 break-all text-[15px] font-medium text-grey-800'>
+                  <a href={item.href}>{item.value}</a>
+                </dd>
+              </div>
             ))}
-          </p>
+          </dl>
         </Reveal>
 
         <div className='mt-12 grid grid-cols-2 gap-3 md:mt-16 md:grid-cols-4 md:gap-4 print:!mt-12'>

@@ -10,7 +10,7 @@ export const ProjectPrintDetails = ({ project }: { project: SideProject }) => {
 
   return (
     <div className='hidden border-t border-grey-200 px-10 pb-10 pt-8 print:block'>
-      <div className='grid grid-cols-[1fr_280px] gap-12'>
+      <div className='print-avoid-break grid grid-cols-[1fr_280px] gap-12'>
         <div>
           <h4 className='text-[14px] font-semibold text-grey-500'>주요 구현</h4>
           <ul className='mt-3 space-y-2.5'>

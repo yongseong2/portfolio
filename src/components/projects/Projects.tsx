@@ -24,7 +24,7 @@ const ProjectCard = ({
   const hiddenStack = project.stack.length - VISIBLE_STACK;
 
   return (
-    <article className='group relative flex h-full flex-col overflow-hidden rounded-[28px] bg-grey-50 transition duration-300 focus-within:ring-2 focus-within:ring-blue-500 hover:shadow-lift active:scale-[0.99]'>
+    <article className='group relative flex h-full flex-col overflow-hidden rounded-[28px] bg-grey-50 transition duration-300 focus-within:ring-2 focus-within:ring-blue-500 hover:shadow-lift active:scale-[0.99] print:!h-auto'>
       <div
         className={clsx(
           'print-avoid-break flex flex-1 flex-col print:!grid print:!grid-cols-2',
@@ -139,8 +139,9 @@ export const Projects = () => {
       title='프로젝트'
       description='해커톤과 공모전에서 기획·디자인·백엔드와 함께 빠르게 완성도를 끌어올린 프로젝트입니다. 카드를 누르면 화면과 구현 내용을 볼 수 있어요.'
     >
-      <div className='grid gap-4 md:grid-cols-2 md:gap-5 print:!grid-cols-1 print:!gap-8'>
-        <Reveal className='md:col-span-2 print:!col-span-1'>
+      {/* Print stacks plain blocks: grid rows fix card heights before page breaks push gallery rows down. */}
+      <div className='grid gap-4 md:grid-cols-2 md:gap-5 print:!block print:space-y-8'>
+        <Reveal className='md:col-span-2'>
           <ProjectCard
             project={featured}
             featured
@@ -151,7 +152,7 @@ export const Projects = () => {
           <Reveal
             key={project.id}
             delay={(index % 2) * 0.08}
-            className='h-full'
+            className='h-full print:!h-auto'
           >
             <ProjectCard
               project={project}

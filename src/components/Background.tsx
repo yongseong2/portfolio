@@ -4,7 +4,7 @@ import { Reveal } from './ui/Reveal';
 import { Section } from './ui/Section';
 
 export const Background = () => (
-  <Section id='background' printNewPage eyebrow='Awards & Education' title='수상과 학력'>
+  <Section id='background' eyebrow='Awards & Education' title='수상과 학력'>
     <div className='print-avoid-break grid gap-12 md:grid-cols-[1.25fr_1fr] md:gap-16'>
       <Reveal>
         <h3 className='text-[14px] font-semibold text-grey-500'>수상 {awards.length}회</h3>
