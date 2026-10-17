@@ -1,17 +1,20 @@
+'use client';
+
 import clsx from 'clsx';
 import { motion, useReducedMotion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { HiOutlineEnvelope } from 'react-icons/hi2';
 import { SiVelog } from 'react-icons/si';
-import { totalCareerMonths } from '../data/experience';
+import { careerYear, totalCareerMonths } from '../data/experience';
 import { displayUrl, profile } from '../data/profile';
+import { useNow } from '../hooks/useNow';
 import { formatDuration } from '../lib/date';
 import { CountUp } from './ui/CountUp';
 import { PdfButton } from './ui/PdfButton';
 import { EASE_OUT, Reveal } from './ui/Reveal';
 
-const metrics = [
-  { value: null, display: formatDuration(totalCareerMonths), label: '프론트엔드 실무 경력' },
+const metricsAt = (now: Date) => [
+  { value: null, display: formatDuration(totalCareerMonths(now)), label: '프론트엔드 실무 경력' },
   { value: 60, suffix: '%', label: '공통 모듈화로 줄인 연동 공수' },
   { value: 40, suffix: '%', label: '대용량 데이터 렌더링 시간 단축' },
   { value: 5, suffix: '회', label: '공모전·해커톤 수상' },
@@ -31,6 +34,8 @@ const iconButtonClass =
 
 export const Hero = () => {
   const reduceMotion = useReducedMotion();
+  const now = useNow();
+  const metrics = metricsAt(now);
 
   return (
     <section id='top' className='pb-4 pt-32 md:pb-8 md:pt-32 print:!pt-0'>
@@ -67,7 +72,7 @@ export const Hero = () => {
 
         <Reveal delay={0.45}>
           <div className='mt-7 max-w-[660px] space-y-4 text-[17px] leading-[1.75] text-grey-600 md:mt-9 md:text-[19px]'>
-            {profile.summary.map((paragraph) => (
+            {profile.summary(careerYear(now)).map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>

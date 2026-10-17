@@ -265,4 +265,6 @@ const careerStart = companies.reduce(
   companies[0].start
 );
 
-export const totalCareerMonths = monthsInclusive(careerStart);
+export const totalCareerMonths = (now: Date) => monthsInclusive(careerStart, undefined, now);
+
+export const careerYear = (now: Date) => Math.floor(totalCareerMonths(now) / 12) + 1;

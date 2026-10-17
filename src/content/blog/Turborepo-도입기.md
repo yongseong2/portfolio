@@ -7,7 +7,7 @@ tags:
   - Turborepo
   - 모노레포
 thumbnail: >-
-  https://velog.velcdn.com/images/yongseong2/post/b2354fc3-6a04-4356-a192-06e9db37c766/image.png
+  /assets/blog/b2354fc3-6a04-4356-a192-06e9db37c766.webp
 ---
 > 모노레포 도입이 필요할 때, Turborepo를 활용해 환경을 구축했던 경험을 떠올리며 작성했다.
 
@@ -15,7 +15,7 @@ thumbnail: >-
 Turborepo가 무엇인지 알기 위해선, 모노레포에 대한 개념을 이해하고 있으면 좋다고 생각한다.
 
 ### 0-1. 모노레포 이해하기
-![모노레포 개념](https://velog.velcdn.com/images/yongseong2/post/f49cea02-a05a-4f1d-97a3-ac646bd1b87d/image.png)
+![모노레포 개념](/assets/blog/f49cea02-a05a-4f1d-97a3-ac646bd1b87d.webp)
 
 React를 예로 들어보자. 
 
@@ -40,7 +40,7 @@ React를 예로 들어보자.
 - 소프트웨어 확장이 쉬워진다.
 
 ### 0-2. Turborepo 이해하기
-![Turborepo](https://velog.velcdn.com/images/yongseong2/post/cab0b5fa-2bb1-446f-b908-a6a136a47ae1/image.png)
+![Turborepo](/assets/blog/cab0b5fa-2bb1-446f-b908-a6a136a47ae1.webp)
 
 문서: https://turbo.build
 github: https://github.com/vercel/turborepo
@@ -48,7 +48,7 @@ github: https://github.com/vercel/turborepo
 Turborepo는 모노레포 환경에서 다양한 프로젝트들을 개발자들이 더 쉽고 빠르게 개발할 수 있도록 빌드 도구를 제공해준다.
 
 Turborepo의 몇가지 특장점들을 소개해주고자 한다.
-![](https://velog.velcdn.com/images/yongseong2/post/0a112bff-3659-48ea-a961-c157c576d7eb/image.png)
+![](/assets/blog/0a112bff-3659-48ea-a961-c157c576d7eb.webp)
 
 > 1. 터보레포는 캐싱 메커니즘(병렬처리)을 통해 동일한 작업을 반복하지 않고, 빌드 효율성을 높인다. 
 2. 종속성과 작업 흐름을 효율적으로 관리할 수 있다.
@@ -97,7 +97,7 @@ tasks는 각 작업을 정의 하며, 현재 `build`, `lint`, `dev`가 존재하
 이외에도 각각의 개발 환경에 맞게 커스텀 설정이 가능하다.
 
 ### 1-2 package.json 
-![폴더 구조](https://velog.velcdn.com/images/yongseong2/post/20e3f265-9cad-4b8e-91cf-9ca00092e751/image.png)
+![폴더 구조](/assets/blog/20e3f265-9cad-4b8e-91cf-9ca00092e751.webp)
 
 한눈에 보더라도 수많은 package.json들이 존재한다. 이에 더 세분화해서 관심사 분리가 가능하다.
 
@@ -154,9 +154,9 @@ tasks는 각 작업을 정의 하며, 현재 `build`, `lint`, `dev`가 존재하
 docs에서 정의한 스크립트와 동일하게 turbo 명령어로 하위 프로젝트를 관리할 수 있는 것을 확인할 수 있다.
 
 ### 1-3. 빌드
-![터보레포캐싱1](https://velog.velcdn.com/images/yongseong2/post/ef6ad139-7467-4c7a-9179-a1fc9f1c1f63/image.png)
+![터보레포캐싱1](/assets/blog/ef6ad139-7467-4c7a-9179-a1fc9f1c1f63.webp)
 
-![터보레포캐싱2](https://velog.velcdn.com/images/yongseong2/post/9f469c14-c4c3-44ef-8bd8-5314a3131f91/image.png)
+![터보레포캐싱2](/assets/blog/9f469c14-c4c3-44ef-8bd8-5314a3131f91.webp)
 
 
 터보레포는 작업을 자동으로 병렬화하여 작업을 최적화 하고 있다. 또한 캐싱을 사용하여 빌드 속도를 높이고, **동일한 작업을 두 번 하지 않도록**한다.

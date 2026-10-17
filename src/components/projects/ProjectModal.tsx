@@ -1,6 +1,8 @@
+'use client';
+
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useEffectEvent, useRef, useState } from 'react';
 import {
   HiArrowUpRight,
   HiCheck,
@@ -20,8 +22,7 @@ const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1
 const useDialogBehavior = (onClose: () => void) => {
   const panelRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
-  const onCloseRef = useRef(onClose);
-  onCloseRef.current = onClose;
+  const handleClose = useEffectEvent(onClose);
 
   useEffect(() => {
     const previouslyFocused = document.activeElement as HTMLElement | null;
@@ -31,7 +32,7 @@ const useDialogBehavior = (onClose: () => void) => {
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        onCloseRef.current();
+        handleClose();
         return;
       }
       if (event.key !== 'Tab' || !panelRef.current) return;

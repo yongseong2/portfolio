@@ -1,7 +1,9 @@
+'use client';
+
 import clsx from 'clsx';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import Link from 'next/link';
 import { useState, type MouseEvent } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { profile } from '../data/profile';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { useReadingProgress } from '../hooks/useReadingProgress';
@@ -18,8 +20,8 @@ const SECTION_ITEMS = [
 const SECTION_IDS = SECTION_ITEMS.map((item) => item.id);
 
 const NAV_ITEMS: NavItem[] = [
-  ...SECTION_ITEMS.map((item) => ({ ...item, to: `/#${item.id}` })),
-  { id: 'blog', label: '블로그', to: '/blog' },
+  ...SECTION_ITEMS.map((item) => ({ ...item, href: `/#${item.id}` })),
+  { id: 'blog', label: '블로그', href: '/blog' },
 ];
 
 const smoothScrollTo = (target: Element | null) => {
@@ -27,9 +29,8 @@ const smoothScrollTo = (target: Element | null) => {
   target?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
 };
 
+// Rendered on the portfolio page only, so section links scroll in place instead of navigating.
 export const Header = () => {
-  const { pathname } = useLocation();
-  const onHome = pathname === '/';
   const activeId = useActiveSection(SECTION_IDS);
   const { scrollY } = useScroll();
   const progress = useReadingProgress();
@@ -37,15 +38,13 @@ export const Header = () => {
 
   useMotionValueEvent(scrollY, 'change', (y) => setScrolled(y > 8));
 
-  // On the home page, section links scroll in place instead of navigating.
   const handleItemClick = (id: string) => (event: MouseEvent<HTMLAnchorElement>) => {
-    if (!onHome || id === 'blog') return;
+    if (id === 'blog') return;
     event.preventDefault();
     smoothScrollTo(document.getElementById(id));
   };
 
   const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
-    if (!onHome) return;
     event.preventDefault();
     smoothScrollTo(document.getElementById('top'));
   };
@@ -59,7 +58,7 @@ export const Header = () => {
     >
       <div className='mx-auto grid h-14 max-w-content grid-cols-[1fr_auto_1fr] items-center gap-4 px-5 md:h-16 md:px-8'>
         <Link
-          to='/'
+          href='/'
           onClick={handleLogoClick}
           className='justify-self-start text-[18px] font-bold tracking-tight text-grey-900'
           aria-label='포트폴리오 맨 위로'

@@ -7,7 +7,7 @@ tags:
   - github
   - ssh
 thumbnail: >-
-  https://velog.velcdn.com/images/yongseong2/post/0b9ce825-c2a5-4de9-b5cc-e37761775c1f/image.jpg
+  /assets/blog/0b9ce825-c2a5-4de9-b5cc-e37761775c1f.webp
 ---
 > 매번 개인계정, 회사계정 직접 바꾸면서 쓰다가 ssh 등록하고 신세계를 경험함
 안잊어먹으려고 기록
@@ -104,13 +104,13 @@ vi id_rsa_user1.pub
 
 ### 2-2. ssh-key 등록
 Github에 로그인 후 상단 우측 프로필 이미지를 클릭 후 Settings로 들어간다.
-![sidebar](https://velog.velcdn.com/images/yongseong2/post/20ec2073-3c31-43c8-910b-9ac34662e17a/image.png)
+![sidebar](/assets/blog/20ec2073-3c31-43c8-910b-9ac34662e17a.webp)
 
 새로운 ssh keys를 등록하기 위해 `New SSH key` 클릭
-![github-ssh](https://velog.velcdn.com/images/yongseong2/post/83247740-d6dc-4b6a-aca9-0bf4bdbeda9b/image.png)
+![github-ssh](/assets/blog/83247740-d6dc-4b6a-aca9-0bf4bdbeda9b.webp)
 
  title은 원하는 이름으로 등록하고 `Key`에 복사한 내용을 붙여넣기 한다.
-![ssh-create](https://velog.velcdn.com/images/yongseong2/post/41304d9a-59dc-4131-a46f-83be0aadab92/image.png)
+![ssh-create](/assets/blog/41304d9a-59dc-4131-a46f-83be0aadab92.webp)
 
 ### 2-3. ssh 연결 테스트
 github와 연결됐는지 확인하기 위해 아래 명령어 입력
@@ -132,7 +132,7 @@ Hi user1! You've successfully authenticated, but GitHub does not provide shell a
 
 ### 3-1. git clone
 레포지토리 클론을 받기 위해서 해당 ssh 탭의 url을 복사후
-![github-ssh-clone](https://velog.velcdn.com/images/yongseong2/post/ee87b80d-af99-42a1-97ad-30e542fed892/image.png)
+![github-ssh-clone](/assets/blog/ee87b80d-af99-42a1-97ad-30e542fed892.webp)
 
 github.com url의 이전 Host로 설정해던 이름으로 변경한 후 clone을 받으면 된다.
 

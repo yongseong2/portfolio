@@ -8,7 +8,7 @@ tags:
   - 쿠버네티스
   - 환경 변수
 thumbnail: >-
-  https://velog.velcdn.com/images/yongseong2/post/e32d0518-4d80-43e0-83dd-b8f16cab6eae/image.svg
+  /assets/blog/e32d0518-4d80-43e0-83dd-b8f16cab6eae.svg
 ---
 ## 1. 환경 변수 분류
 런타임 환경 변수를 다루기 전, 프론트 프레임 워크와 Kubernetes와 같은 시스템 환경에서 환경 변수를 어떻게 관리되는지 비교해보려고 한다.
@@ -78,7 +78,7 @@ spec:
 두가지 요구 사항을 충족하고 싶었다. 종속성을 유지하며 런타임 환경변수를 사용하기 위해 도커를, 한번의 빌드만 하기 위해 런타임 환경 변수를 사용했다.
 
 ### 2-1. 다양한 환경에서 같은 소스코드 유지
-![예시 이미지](https://velog.velcdn.com/images/yongseong2/post/e1a80f36-a79d-4922-8f25-ac5e089b97c1/image.png)
+![예시 이미지](/assets/blog/e1a80f36-a79d-4922-8f25-ac5e089b97c1.webp)
 
 도커를 활용해서 프론트 이미지를 빌드하고 쿠버네티스 팟으로 환경을 구성하면서 사용하게 됐다. 이미지를 특수한 환경에서만 사용하게끔 하는게 아니라 아래와 같은
 > 1. 운영(SaaS)
@@ -134,7 +134,7 @@ Vite를 사용했으며 CRA 환경에서는 `<script src="%PUBLIC_URL%/env-confi
 console.log(window._env_)
 ```
 
-![test환경](https://velog.velcdn.com/images/yongseong2/post/5665a6dc-0d02-47a5-930d-c643fec2c5ef/image.png)
+![test환경](/assets/blog/5665a6dc-0d02-47a5-930d-c643fec2c5ef.webp)
 
 위와 같이 잘 출력되는 것을 확인할 수 있다.
 
@@ -208,7 +208,7 @@ git 기본 설정으로 `autocrlf`라는 설정이 있어서 git에는 LF로 올
 ### 4-2. 취약점
 
 
-![취약 화면](https://velog.velcdn.com/images/yongseong2/post/d848b190-6adf-405c-a6f1-4a79d24486da/image.png)
+![취약 화면](/assets/blog/d848b190-6adf-405c-a6f1-4a79d24486da.webp)
 
 `http://localhost:3000/env-config.js` 로컬에서 이 주소로 들어가게 되면 지정했던 모든 환경 변수가 노출되게 된다. 해당 이슈는 처음부터 예상되었는데 런타임에서 환경 변수를 사용하게 된다면 피할 수 없는 부분이라고 생각되어 진다.
 

@@ -1,5 +1,7 @@
+'use client';
+
 import { HiArrowRight } from 'react-icons/hi2';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { blogPostPath, formatPostDate, type BlogPost } from '../../data/blog';
 import { PostThumbnail } from './PostThumbnail';
 
@@ -18,7 +20,7 @@ export const PostMeta = ({ post }: { post: BlogPost }) => (
 
 export const FeaturedPost = ({ post }: { post: BlogPost }) => (
   <Link
-    to={blogPostPath(post.slug)}
+    href={blogPostPath(post.slug)}
     className='group grid items-center gap-6 rounded-[28px] bg-grey-50 p-3 transition duration-300 hover:shadow-lift active:scale-[0.99] md:grid-cols-[1.1fr_1fr] md:gap-10 md:p-4'
   >
     <PostThumbnail post={post} eager className='aspect-[16/10] rounded-[20px]' />
@@ -47,7 +49,7 @@ export const FeaturedPost = ({ post }: { post: BlogPost }) => (
 
 export const PostRow = ({ post }: { post: BlogPost }) => (
   <li className='border-b border-grey-100 last:border-b-0'>
-    <Link to={blogPostPath(post.slug)} className='group flex items-center gap-5 py-7 md:gap-10 md:py-9'>
+    <Link href={blogPostPath(post.slug)} className='group flex items-center gap-5 py-7 md:gap-10 md:py-9'>
       <div className='min-w-0 flex-1'>
         {post.series && <p className='text-[13px] font-semibold text-blue-500 md:text-[14px]'>{post.series}</p>}
         <h3 className='mt-1.5 line-clamp-2 text-[18px] font-bold leading-snug tracking-tight text-grey-900 transition-colors group-hover:text-blue-600 md:text-[22px]'>

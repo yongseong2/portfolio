@@ -1,34 +1,19 @@
+'use client';
+
 import clsx from 'clsx';
-import { useEffect, useState, type RefObject } from 'react';
+import { useEffect, useState } from 'react';
+import type { Heading } from '../../lib/markdown';
 
 const READING_LINE = 120;
 
-interface Heading {
-  id: string;
-  text: string;
-  level: number;
-}
-
-// Built from the rendered article so ids always match what rehype-slug produced.
-export const TableOfContents = ({
-  articleRef,
-  contentKey,
-}: {
-  articleRef: RefObject<HTMLElement>;
-  contentKey: string;
-}) => {
-  const [headings, setHeadings] = useState<Heading[]>([]);
+// Headings are extracted on the server (see extractHeadings), so the list is part of the prerendered HTML.
+export const TableOfContents = ({ headings }: { headings: Heading[] }) => {
   const [activeId, setActiveId] = useState<string | null>(null);
 
   useEffect(() => {
-    const elements = Array.from(articleRef.current?.querySelectorAll<HTMLElement>('h2[id], h3[id]') ?? []);
-    setHeadings(
-      elements.map((element) => ({
-        id: element.id,
-        text: element.textContent ?? '',
-        level: Number(element.tagName[1]),
-      }))
-    );
+    const elements = headings
+      .map((heading) => document.getElementById(heading.id))
+      .filter((element): element is HTMLElement => element !== null);
     if (elements.length === 0) return;
 
     // The section being read is the last heading that has passed the reading line under the header.
@@ -39,7 +24,7 @@ export const TableOfContents = ({
     updateActive();
     window.addEventListener('scroll', updateActive, { passive: true });
     return () => window.removeEventListener('scroll', updateActive);
-  }, [articleRef, contentKey]);
+  }, [headings]);
 
   if (headings.length < 2) return null;
 

@@ -3,13 +3,10 @@ const toMonthIndex = (ym: string) => {
   return year * 12 + (month - 1);
 };
 
-const currentMonthIndex = () => {
-  const now = new Date();
-  return now.getFullYear() * 12 + now.getMonth();
-};
+const monthIndexOf = (date: Date) => date.getFullYear() * 12 + date.getMonth();
 
-export const monthsInclusive = (start: string, end?: string) =>
-  (end ? toMonthIndex(end) : currentMonthIndex()) - toMonthIndex(start) + 1;
+export const monthsInclusive = (start: string, end: string | undefined, now: Date) =>
+  (end ? toMonthIndex(end) : monthIndexOf(now)) - toMonthIndex(start) + 1;
 
 export const formatDuration = (months: number) => {
   const years = Math.floor(months / 12);
