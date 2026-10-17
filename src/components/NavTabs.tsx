@@ -1,11 +1,13 @@
+'use client';
+
 import clsx from 'clsx';
+import Link from 'next/link';
 import { useLayoutEffect, useRef, useState, type MouseEvent } from 'react';
-import { Link } from 'react-router-dom';
 
 export interface NavItem {
   id: string;
   label: string;
-  to: string;
+  href: string;
 }
 
 interface PillBox {
@@ -16,8 +18,8 @@ interface PillBox {
   animate: boolean;
 }
 
-// The pill is measured against the nav itself (offsetLeft), so page scroll and route changes
-// can never offset it — it only slides sideways between tabs.
+// The pill is measured against the nav itself, so page scroll and route changes can never
+// offset it — it only slides sideways between tabs.
 export const NavTabs = ({
   items,
   activeId,
@@ -85,7 +87,7 @@ export const NavTabs = ({
               if (element) linkRefs.current.set(item.id, element);
               else linkRefs.current.delete(item.id);
             }}
-            to={item.to}
+            href={item.href}
             onClick={onItemClick(item.id)}
             aria-current={active ? 'true' : undefined}
             className={clsx(

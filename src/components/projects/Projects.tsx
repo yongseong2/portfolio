@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import { AnimatePresence } from 'framer-motion';
 import { useState } from 'react';

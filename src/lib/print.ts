@@ -18,7 +18,12 @@ const subscribe = (listener: () => void) => {
   };
 };
 
-export const usePrintPreparing = () => useSyncExternalStore(subscribe, () => preparing);
+export const usePrintPreparing = () =>
+  useSyncExternalStore(
+    subscribe,
+    () => preparing,
+    () => false
+  );
 
 // Lazy images that were never scrolled into view (or are print-only) would otherwise print blank.
 const loadAllImages = () => {

@@ -1,3 +1,5 @@
+'use client';
+
 import { coreSkills, skillGroups } from '../data/skills';
 import { Reveal } from './ui/Reveal';
 import { Section } from './ui/Section';

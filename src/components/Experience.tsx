@@ -1,6 +1,9 @@
+'use client';
+
 import clsx from 'clsx';
 import { HiArrowUpRight, HiCheck } from 'react-icons/hi2';
 import { companies, type Company, type WorkProject } from '../data/experience';
+import { useNow } from '../hooks/useNow';
 import { formatDuration, formatPeriod, monthsInclusive } from '../lib/date';
 import { Reveal } from './ui/Reveal';
 import { Section } from './ui/Section';
@@ -80,7 +83,7 @@ const ProjectCard = ({ project }: { project: WorkProject }) => (
 );
 
 const CompanyBlock = ({ company, index }: { company: Company; index: number }) => {
-  const months = monthsInclusive(company.start, company.end);
+  const months = monthsInclusive(company.start, company.end, useNow());
 
   return (
     <div

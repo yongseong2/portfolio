@@ -8,7 +8,7 @@ tags:
   - 해커톤
   - 후기
 thumbnail: >-
-  https://velog.velcdn.com/images/yongseong2/post/78703aad-6591-439e-ba63-99ca746df98f/image.webp
+  /assets/blog/78703aad-6591-439e-ba63-99ca746df98f.webp
 ---
 > 어쩌다 블로그 첫 글이 구름톤 참가 후기가 되었다.
 
@@ -43,7 +43,7 @@ thumbnail: >-
 
 ### 0-2. 참가 합격
 
-<img src="https://velog.velcdn.com/images/yongseong2/post/3c5ed039-a73a-40e3-966d-6987f2d63cac/image.png" width="500px">
+<img src="/assets/blog/3c5ed039-a73a-40e3-966d-6987f2d63cac.webp" width="500px">
 
 일을 하다 문자를 보고 나도 모르게 환호성을 질렀다. 구름톤을 지원하고 그만큼 기대를 했었나 보다.
 같은 날 참가 등록을 확정 냈고, 남은 연차 정리와 참가 준비까지 정신없이 하루를 보냈다.
@@ -52,7 +52,7 @@ thumbnail: >-
 
 ## 1. 1일차
 ---
-![일정](https://velog.velcdn.com/images/yongseong2/post/04b6c862-03cb-4d2a-867b-43d64e19463f/image.png)
+![일정](/assets/blog/04b6c862-03cb-4d2a-867b-43d64e19463f.webp)
 
 해커톤만 하는 줄 알았는데, 교육까지 해준다고?
 4일간의 짧지만 긴 여정을 앞두고, 제주도로 떠나기 전부터 설렘 가득한 날들을 보냈다
@@ -63,7 +63,7 @@ thumbnail: >-
 나는 아래와 같이 자기소개를 작성했다.
 다시 보니 조금 부끄럽지만, 해커톤에서 표현할 수 있는 좋은 방법이었던 것 같다.
 
-<img src="https://velog.velcdn.com/images/yongseong2/post/dcd29b61-a906-43d1-9ae4-2c1379a5abd0/image.png" width="500px">
+<img src="/assets/blog/dcd29b61-a906-43d1-9ae4-2c1379a5abd0.webp" width="500px">
 
 
 
@@ -104,7 +104,7 @@ GDS란?
 
 ### 1-5. 흑돼지
 
-<img src="https://velog.velcdn.com/images/yongseong2/post/c0233ad6-cee8-4b63-bfa2-99d5241b4f6c/image.png" width="500px">
+<img src="/assets/blog/c0233ad6-cee8-4b63-bfa2-99d5241b4f6c.webp" width="500px">
 
 첫째 날의 하이라이트는 단연 저녁 시간이었다.
 
@@ -123,7 +123,7 @@ GDS와 시간이 겹쳐 듣지 못했던 크램플린 강의 이야기부터, �
 사실, 1일차 마지막에 주제 키워드가 공개됐지만 어떻게든 끼워 맞추면서 제작했던거 같다.
 
 
-![아이데이션](https://velog.velcdn.com/images/yongseong2/post/449590f2-340d-4a4a-8b62-8232081e8ebb/image.png)
+![아이데이션](/assets/blog/449590f2-340d-4a4a-8b62-8232081e8ebb.webp)
 
 제주도 소품을 오프라인으로 판매하면서, 온라인에서는 가격을 공개하고 주변 관광지를 소개하는 서비스였다. 
 

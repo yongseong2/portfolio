@@ -2,7 +2,7 @@ import typography from '@tailwindcss/typography';
 import type { Config } from 'tailwindcss';
 
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     // A4 is narrower than md, so print opts into the desktop layout explicitly.
     screens: {
@@ -36,6 +36,7 @@ export default {
       },
       fontFamily: {
         sans: [
+          'var(--font-pretendard)',
           'Pretendard',
           '-apple-system',
           'BlinkMacSystemFont',

@@ -6,11 +6,11 @@ series: frontend
 tags:
   - matter.js
 thumbnail: >-
-  https://velog.velcdn.com/images/yongseong2/post/893ae3e2-0242-4f2a-853c-958020ce9b80/image.jpg
+  /assets/blog/893ae3e2-0242-4f2a-853c-958020ce9b80.webp
 ---
 > [숨비소리 프로젝트](https://www.sumbisori.site)를 진행하면서 해산물과 바다를 표현하기 위해 사용한 Matter.js
 
-![수족관gif](https://velog.velcdn.com/images/yongseong2/post/732b05fa-c8f4-4fd7-aa37-6b4341bc0fc0/image.gif)
+![수족관gif](/assets/blog/732b05fa-c8f4-4fd7-aa37-6b4341bc0fc0.webp)
 
 
 ## 1. 들어가며
@@ -40,7 +40,7 @@ Matter.js를 활용하면 충돌 감지, 중력, 마찰 등 복잡한 물리 현
 ## 2. 구현 과정
 ### 2-1. 엔진 및 기본요소 지정(벽, 배경이미지)
 
-![엔진및기본요소](https://velog.velcdn.com/images/yongseong2/post/c5185506-5fc5-4d79-9f0b-c4121b1736df/image.png)
+![엔진및기본요소](/assets/blog/c5185506-5fc5-4d79-9f0b-c4121b1736df.webp)
 
 useAquarium 훅을 통해 Matter.js 엔진과 기본 요소들을 설정했다.
 
@@ -164,7 +164,7 @@ Matter.js의 물리엔진과 렌더러를 초기화 했다. 그리고 바다 중
 
 ### 2-2. 배경 레이어
 
-![배경 레이어](https://velog.velcdn.com/images/yongseong2/post/488c00f8-fd38-4a25-974a-2235298a8aab/image.png)
+![배경 레이어](/assets/blog/488c00f8-fd38-4a25-974a-2235298a8aab.webp)
 
 세가지 배경 레이어 요소들을 바다에 표현하기 위해 사용했다.
 
@@ -271,7 +271,7 @@ mask는 32비트 숫자로, 각 비트가 특정 카테고리를 나타낸다. �
 
 ### 2-3. 돌 레이어
 
-![돌바다](https://velog.velcdn.com/images/yongseong2/post/b190682a-fef1-49b8-a2be-049a6f29be14/image.png)
+![돌바다](/assets/blog/b190682a-fef1-49b8-a2be-049a6f29be14.webp)
 
 돌을 표현하는 과정은 충돌을 추가한 배경레이어와 유사했다.
 ```typescript
@@ -350,7 +350,7 @@ mask는 32비트 숫자로, 각 비트가 특정 카테고리를 나타낸다. �
 각기 다른 돌 이미지 특성을 고려하여, 해당 원본 이미지 크기를 가져와 새롭게 계산하고 canvas상 크게 증가한 감이 있어 세부적으로 값을 추가하거나 뺏다.
 
 ### 2-4. 해산물
-![해산물표현](https://velog.velcdn.com/images/yongseong2/post/706e4fda-0a34-4a36-bc6f-d88bd98be505/image.png)
+![해산물표현](/assets/blog/706e4fda-0a34-4a36-bc6f-d88bd98be505.webp)
 
 API의 요청을 통해서 저장된 해산물 요소와 count를 가져와 생성했다.
 
@@ -433,7 +433,7 @@ Mouse 객체를 생성하고, 해상도를 고려해 `mouse.pixelRatio`를 설�
 해산물들이 너무 빠르게 움직이는 걸 방지하기 위해 `afterUpdate` 이벤트에서 `maxSpeed=3`을 초과하는 경우 속도를 제한했다.	
 
 ### 2-5. 다이버
-![다이버표현](https://velog.velcdn.com/images/yongseong2/post/dd48251f-e2c5-4e9d-95d6-9a738fde2ec8/image.png)
+![다이버표현](/assets/blog/dd48251f-e2c5-4e9d-95d6-9a738fde2ec8.webp)
 
 다이버는 충돌이 되지 않아야했고 위아래로 움직이는 모션을 주고 싶었다.
 ```typescript
@@ -493,7 +493,7 @@ Mouse 객체를 생성하고, 해상도를 고려해 `mouse.pixelRatio`를 설�
 
 ## 3. 트러블 슈팅
 ### 3-1. 화면 잘림
-![화면잘림현상](https://velog.velcdn.com/images/yongseong2/post/506a24d9-0f0e-43a6-8c71-c959be241688/image.png)
+![화면잘림현상](/assets/blog/506a24d9-0f0e-43a6-8c71-c959be241688.webp)
 
 최초 구현시에 배경이미지를 해산물과 다이버를 제외한 모든 요소들은 하나로 통합되어 제공했었다. 하지만 화면이 작은 경우 배경이미지가 반복되어 화면이 잘리는 현상이 발생했다.
 

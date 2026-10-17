@@ -8,7 +8,7 @@ tags:
   - 해커톤
   - 후기
 thumbnail: >-
-  https://velog.velcdn.com/images/yongseong2/post/eae202be-f231-4d6c-b711-a1106bb44c89/image.png
+  /assets/blog/eae202be-f231-4d6c-b711-a1106bb44c89.webp
 ---
 > 본격 해커톤에서 있었던 이야기
 전 이야기는 [구름톤 in JEJU 11기 프론트엔드 개발 참가 후기(1)](/blog/후기-구름톤-in-JEJU-11기-프론트엔드-개발-참가-후기)
@@ -46,7 +46,7 @@ thumbnail: >-
 
 간단한 기획 회의를 통해 아이디어를 발전시키고, 와이어프레임을 제작했다.
 
-![와이어프레임](https://velog.velcdn.com/images/yongseong2/post/669c311a-52d3-485c-a242-aec77bf4aef8/image.png)
+![와이어프레임](/assets/blog/669c311a-52d3-485c-a242-aec77bf4aef8.webp)
 
 지금 보니, 몇몇 페이지를 제외하고는 와이어프레임과 거의 비슷하게 구현된 것 같다.  
 처음에는 러프하게 시작했지만, 개발 중간에도 기획을 수정해야 할 상황들이 있었다.  
@@ -60,7 +60,7 @@ thumbnail: >-
 
 > **지도랑 핀이 안맞네**
                  
-![](https://velog.velcdn.com/images/yongseong2/post/65b6b1f3-b062-4ae4-9f28-1b0063bc448f/image.png) | ![](https://velog.velcdn.com/images/yongseong2/post/99bba62b-36b2-4c8f-84e2-3679fb35f666/image.png)
+![](/assets/blog/65b6b1f3-b062-4ae4-9f28-1b0063bc448f.webp) | ![](/assets/blog/99bba62b-36b2-4c8f-84e2-3679fb35f666.webp)
 ---|---|                                                                                                                                   
 왼쪽은 해커톤 당시 사용한 지도이고, 오른쪽은 이후 개선한 지도다.  
 제주도 지도에 해녀체험지를 핀으로 표시한 기능이었는데, 초기 구현에는 몇 가지 문제가 있었다.
@@ -77,7 +77,7 @@ thumbnail: >-
 
 > **Unity를 썻다고?**
 
-![수족관](https://velog.velcdn.com/images/yongseong2/post/0dac70f6-c0be-4f99-9484-d733e68749a5/image.png)
+![수족관](/assets/blog/0dac70f6-c0be-4f99-9484-d733e68749a5.webp)
 
 위 이미지는 React로 구현한 메인 페이지의 일부로, Unity 화면을 띄운 수족관이다.  
 프론트엔드 팀원 중 한 명은 React에 익숙하지 않았지만, Unity 사용 경험이 있다고 했다.  
@@ -88,7 +88,7 @@ thumbnail: >-
 
 ### 3-4. 수상
 
-![수상](https://velog.velcdn.com/images/yongseong2/post/e6f335fc-a87c-4f87-ada5-c8b1e8b62973/image.png)
+![수상](/assets/blog/e6f335fc-a87c-4f87-ada5-c8b1e8b62973.webp)
 
 팀원 모두의 노력이 빛나는 순간이였던거 같다.
 다들 해커톤에 열중하느라 모니터 화면만 쳐다봤던 모습들이 아직도 생생하다.

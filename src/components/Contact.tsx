@@ -1,9 +1,12 @@
+'use client';
+
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { HiCheckCircle, HiOutlineDocumentDuplicate } from 'react-icons/hi2';
 import { SiVelog } from 'react-icons/si';
 import { profile } from '../data/profile';
+import { useNow } from '../hooks/useNow';
 import { PdfButton } from './ui/PdfButton';
 import { Reveal } from './ui/Reveal';
 
@@ -15,6 +18,7 @@ const socialLinks = [
 
 export const Contact = () => {
   const [toastVisible, setToastVisible] = useState(false);
+  const now = useNow();
 
   useEffect(() => {
     if (!toastVisible) return;
@@ -70,7 +74,7 @@ export const Contact = () => {
 
         <div className='mt-14 flex flex-col-reverse gap-6 border-t border-white/10 pt-8 md:mt-20 md:flex-row md:items-center md:justify-between'>
           <p className='text-[14px] text-grey-500'>
-            © {new Date().getFullYear()} {profile.nameEn}. All rights reserved.
+            © {now.getFullYear()} {profile.nameEn}. All rights reserved.
           </p>
           <ul className='flex gap-2'>
             {socialLinks.map(({ label, href, icon: Icon }) => (
