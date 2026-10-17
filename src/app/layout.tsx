@@ -37,6 +37,11 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', title: SITE_TITLE, description: profile.description },
   robots: { index: true, follow: true },
   icons: { icon: '/assets/images/favicon.svg' },
+  // Search Console / Naver Search Advisor ownership; removing them un-verifies the site.
+  verification: {
+    google: 'C4HLx2h73cGoF7BI7t_DFZvDmXYo2E8-wWT3qblf63c',
+    other: { 'naver-site-verification': '63dccae35e9bf1c7ed8603e88e68fca31d29d723' },
+  },
 };
 
 export const viewport: Viewport = {
