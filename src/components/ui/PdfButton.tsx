@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { HiOutlineArrowDownTray } from 'react-icons/hi2';
+import { useLocation } from 'react-router-dom';
 import { printPortfolio, usePrintPreparing } from '../../lib/print';
 
 interface PdfButtonProps {
@@ -10,6 +11,10 @@ interface PdfButtonProps {
 
 export const PdfButton = ({ label, className, iconClassName }: PdfButtonProps) => {
   const preparing = usePrintPreparing();
+  const { pathname } = useLocation();
+
+  // The PDF is the portfolio page only; other pages (e.g. the blog) never print it.
+  if (pathname !== '/') return null;
 
   return (
     <button

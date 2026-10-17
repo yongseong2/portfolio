@@ -1,27 +1,13 @@
 import { MotionConfig } from 'framer-motion';
-import { Background } from './components/Background';
-import { Contact } from './components/Contact';
-import { Experience } from './components/Experience';
-import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { Projects } from './components/projects/Projects';
-import { Skills } from './components/Skills';
-import { usePrintShortcut } from './lib/print';
+import { Outlet, ScrollRestoration } from 'react-router-dom';
 
+// ScrollRestoration scrolls before paint: new pages start at the top, `/#section` links land
+// on the section, and back/forward restore the previous position.
 function App() {
-  usePrintShortcut();
-
   return (
     <MotionConfig reducedMotion='user'>
-      <Header />
-      <main>
-        <Hero />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Background />
-      </main>
-      <Contact />
+      <ScrollRestoration />
+      <Outlet />
     </MotionConfig>
   );
 }

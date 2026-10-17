@@ -24,3 +24,7 @@ export const profile = {
 
 export const displayUrl = (url: string) =>
   url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+
+// Site-relative links (e.g. blog posts) need the full domain once printed to PDF.
+export const absoluteUrl = (href: string) =>
+  href.startsWith('/') ? `${profile.contacts.portfolio}${href}` : href;

@@ -218,7 +218,7 @@ export const companies: Company[] = [
             result: '중복 코드 제거, 빌드 시간 단축',
             link: {
               label: 'Turborepo 도입기',
-              href: 'https://velog.io/@yongseong2/Turborepo-%EB%8F%84%EC%9E%85%EA%B8%B0',
+              href: '/blog/Turborepo-도입기',
             },
           },
           {
@@ -245,7 +245,7 @@ export const companies: Company[] = [
             result: '환경별 빌드 신뢰성 확보',
             link: {
               label: '정리 글',
-              href: 'https://velog.io/@yongseong2/React%EC%97%90-%EB%9F%B0%ED%83%80%EC%9E%84-%ED%99%98%EA%B2%BD-%EB%B3%80%EC%88%98-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0',
+              href: '/blog/React에-런타임-환경-변수-사용하기',
             },
           },
           {

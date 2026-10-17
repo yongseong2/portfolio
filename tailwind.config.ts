@@ -1,3 +1,4 @@
+import typography from '@tailwindcss/typography';
 import type { Config } from 'tailwindcss';
 
 export default {
@@ -55,7 +56,28 @@ export default {
         card: '0 1px 2px rgba(0, 27, 55, 0.04), 0 8px 24px rgba(0, 27, 55, 0.06)',
         lift: '0 2px 4px rgba(0, 27, 55, 0.05), 0 20px 48px rgba(0, 27, 55, 0.12)',
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': '#333d4b',
+            '--tw-prose-headings': '#191f28',
+            '--tw-prose-links': '#2272eb',
+            '--tw-prose-bold': '#191f28',
+            '--tw-prose-counters': '#8b95a1',
+            '--tw-prose-bullets': '#b0b8c1',
+            '--tw-prose-hr': '#e5e8eb',
+            '--tw-prose-quotes': '#4e5968',
+            '--tw-prose-quote-borders': '#90c2ff',
+            '--tw-prose-captions': '#8b95a1',
+            '--tw-prose-code': '#191f28',
+            '--tw-prose-pre-code': '#333d4b',
+            '--tw-prose-pre-bg': '#f9fafb',
+            '--tw-prose-th-borders': '#d1d6db',
+            '--tw-prose-td-borders': '#e5e8eb',
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [typography],
 } satisfies Config;

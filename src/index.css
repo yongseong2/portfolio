@@ -44,7 +44,6 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
 
@@ -65,6 +64,104 @@
 }
 
 @layer components {
+  .post-body {
+    word-break: keep-all;
+  }
+
+  .post-body :where(h2, h3, h4) {
+    @apply tracking-tight;
+    scroll-margin-top: 96px;
+  }
+
+  .post-body :where(a) {
+    @apply font-medium no-underline decoration-blue-200 underline-offset-4 hover:underline;
+  }
+
+  .post-body :where(:not(pre) > code) {
+    @apply rounded-md bg-grey-100 px-1.5 py-0.5 text-[0.88em] font-medium text-grey-800;
+  }
+
+  .post-body :where(:not(pre) > code)::before,
+  .post-body :where(:not(pre) > code)::after {
+    content: none;
+  }
+
+  .post-body :where(pre) {
+    @apply rounded-2xl border border-grey-200 text-[14px] leading-relaxed;
+  }
+
+  .post-body :where(blockquote) {
+    @apply rounded-r-2xl border-l-4 bg-grey-50 py-1 pr-5 font-normal not-italic;
+  }
+
+  .post-body :where(blockquote p)::before,
+  .post-body :where(blockquote p)::after {
+    content: none;
+  }
+
+  .post-body :where(img) {
+    @apply mx-auto rounded-2xl;
+  }
+
+  .post-body .hljs-comment,
+  .post-body .hljs-quote,
+  .post-body .hljs-meta {
+    color: #6e7781;
+    font-style: italic;
+  }
+
+  .post-body .hljs-keyword,
+  .post-body .hljs-selector-tag,
+  .post-body .hljs-type,
+  .post-body .hljs-doctag {
+    color: #cf222e;
+  }
+
+  .post-body .hljs-string,
+  .post-body .hljs-regexp,
+  .post-body .hljs-meta .hljs-string {
+    color: #0a3069;
+  }
+
+  .post-body .hljs-number,
+  .post-body .hljs-literal,
+  .post-body .hljs-attr,
+  .post-body .hljs-attribute,
+  .post-body .hljs-variable,
+  .post-body .hljs-template-variable,
+  .post-body .hljs-selector-attr {
+    color: #0550ae;
+  }
+
+  .post-body .hljs-title,
+  .post-body .hljs-title.function_,
+  .post-body .hljs-section {
+    color: #8250df;
+  }
+
+  .post-body .hljs-built_in,
+  .post-body .hljs-symbol,
+  .post-body .hljs-params {
+    color: #953800;
+  }
+
+  .post-body .hljs-name,
+  .post-body .hljs-tag,
+  .post-body .hljs-selector-class,
+  .post-body .hljs-selector-id {
+    color: #116329;
+  }
+
+  .post-body .hljs-addition {
+    color: #116329;
+    background: #dafbe1;
+  }
+
+  .post-body .hljs-deletion {
+    color: #82071e;
+    background: #ffebe9;
+  }
+
   .no-scrollbar {
     scrollbar-width: none;
   }
@@ -75,10 +172,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   *,
   *::before,
   *::after {

@@ -79,7 +79,7 @@ export const sideProjects: SideProject[] = [
       { label: 'GitHub', href: 'https://github.com/sumbisori' },
       {
         label: '회고',
-        href: 'https://velog.io/@yongseong2/후기-구름톤-in-JEJU-11기-프론트엔드-개발-참가-후기',
+        href: '/blog/후기-구름톤-in-JEJU-11기-프론트엔드-개발-참가-후기',
       },
     ],
     cover: {
@@ -100,7 +100,7 @@ export const sideProjects: SideProject[] = [
         src: img('sumbisori-1.png'),
         title: '수족관 물리 엔진',
         points: ['matter.js로 다이버·해산물·돌·배경 레이어의 물리 특성을 정의해 구현했습니다.'],
-        link: { label: 'Matter.js 사용기', href: 'https://velog.io/@yongseong2/Matter.js-사용기' },
+        link: { label: 'Matter.js 사용기', href: '/blog/Matter-js-사용기' },
       },
       {
         src: img('sumbisori-2.png'),

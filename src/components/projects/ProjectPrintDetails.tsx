@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { HiCheck } from 'react-icons/hi2';
-import { displayUrl } from '../../data/profile';
+import { absoluteUrl, displayUrl } from '../../data/profile';
 import type { SideProject } from '../../data/projects';
 
 // Everything the modal shows, laid out for paper. Hidden on screen, so its lazy images never load there.
@@ -33,8 +33,8 @@ export const ProjectPrintDetails = ({ project }: { project: SideProject }) => {
             {project.links.map((link) => (
               <dd key={link.href} className='mt-1 text-grey-800'>
                 <span className='font-semibold'>{link.label}</span>{' '}
-                <a href={link.href} className='break-all text-blue-600'>
-                  {displayUrl(link.href)}
+                <a href={absoluteUrl(link.href)} className='break-all text-blue-600'>
+                  {displayUrl(absoluteUrl(link.href))}
                 </a>
               </dd>
             ))}
